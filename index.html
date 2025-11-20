@@ -16,20 +16,27 @@
            ═══════════════════════════════════════ */
 
         :root {
-            /* VIP Colors - Pink Primary */
+            /* VIP Colors - Pink Primary (Richer) */
             --vip-pink: #E85C7B;
             --vip-pink-hover: #D64868;
             --vip-pink-light: #FFF5F7;
 
-            /* Teal Accents */
+            /* Teal Accents (Deeper) */
             --vip-teal: #4A8A8C;
             --vip-teal-light: #E8F4F4;
             --vip-teal-dark: #3E7476;
 
+            /* Deep Burgundy (Dark Contrast) */
+            --deep-burgundy: #8B2635;
+
+            /* Sage Green (Success States) */
+            --sage-green: #A8B5A4;
+
             /* Backgrounds */
             --cream: #FAF7F2;
+            --warm-white: #FFFBF8;
+            --soft-peach: #FFF5F0;
             --white: #FFFFFF;
-            --warm-brown: #8B7355;
 
             /* Text */
             --text-primary: #2D2D2D;
@@ -67,6 +74,23 @@
             background: var(--cream);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Paper grain texture overlay */
+        .paper-grain {
+            position: relative;
+        }
+
+        .paper-grain::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -160,13 +184,24 @@
         .card {
             background: var(--white);
             border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(45, 45, 45, 0.06);
+            box-shadow:
+                0 4px 24px rgba(139, 38, 53, 0.08),
+                0 1px 4px rgba(139, 38, 53, 0.04);
             border: 1px solid var(--border-light);
-            transition: border-color 300ms ease;
+            transition: all 300ms ease;
         }
 
         .card:hover {
-            border-color: rgba(232, 92, 123, 0.1);
+            border-color: rgba(232, 92, 123, 0.15);
+        }
+
+        /* Premium VIP card with pink glow */
+        .card-vip-glow {
+            box-shadow:
+                0 4px 32px rgba(232, 92, 123, 0.15),
+                0 8px 48px rgba(232, 92, 123, 0.10),
+                0 1px 4px rgba(0, 0, 0, 0.04);
+            border-top: 4px solid var(--vip-pink);
         }
 
         /* Buttons */
@@ -243,7 +278,7 @@
         }
 
         .hero-h1 {
-            font-size: 56px;
+            font-size: 64px;
             font-weight: 600;
             color: var(--text-primary);
             line-height: 1.1;
@@ -251,7 +286,10 @@
         }
 
         .hero-h1 .vip-highlight {
-            color: var(--vip-pink);
+            background: linear-gradient(135deg, var(--vip-pink), var(--vip-pink-hover));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subhead {
@@ -328,6 +366,11 @@
 
         .sticky-card {
             padding: 40px;
+            box-shadow:
+                0 4px 24px rgba(232, 92, 123, 0.12),
+                0 8px 40px rgba(232, 92, 123, 0.08),
+                0 1px 4px rgba(0, 0, 0, 0.04);
+            border-top: 3px solid var(--vip-pink);
         }
 
         .sticky-card .price-display {
@@ -415,8 +458,11 @@
         }
 
         .ticket-card.vip {
-            box-shadow: 0 4px 20px rgba(232, 92, 123, 0.12);
-            border-top: 3px solid var(--vip-pink);
+            box-shadow:
+                0 4px 32px rgba(232, 92, 123, 0.15),
+                0 8px 48px rgba(232, 92, 123, 0.10),
+                0 1px 4px rgba(0, 0, 0, 0.04);
+            border-top: 4px solid var(--vip-pink);
             padding: 48px;
             position: relative;
         }
@@ -435,6 +481,7 @@
             letter-spacing: 1px;
             padding: 8px 20px;
             border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(232, 92, 123, 0.3);
         }
 
         .ticket-header {
@@ -504,8 +551,21 @@
            ═══════════════════════════════════════ */
 
         .why-upgrade-section {
-            background: var(--cream);
+            background: linear-gradient(180deg, var(--cream) 0%, var(--soft-peach) 100%);
             padding: 72px 60px;
+            position: relative;
+        }
+
+        .why-upgrade-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
         }
 
         .why-upgrade-container {
@@ -694,7 +754,7 @@
            ═══════════════════════════════════════ */
 
         .guarantee-section {
-            background: var(--vip-teal-dark);
+            background: var(--deep-burgundy);
             padding: 72px 60px;
             position: relative;
             overflow: hidden;
@@ -714,11 +774,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: var(--font-heading);
-            font-size: 100px;
+            font-size: 120px;
             font-weight: 700;
             color: rgba(255, 255, 255, 0.08);
             z-index: 0;
             pointer-events: none;
+            user-select: none;
         }
 
         .guarantee-section .badge {
@@ -728,7 +789,7 @@
         .guarantee-section .section-headline {
             font-size: 36px;
             color: var(--white);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .guarantee-body {
@@ -741,11 +802,15 @@
 
         .guarantee-section .btn-primary {
             background: var(--white);
-            color: var(--vip-teal-dark);
+            color: var(--deep-burgundy);
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
         }
 
         .guarantee-section .btn-primary:hover {
             background: var(--vip-pink-light);
+            color: var(--deep-burgundy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 255, 255, 0.3);
         }
 
         .guarantee-section .btn-secondary {
@@ -755,7 +820,7 @@
         }
 
         .guarantee-section .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         /* ═══════════════════════════════════════
@@ -788,7 +853,7 @@
         }
 
         .filter-card.perfect {
-            border-top: 3px solid var(--vip-teal);
+            border-top: 3px solid var(--sage-green);
         }
 
         .filter-card.not-for-you {
@@ -1002,6 +1067,14 @@
                 font-size: 48px;
             }
 
+            .hero-h1 .vip-highlight {
+                /* Ensure gradient works on mobile */
+                background: linear-gradient(135deg, var(--vip-pink), var(--vip-pink-hover));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
             .hero-subhead {
                 font-size: 18px;
             }
@@ -1120,21 +1193,21 @@
 
                 <ul class="hero-bullets">
                     <li>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
                         <span>Have your first product idea and "starter listings" mapped out before Day 1 even starts.</span>
                     </li>
                     <li>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
                         <span>Know exactly what to do after each session instead of drowning in random notes.</span>
                     </li>
                     <li>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
@@ -1165,19 +1238,19 @@
 
                     <ul class="quick-benefits">
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Pre-challenge starter kit</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>VIP-only Q&A with Bailey</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Private WhatsApp group</span>
@@ -1217,19 +1290,19 @@
 
                     <ul class="features-list">
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Access to all 3 main challenge days</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Standard challenge workbook</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Access to the main community chat</span>
@@ -1287,49 +1360,49 @@
 
                     <ul class="features-list">
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span><strong>Everything in the FREE ticket, plus:</strong></span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Pre-Challenge Shop Starter Kit</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>VIP Challenge Workbook & AI Prompt Pack</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>VIP-Only Implementation Q&A Call with Bailey</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Private VIP WhatsApp 'Green Room'</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Extended replay access</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Entry into VIP shop audit & 1-on-1 giveaway</span>
                         </li>
                         <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>Mystery VIP-only tool</span>
@@ -1418,19 +1491,19 @@
                         </p>
                         <ul class="component-bullets">
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Niche selection framework</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Product idea validation checklist</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Etsy shop setup walkthrough</span>
@@ -1454,19 +1527,19 @@
                         </p>
                         <ul class="component-bullets">
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Daily implementation worksheets</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>50+ copy-paste AI prompts for Etsy</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Progress tracker & accountability tools</span>
@@ -1490,19 +1563,19 @@
                         </p>
                         <ul class="component-bullets">
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Live access to Bailey in a small group setting</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Get your specific questions answered</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Replay access for reference</span>
@@ -1529,19 +1602,19 @@
                         </p>
                         <ul class="component-bullets">
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>VIP-only WhatsApp community</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Real-time feedback and support</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Network with serious entrepreneurs</span>
@@ -1565,25 +1638,25 @@
                         </p>
                         <ul class="component-bullets">
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Extended replay access (30 days vs. 7 days for free)</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Entry into VIP-only shop audit giveaway</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Chance to win 1-on-1 time with Bailey</span>
                             </li>
                             <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                                 <span>Mystery VIP-only launch tool (revealed during challenge)</span>
@@ -1642,7 +1715,7 @@
                 <!-- Perfect For You -->
                 <div class="filter-card card perfect">
                     <div class="filter-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
@@ -1650,31 +1723,31 @@
                     <h3 class="filter-card-header">Perfect for you if...</h3>
                     <ul class="filter-list">
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>You're ready to actually launch an Etsy shop, not just "think about it"</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>You want done-for-you templates and systems to save time</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>You want direct access to Bailey in a smaller group</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>You're serious about building a real income stream</span>
                         </li>
                         <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                             <span>You want to be surrounded by other action-takers</span>
