@@ -74,19 +74,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Subtle texture overlay */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 9999;
-        }
+        /* Removed texture overlay for better visibility */
 
         h1, h2, h3 {
             font-family: var(--font-serif);
@@ -290,14 +278,9 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
 
-        /* Hand-drawn border effect */
+        /* Simplified border */
         .video-block::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border: 2px solid var(--terracotta);
-            border-radius: 18px;
-            opacity: 0.4;
+            display: none;
         }
 
         .video-overlay {
@@ -329,26 +312,26 @@
             transform: scale(1.1);
         }
 
-        /* Floating Price Card - Organic Style */
+        /* Floating Price Card - Clean Style */
         .price-card {
             background: var(--warm-white);
             border-radius: 20px;
             padding: var(--space-lg);
             position: sticky;
             top: 80px;
-            box-shadow: 0 8px 32px rgba(232, 114, 92, 0.15);
-            border: 2px solid var(--terracotta);
-            transform: rotate(1deg);
+            box-shadow: 0 8px 32px rgba(232, 114, 92, 0.2);
+            border: 3px solid var(--terracotta);
+            transform: none;
             transition: all 400ms ease;
         }
 
         .price-card:hover {
-            transform: rotate(0deg) translateY(-4px);
-            box-shadow: 0 12px 40px rgba(232, 114, 92, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(232, 114, 92, 0.3);
         }
 
         .price-card-inner {
-            transform: rotate(-1deg);
+            transform: none;
         }
 
         .price-badge {
@@ -512,39 +495,40 @@
         }
 
         .ticket-free {
-            width: 320px;
+            width: 380px;
             background: var(--light-gray);
-            border: 1px solid #E0E0E0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            transform: translateY(40px) scale(0.9) rotate(-2deg);
-            opacity: 0.8;
+            border: 2px solid #E0E0E0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: none;
+            opacity: 1;
         }
 
         .ticket-free:hover {
-            transform: translateY(38px) scale(0.91) rotate(-2deg);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
         }
 
         .ticket-free .ticket-title {
-            color: var(--cool-gray);
+            color: var(--charcoal);
         }
 
         .ticket-free .ticket-price {
-            color: var(--warm-gray);
+            color: var(--charcoal);
         }
 
         /* VIP Card - Obvious Winner */
         .ticket-vip {
             width: 450px;
             background: var(--warm-white);
-            border: 2px solid var(--terracotta);
-            box-shadow: 0 8px 32px rgba(232, 114, 92, 0.15);
-            transform: translateY(0) rotate(1deg);
+            border: 3px solid var(--terracotta);
+            box-shadow: 0 8px 32px rgba(232, 114, 92, 0.25);
+            transform: none;
             z-index: 1;
         }
 
         .ticket-vip:hover {
-            transform: translateY(-4px) rotate(0deg);
-            box-shadow: 0 12px 40px rgba(232, 114, 92, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(232, 114, 92, 0.35);
         }
 
         .best-choice-badge {
@@ -782,14 +766,9 @@
             position: relative;
         }
 
-        /* Hand-drawn border effect */
+        /* Simplified border */
         .guarantee-container::before {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border: 2px solid var(--sage);
-            border-radius: 28px;
-            opacity: 0.3;
+            display: none;
         }
 
         .guarantee-seal {
@@ -942,10 +921,16 @@
                 width: 100%;
                 max-width: 450px;
                 transform: none;
+                opacity: 1;
             }
 
             .ticket-free {
                 order: 2;
+            }
+
+            .ticket-free .ticket-title,
+            .ticket-free .ticket-price {
+                color: var(--charcoal);
             }
 
             .comparison-arrow {
@@ -999,8 +984,8 @@
            ═══════════════════════════════════════ */
 
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 1;
+            transform: none;
             transition: all 800ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
