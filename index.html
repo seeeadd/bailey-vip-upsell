@@ -112,6 +112,76 @@
         }
 
         /* ═══════════════════════════════════════
+           CREATIVE EDITORIAL ENHANCEMENTS
+           ═══════════════════════════════════════ */
+
+        /* Decorative circles that float around sections */
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* Hand-drawn underlines */
+        .hand-underline {
+            position: relative;
+        }
+
+        .hand-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: -5%;
+            width: 110%;
+            height: 12px;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,6 Q25,2 50,6 T100,6' stroke='%23E85C7B' stroke-width='2' fill='none' opacity='0.4'/%3E%3C/svg%3E") repeat-x;
+            background-size: 100px 12px;
+        }
+
+        /* Curved dividers */
+        .curved-divider {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .curved-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        /* Circle badges floating */
+        .circle-badge {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.2;
+            border: 3px solid;
+            transform: rotate(-12deg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Squiggly arrows */
+        .squiggly-arrow {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            opacity: 0.2;
+        }
+
+        /* ═══════════════════════════════════════
            SECTION 0: ALERT BAR (STICKY)
            ═══════════════════════════════════════ */
 
@@ -129,6 +199,30 @@
             padding: 0 24px;
             box-shadow: 0 4px 24px rgba(232, 92, 123, 0.3);
             backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        /* Animated diagonal stripes behind progress */
+        .alert-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.03) 10px,
+                rgba(255, 255, 255, 0.03) 20px
+            );
+            animation: stripe-scroll 20s linear infinite;
+        }
+
+        @keyframes stripe-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50px); }
         }
 
         .alert-bar-content {
@@ -212,7 +306,21 @@
             overflow: hidden;
         }
 
+        /* CREATIVE: Scribble corner accent */
         .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M40,10 Q50,20 60,10 T80,20' stroke='%23E85C7B' stroke-width='2' fill='none' opacity='0.1'/%3E%3Cpath d='M20,40 Q30,50 40,40 T60,50' stroke='%234A8A8C' stroke-width='2' fill='none' opacity='0.1'/%3E%3C/svg%3E") no-repeat;
+            background-size: contain;
+            z-index: 0;
+        }
+
+        /* CREATIVE: Gradient shimmer on top */
+        .card::after {
             content: '';
             position: absolute;
             top: 0;
@@ -227,7 +335,7 @@
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-4px) rotate(0.5deg);
             box-shadow:
                 0 4px 8px rgba(45, 45, 45, 0.03),
                 0 12px 24px rgba(45, 45, 45, 0.06),
@@ -350,6 +458,18 @@
             margin-top: 0;
             position: relative;
             overflow: hidden;
+        }
+
+        /* CREATIVE: Floating sticker badges */
+        .hero-section::after {
+            content: '★';
+            position: absolute;
+            top: 15%;
+            right: 8%;
+            font-size: 120px;
+            color: rgba(232, 92, 123, 0.08);
+            transform: rotate(15deg);
+            animation: float 6s ease-in-out infinite;
         }
 
         .hero-section::before {
@@ -641,22 +761,49 @@
            ═══════════════════════════════════════ */
 
         .comparison-section {
-            background: linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 100%);
+            background:
+                linear-gradient(165deg, transparent 0%, transparent 45%, rgba(232, 92, 123, 0.03) 45%, rgba(232, 92, 123, 0.03) 55%, transparent 55%),
+                linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 100%);
             padding: 100px 60px 120px;
             position: relative;
             overflow: hidden;
         }
 
+        /* CREATIVE: Checkered pattern accent */
         .comparison-section::before {
             content: '';
             position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(74, 138, 140, 0.05) 0%, transparent 70%);
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-image:
+                repeating-linear-gradient(0deg, rgba(232, 92, 123, 0.03) 0px, rgba(232, 92, 123, 0.03) 20px, transparent 20px, transparent 40px),
+                repeating-linear-gradient(90deg, rgba(232, 92, 123, 0.03) 0px, rgba(232, 92, 123, 0.03) 20px, transparent 20px, transparent 40px);
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* CREATIVE: Floating circle badge */
+        .comparison-section::after {
+            content: 'VIP';
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
+            background: var(--vip-pink);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 800;
+            transform: rotate(-15deg);
+            box-shadow: 0 12px 40px rgba(232, 92, 123, 0.3);
+            border: 4px solid white;
             z-index: 0;
         }
 
@@ -675,6 +822,27 @@
             margin-bottom: 64px;
             letter-spacing: -0.02em;
             line-height: 1.15;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* CREATIVE: Hand-drawn circle around headlines */
+        .section-headline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(100% + 80px);
+            height: calc(100% + 40px);
+            transform: translate(-50%, -50%) rotate(-2deg);
+            border: 3px solid rgba(232, 92, 123, 0.15);
+            border-radius: 50% 48% 52% 50%;
+            z-index: -1;
+        }
+
+        .comparison-container .section-headline::before,
+        .filter-container .section-headline::before {
+            display: block;
         }
 
         /* EDITORIAL: Asymmetric comparison - VIP is 70% larger, different positions */
@@ -852,16 +1020,30 @@
             overflow: hidden;
         }
 
+        /* CREATIVE: Wavy top divider */
         .why-upgrade-section::before {
             content: '';
             position: absolute;
-            top: 10%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(232, 92, 123, 0.06) 0%, transparent 70%);
-            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-            animation: blob-morph 30s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'%3E%3Cpath d='M0,40 Q300,0 600,40 T1200,40 L1200,80 L0,80 Z' fill='%23FFFFFF'/%3E%3C/svg%3E") no-repeat;
+            background-size: 100% 80px;
+            z-index: 1;
+        }
+
+        /* CREATIVE: Scattered dots pattern */
+        .why-upgrade-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background-image: radial-gradient(circle, rgba(74, 138, 140, 0.1) 2px, transparent 2px);
+            background-size: 40px 40px;
+            z-index: 0;
         }
 
         /* EDITORIAL: Asymmetric layout - not centered */
@@ -981,22 +1163,35 @@
            ═══════════════════════════════════════ */
 
         .whats-inside-section {
-            background: linear-gradient(165deg, #FFFFFF 0%, #FAF7F2 100%);
+            background:
+                radial-gradient(circle at 20% 80%, rgba(232, 92, 123, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(74, 138, 140, 0.04) 0%, transparent 50%),
+                linear-gradient(165deg, #FFFFFF 0%, #FAF7F2 100%);
             padding: 120px 60px;
             position: relative;
             overflow: hidden;
         }
 
+        /* CREATIVE: Curved top wave */
         .whats-inside-section::before {
             content: '';
             position: absolute;
-            top: -5%;
-            right: -10%;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(74, 138, 140, 0.05) 0%, transparent 70%);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: blob-morph 35s ease-in-out infinite;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 100' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C300,80 500,20 800,50 C1000,70 1100,40 1200,50 L1200,0 L0,0 Z' fill='%23FAF7F2'/%3E%3C/svg%3E") no-repeat;
+            background-size: 100% 100px;
+            z-index: 1;
+        }
+
+        /* CREATIVE: Squiggly arrow pointing */
+        .whats-inside-section::after {
+            content: url("data:image/svg+xml,%3Csvg width='150' height='150' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,100 Q40,20 80,60 T140,40' stroke='%23E85C7B' stroke-width='3' fill='none' opacity='0.15' stroke-dasharray='5,5'/%3E%3Cpolygon points='135,35 145,40 140,50' fill='%23E85C7B' opacity='0.15'/%3E%3C/svg%3E");
+            position: absolute;
+            top: 12%;
+            left: 3%;
+            z-index: 0;
         }
 
         .whats-inside-container {
@@ -1139,7 +1334,7 @@
             position: relative;
         }
 
-        /* EDITORIAL: Number badges at varying sizes and positions */
+        /* CREATIVE: Sticker-style number badges with shadows */
         .component-number {
             width: 64px;
             height: 64px;
@@ -1153,9 +1348,29 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(232, 92, 123, 0.3);
+            box-shadow:
+                0 0 0 4px var(--white),
+                0 0 0 6px rgba(232, 92, 123, 0.2),
+                0 8px 20px rgba(232, 92, 123, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.1);
             transform: rotate(-3deg);
-            border: 3px solid var(--white);
+            position: relative;
+        }
+
+        /* CREATIVE: Sparkle effect on numbers */
+        .component-number::after {
+            content: '✦';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 16px;
+            color: var(--vip-pink);
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
         }
 
         /* Varied number badge styles */
@@ -1532,16 +1747,31 @@
             overflow: hidden;
         }
 
+        /* CREATIVE: Diagonal color block */
         .faq-section::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 900px;
-            height: 900px;
-            background: radial-gradient(circle, rgba(74, 138, 140, 0.03) 0%, transparent 70%);
-            border-radius: 50%;
+            top: 20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(232, 92, 123, 0.04), rgba(74, 138, 140, 0.04));
+            transform: rotate(-15deg);
+            border-radius: 30%;
+            z-index: 0;
+        }
+
+        /* CREATIVE: Question mark stickers */
+        .faq-section::after {
+            content: '?';
+            position: absolute;
+            bottom: 10%;
+            left: 8%;
+            font-family: var(--font-heading);
+            font-size: 200px;
+            font-weight: 800;
+            color: rgba(232, 92, 123, 0.05);
+            z-index: 0;
         }
 
         .faq-container {
