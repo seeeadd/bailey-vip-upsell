@@ -269,30 +269,13 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: var(--vip-pink);
-            height: 60px;
+            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-pink-hover) 100%);
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 0 24px;
-            box-shadow:
-                0 6px 0 var(--vip-teal),
-                0 8px 24px rgba(232, 92, 123, 0.4);
-            clip-path: polygon(
-                0 0, 100% 0,
-                100% calc(100% - 8px), 97% calc(100% - 10px), 94% calc(100% - 6px),
-                91% calc(100% - 12px), 88% calc(100% - 8px), 85% calc(100% - 10px),
-                82% calc(100% - 6px), 79% calc(100% - 12px), 76% calc(100% - 8px),
-                73% calc(100% - 10px), 70% calc(100% - 6px), 67% calc(100% - 12px),
-                64% calc(100% - 8px), 61% calc(100% - 10px), 58% calc(100% - 6px),
-                55% calc(100% - 12px), 52% calc(100% - 8px), 49% calc(100% - 10px),
-                46% calc(100% - 6px), 43% calc(100% - 12px), 40% calc(100% - 8px),
-                37% calc(100% - 10px), 34% calc(100% - 6px), 31% calc(100% - 12px),
-                28% calc(100% - 8px), 25% calc(100% - 10px), 22% calc(100% - 6px),
-                19% calc(100% - 12px), 16% calc(100% - 8px), 13% calc(100% - 10px),
-                10% calc(100% - 6px), 7% calc(100% - 12px), 4% calc(100% - 8px),
-                0 calc(100% - 10px)
-            );
+            box-shadow: 0 2px 12px rgba(232, 92, 123, 0.2);
         }
 
         .alert-bar-content {
@@ -335,14 +318,13 @@
 
         .badge {
             display: inline-block;
-            padding: 12px 28px;
-            font-size: 13px;
-            font-weight: 900;
+            padding: 10px 24px;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             position: relative;
-            border-radius: 50% 20% / 10% 40%;
-            transform: rotate(-5deg);
+            border-radius: 0;
         }
 
         .badge span {
@@ -351,39 +333,15 @@
         }
 
         .badge-teal {
-            background: var(--white);
-            color: var(--vip-teal);
-            border: 5px solid var(--vip-teal);
-            box-shadow:
-                4px 4px 0 var(--vip-teal),
-                0 8px 24px rgba(74, 138, 140, 0.3);
+            background: var(--vip-teal);
+            color: var(--white);
+            box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--vip-teal);
         }
 
         .badge-pink {
-            background: var(--white);
-            color: var(--vip-pink);
-            border: 5px solid var(--vip-pink);
-            box-shadow:
-                4px 4px 0 var(--vip-pink),
-                0 8px 24px rgba(232, 92, 123, 0.3);
-        }
-
-        /* Sticker sparkles */
-        .badge::before {
-            content: '✦';
-            position: absolute;
-            top: -12px;
-            right: -12px;
-            font-size: 20px;
-            animation: sparkle-pulse 2s ease-in-out infinite;
-        }
-
-        .badge-teal::before {
-            color: var(--vip-teal);
-        }
-
-        .badge-pink::before {
-            color: var(--vip-pink);
+            background: var(--vip-pink);
+            color: var(--white);
+            box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--vip-pink);
         }
 
         .card {
@@ -421,82 +379,91 @@
                 0 24px 64px rgba(45, 45, 45, 0.08);
         }
 
-        /* Buttons - Bold Pinterest Style */
+        /* Buttons - Elegant Editorial Style */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             font-family: var(--font-body);
-            font-size: 18px;
-            font-weight: 900;
-            padding: 24px 56px;
-            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 20px 48px;
+            border-radius: 0;
             text-decoration: none;
             cursor: pointer;
-            transition: all 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             text-align: center;
             line-height: 1.2;
             position: relative;
-            overflow: visible;
-            letter-spacing: 0.5px;
+            overflow: hidden;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         .btn::after {
             content: '→';
-            font-size: 24px;
-            margin-left: 8px;
-            transition: all 200ms ease;
+            font-size: 20px;
+            margin-left: 4px;
+            transition: all 300ms ease;
         }
 
         .btn:hover::after {
-            transform: translateX(8px);
+            transform: translateX(6px);
         }
 
         .btn-primary {
-            background: var(--vip-pink);
+            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-pink-hover) 100%);
             color: var(--white);
-            box-shadow:
-                8px 8px 0 rgba(74, 138, 140, 0.4);
-            transform: translate(0, 0);
+            box-shadow: 0 8px 24px rgba(232, 92, 123, 0.25);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 300ms ease;
         }
 
         .btn-primary:hover {
-            transform: translate(4px, 4px);
-            box-shadow:
-                4px 4px 0 rgba(74, 138, 140, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(232, 92, 123, 0.3);
         }
 
-        .btn-primary:active {
-            transform: translate(8px, 8px);
-            box-shadow:
-                0 0 0 rgba(74, 138, 140, 0.4);
+        .btn-primary:hover::before {
+            opacity: 1;
         }
 
         .btn-secondary {
-            background: var(--white);
-            border: 5px solid var(--text-primary);
+            background: transparent;
+            border: 2px solid var(--text-primary);
             color: var(--text-primary);
-            padding: 20px 52px;
-            font-weight: 800;
-            font-size: 17px;
-            box-shadow:
-                6px 6px 0 var(--text-primary);
-            transform: translate(0, 0);
+            padding: 18px 48px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--text-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 300ms ease;
+            z-index: -1;
         }
 
         .btn-secondary:hover {
-            transform: translate(3px, 3px);
-            box-shadow:
-                3px 3px 0 var(--text-primary);
+            color: var(--white);
+            border-color: var(--text-primary);
         }
 
-        .btn-secondary:active {
-            transform: translate(6px, 6px);
-            box-shadow:
-                0 0 0 var(--text-primary);
+        .btn-secondary:hover::before {
+            transform: scaleX(1);
         }
 
         .button-stack {
@@ -510,65 +477,43 @@
            ═══════════════════════════════════════ */
 
         .hero-section {
-            background:
-                repeating-linear-gradient(
-                    45deg,
-                    #FFF5F7 0px,
-                    #FFF5F7 40px,
-                    #E8F4F4 40px,
-                    #E8F4F4 80px
-                );
+            background: linear-gradient(135deg, #FEFEFE 0%, #FAF7F2 100%);
             padding: calc(52px + 100px) 40px 140px;
             margin-top: 0;
             position: relative;
             overflow: visible;
-            clip-path: polygon(
-                0 0, 100% 0, 100% calc(100% - 30px),
-                97% calc(100% - 35px), 94% calc(100% - 25px), 91% calc(100% - 40px),
-                88% calc(100% - 20px), 85% calc(100% - 35px), 82% calc(100% - 28px),
-                79% calc(100% - 38px), 76% calc(100% - 22px), 73% calc(100% - 32px),
-                70% calc(100% - 26px), 67% calc(100% - 36px), 64% calc(100% - 30px),
-                61% calc(100% - 38px), 58% calc(100% - 24px), 55% calc(100% - 34px),
-                52% calc(100% - 28px), 49% calc(100% - 36px), 46% calc(100% - 26px),
-                43% calc(100% - 32px), 40% calc(100% - 28px), 37% calc(100% - 35px),
-                34% calc(100% - 25px), 31% calc(100% - 32px), 28% calc(100% - 28px),
-                25% calc(100% - 34px), 22% calc(100% - 26px), 19% calc(100% - 32px),
-                16% calc(100% - 28px), 13% calc(100% - 36px), 10% calc(100% - 24px),
-                7% calc(100% - 30px), 4% calc(100% - 26px), 0 calc(100% - 32px)
-            );
         }
 
-        /* Hand-drawn rough border */
+        /* Elegant color block accent */
         .hero-section::before {
             content: '';
             position: absolute;
-            top: 25px;
-            left: 25px;
-            right: 25px;
-            bottom: 60px;
-            border: 5px solid var(--text-primary);
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-            opacity: 0.12;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 65%;
+            background: linear-gradient(165deg, rgba(232, 92, 123, 0.04) 0%, rgba(74, 138, 140, 0.04) 100%);
             z-index: 0;
             pointer-events: none;
         }
 
-        /* Giant "LAUNCH READY" overlapping text */
+        /* Sophisticated editorial typography */
         .hero-section::after {
-            content: 'LAUNCH READY';
+            content: 'VIP';
             position: absolute;
-            top: 45%;
-            left: -5%;
+            top: 50%;
+            right: -5%;
             font-family: var(--font-heading);
-            font-size: 220px;
+            font-size: 420px;
             font-weight: 900;
-            color: var(--vip-pink);
-            opacity: 0.04;
+            font-style: italic;
+            color: var(--text-primary);
+            opacity: 0.012;
             z-index: 0;
-            line-height: 0.85;
-            transform: rotate(-12deg);
-            white-space: nowrap;
+            line-height: 1;
+            transform: translateY(-50%);
             pointer-events: none;
+            letter-spacing: -0.06em;
         }
 
         .hero-container {
@@ -585,28 +530,16 @@
             z-index: 2;
         }
 
-        /* Scattered doodles */
+        /* Minimal elegant accent */
         .hero-left::before {
-            content: '← so good!';
+            content: '';
             position: absolute;
-            top: -70px;
-            left: 20px;
-            font-family: var(--font-handwritten);
-            font-size: 42px;
-            color: var(--vip-pink);
-            transform: rotate(-8deg);
-            font-weight: 600;
-        }
-
-        .hero-left::after {
-            content: '⭐';
-            position: absolute;
-            top: -40px;
-            right: 80px;
-            font-size: 48px;
-            color: var(--vip-teal);
-            transform: rotate(25deg);
-            animation: sparkle-pulse 3s ease-in-out infinite;
+            top: 0;
+            left: -40px;
+            width: 4px;
+            height: 120px;
+            background: linear-gradient(180deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
+            opacity: 0.3;
         }
 
         .hero-badge {
@@ -629,83 +562,34 @@
         }
 
         .hero-h1 {
-            font-size: 92px;
-            font-weight: 900;
+            font-size: 88px;
+            font-weight: 700;
             color: var(--text-primary);
-            line-height: 0.95;
+            line-height: 1;
             margin-bottom: 32px;
-            letter-spacing: -0.04em;
+            letter-spacing: -0.03em;
             text-transform: none;
             position: relative;
-        }
-
-        /* Artistic scribble under first line */
-        .hero-h1::after {
-            content: '';
-            position: absolute;
-            bottom: 40%;
-            left: 0;
-            width: 280px;
-            height: 8px;
-            background: var(--vip-pink);
-            opacity: 0.3;
-            transform: rotate(-2deg) skewX(-10deg);
-            border-radius: 4px;
         }
 
         .hero-h1 .vip-highlight {
             background: var(--vip-pink);
             color: var(--white);
-            padding: 4px 24px;
+            padding: 8px 20px 6px;
             display: inline-block;
-            transform: rotate(-2deg);
-            box-shadow: 8px 8px 0 rgba(74, 138, 140, 0.3);
             position: relative;
-            margin: 8px 0;
-        }
-
-        /* Sparkles around VIP text */
-        .hero-h1 .vip-highlight::before,
-        .hero-h1 .vip-highlight::after {
-            content: '✦';
-            position: absolute;
-            font-size: 32px;
-            color: var(--vip-teal);
-            animation: sparkle-pulse 2s ease-in-out infinite;
-        }
-
-        .hero-h1 .vip-highlight::before {
-            top: -20px;
-            left: -30px;
-        }
-
-        .hero-h1 .vip-highlight::after {
-            bottom: -20px;
-            right: -30px;
-            animation-delay: 1s;
+            margin: 0 -4px;
+            line-height: 1;
         }
 
         .hero-subhead {
-            font-size: 22px;
+            font-size: 21px;
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 48px;
             font-weight: 400;
             max-width: 90%;
-            position: relative;
-        }
-
-        /* Hand-drawn arrow pointing to subhead */
-        .hero-subhead::before {
-            content: '↓';
-            position: absolute;
-            top: -50px;
-            right: 20px;
-            font-family: var(--font-handwritten);
-            font-size: 64px;
-            color: var(--vip-teal);
-            transform: rotate(25deg);
-            opacity: 0.5;
+            opacity: 0.85;
         }
 
         .hero-bullets {
@@ -789,84 +673,47 @@
         }
 
         .sticky-card {
-            padding: 24px 24px 70px 24px;
+            padding: 40px;
             background: var(--white);
             box-shadow:
-                12px 12px 24px rgba(0,0,0,0.15),
-                0 24px 60px rgba(0,0,0,0.12);
-            transform: rotate(6deg);
+                0 20px 60px rgba(0,0,0,0.08),
+                0 8px 24px rgba(0,0,0,0.06);
+            transform: rotate(3deg);
             position: relative;
-            border: 2px solid rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
         }
 
-        /* Tape effect on sticky card */
         .sticky-card::before {
             content: '';
             position: absolute;
-            top: -16px;
-            left: 50%;
-            transform: translateX(-50%) rotate(2deg);
-            width: 140px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.6);
-            border-left: 1px dashed rgba(0,0,0,0.1);
-            border-right: 1px dashed rgba(0,0,0,0.1);
-            box-shadow:
-                inset 0 2px 4px rgba(0,0,0,0.05),
-                0 2px 8px rgba(0,0,0,0.1);
-            opacity: 0.8;
-        }
-
-        /* Handwritten caption at bottom */
-        .sticky-card::after {
-            content: 'Best Deal!';
-            font-family: var(--font-handwritten);
-            font-size: 28px;
-            color: var(--vip-pink);
-            position: absolute;
-            bottom: 18px;
+            top: 0;
             left: 0;
-            right: 0;
-            text-align: center;
-            transform: rotate(-3deg);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
         }
 
         .sticky-card > * {
-            transform: rotate(-4deg);
+            transform: rotate(-3deg);
         }
 
         .sticky-card .price-display {
             font-family: var(--font-heading);
-            font-size: 88px;
-            font-weight: 900;
-            color: var(--vip-pink);
+            font-size: 82px;
+            font-weight: 800;
+            color: var(--text-primary);
             line-height: 1;
-            margin: 24px 0 8px;
-            letter-spacing: -0.05em;
-            text-shadow: 4px 4px 0 rgba(74, 138, 140, 0.15);
+            margin: 20px 0 12px;
+            letter-spacing: -0.04em;
             position: relative;
         }
 
-        /* Circle around price */
-        .sticky-card .price-display::before {
-            content: '';
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(8deg);
-            border: 5px dashed var(--vip-teal);
-            border-radius: 50%;
-            opacity: 0.2;
-        }
-
         .sticky-card .price-subtext {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-muted);
             margin-bottom: 32px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-weight: 500;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
@@ -907,36 +754,21 @@
            ═══════════════════════════════════════ */
 
         .comparison-section {
-            background: var(--white);
+            background: linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 100%);
             padding: 120px 60px 140px;
             position: relative;
             overflow: hidden;
-            clip-path: polygon(
-                0 calc(0% + 25px), 3% calc(0% + 32px), 6% calc(0% + 28px), 9% calc(0% + 35px),
-                12% calc(0% + 26px), 15% calc(0% + 30px), 18% calc(0% + 28px), 21% calc(0% + 34px),
-                24% calc(0% + 26px), 27% calc(0% + 32px), 30% calc(0% + 28px), 33% calc(0% + 35px),
-                36% calc(0% + 26px), 39% calc(0% + 30px), 42% calc(0% + 28px), 45% calc(0% + 34px),
-                48% calc(0% + 26px), 51% calc(0% + 32px), 54% calc(0% + 28px), 57% calc(0% + 35px),
-                60% calc(0% + 26px), 63% calc(0% + 30px), 66% calc(0% + 28px), 69% calc(0% + 34px),
-                72% calc(0% + 26px), 75% calc(0% + 32px), 78% calc(0% + 28px), 81% calc(0% + 35px),
-                84% calc(0% + 26px), 87% calc(0% + 30px), 90% calc(0% + 28px), 93% calc(0% + 34px),
-                96% calc(0% + 26px), 100% calc(0% + 30px),
-                100% 100%, 0 100%
-            );
         }
 
-        /* Hand-drawn arrows and doodles */
         .comparison-section::before {
-            content: '← choose wisely!';
+            content: '';
             position: absolute;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-3deg);
-            font-family: var(--font-handwritten);
-            font-size: 48px;
-            color: var(--vip-pink);
-            z-index: 1;
-            font-weight: 700;
+            top: 0;
+            left: 0;
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(74, 138, 140, 0.02) 0%, transparent 100%);
+            z-index: 0;
         }
 
         .comparison-container {
@@ -947,30 +779,28 @@
         }
 
         .section-headline {
-            font-size: 68px;
-            font-weight: 900;
+            font-size: 64px;
+            font-weight: 700;
             color: var(--text-primary);
             text-align: center;
-            margin-bottom: 80px;
-            letter-spacing: -0.04em;
-            line-height: 1.05;
+            margin-bottom: 72px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
             position: relative;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Hand-drawn underline under headlines */
         .section-headline::after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -16px;
             left: 50%;
             transform: translateX(-50%);
-            width: 200px;
-            height: 15px;
-            background: url("data:image/svg+xml,%3Csvg width='200' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5,8 Q50,3 100,8 T195,7' stroke='%23E85C7B' stroke-width='5' fill='none' stroke-linecap='round' opacity='0.4'/%3E%3C/svg%3E");
-            background-size: 200px 15px;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
         }
 
         .comparison-grid {
@@ -984,70 +814,49 @@
             padding: 56px 48px;
             position: relative;
             background: var(--white);
+            transition: all 400ms ease;
         }
 
         .ticket-card.free {
-            opacity: 0.85;
-            transform: rotate(-3deg) scale(0.95);
-            filter: grayscale(0.2);
+            opacity: 0.75;
+            transform: scale(0.97);
         }
 
-        /* Handwritten note on free card */
-        .ticket-card.free::after {
-            content: '(or skip this...)';
+        .ticket-card.free::before {
+            content: '';
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-family: var(--font-handwritten);
-            font-size: 24px;
-            color: var(--text-muted);
-            transform: rotate(-8deg);
-            opacity: 0.6;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--text-muted);
+            opacity: 0.2;
         }
 
         .ticket-card.vip {
             box-shadow:
-                12px 12px 0 rgba(232, 92, 123, 0.2);
-            border: 6px solid var(--vip-pink);
-            padding: 64px 56px 80px;
+                0 24px 80px rgba(232, 92, 123, 0.12);
+            border: 3px solid var(--vip-pink);
+            padding: 64px 56px;
             position: relative;
             background: var(--white);
-            transform: rotate(2deg) scale(1.08);
+            transform: scale(1.05);
         }
 
-        /* Sticker on VIP card */
         .ticket-card.vip::before {
-            content: '⭐ BEST VALUE ⭐';
+            content: 'BEST VALUE';
             position: absolute;
-            top: -24px;
+            top: -16px;
             left: 50%;
-            transform: translateX(-50%) rotate(-8deg);
+            transform: translateX(-50%);
             background: var(--vip-pink);
             color: var(--white);
-            font-size: 14px;
-            font-weight: 900;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            padding: 16px 36px;
-            border-radius: 50% 20% / 10% 40%;
-            box-shadow:
-                4px 4px 0 rgba(232, 92, 123, 0.6),
-                0 8px 24px rgba(232, 92, 123, 0.4);
-            border: 4px solid var(--vip-pink-hover);
-        }
-
-        /* Handwritten note on VIP card */
-        .ticket-card.vip::after {
-            content: 'YES! Pick this one!';
-            position: absolute;
-            bottom: 24px;
-            right: -40px;
-            font-family: var(--font-handwritten);
-            font-size: 32px;
-            color: var(--vip-pink);
-            transform: rotate(12deg);
-            font-weight: 700;
-            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.8);
+            padding: 8px 24px;
+            box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--vip-pink);
         }
 
         .ticket-header {
@@ -1410,38 +1219,20 @@
            ═══════════════════════════════════════ */
 
         .guarantee-section {
-            background: var(--vip-pink);
-            padding: 100px 60px 140px;
+            background: linear-gradient(135deg, var(--vip-teal-dark) 0%, var(--vip-teal) 100%);
+            padding: 100px 60px 120px;
             position: relative;
             overflow: hidden;
-            clip-path: polygon(
-                0 calc(0% + 30px), 4% calc(0% + 24px), 8% calc(0% + 35px), 12% calc(0% + 26px),
-                16% calc(0% + 32px), 20% calc(0% + 28px), 24% calc(0% + 36px), 28% calc(0% + 24px),
-                32% calc(0% + 30px), 36% calc(0% + 28px), 40% calc(0% + 34px), 44% calc(0% + 26px),
-                48% calc(0% + 32px), 52% calc(0% + 28px), 56% calc(0% + 36px), 60% calc(0% + 24px),
-                64% calc(0% + 30px), 68% calc(0% + 28px), 72% calc(0% + 34px), 76% calc(0% + 26px),
-                80% calc(0% + 32px), 84% calc(0% + 28px), 88% calc(0% + 36px), 92% calc(0% + 24px),
-                96% calc(0% + 30px), 100% calc(0% + 28px),
-                100% calc(100% - 30px), 96% calc(100% - 24px), 92% calc(100% - 35px), 88% calc(100% - 26px),
-                84% calc(100% - 32px), 80% calc(100% - 28px), 76% calc(100% - 36px), 72% calc(100% - 24px),
-                68% calc(100% - 30px), 64% calc(100% - 28px), 60% calc(100% - 34px), 56% calc(100% - 26px),
-                52% calc(100% - 32px), 48% calc(100% - 28px), 44% calc(100% - 36px), 40% calc(100% - 24px),
-                36% calc(100% - 30px), 32% calc(100% - 28px), 28% calc(100% - 34px), 24% calc(100% - 26px),
-                20% calc(100% - 32px), 16% calc(100% - 28px), 12% calc(100% - 36px), 8% calc(100% - 24px),
-                4% calc(100% - 30px), 0 calc(100% - 28px)
-            );
         }
 
-        /* Scattered stars decoration */
         .guarantee-section::before {
-            content: '⭐ ✦ ⭐ ✦ ⭐';
+            content: '';
             position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 40px;
-            color: rgba(255, 255, 255, 0.3);
-            letter-spacing: 60px;
+            bottom: 0;
+            right: 0;
+            width: 45%;
+            height: 70%;
+            background: linear-gradient(315deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
             z-index: 0;
         }
 
