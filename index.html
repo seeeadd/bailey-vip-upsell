@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade to VIP - Launch-Ready Ticket | Bailey Vann</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════
+           DESIGN SYSTEM & CSS VARIABLES
+           ═══════════════════════════════════════ */
+
+        :root {
+            /* Colors */
+            --cream-base: #FAF7F2;
+            --white: #FFFFFF;
+            --burgundy-primary: #8B2635;
+            --burgundy-hover: #A63F4E;
+            --terracotta: #D4856A;
+            --terracotta-hover: #C67557;
+            --sage-green: #A8B5A4;
+            --muted-red: #D47A7A;
+            --text-primary: #2D2D2D;
+            --text-muted: #6B6B6B;
+            --border-light: rgba(139, 38, 53, 0.06);
+            --gold-gradient-start: #D4856A;
+            --gold-gradient-end: #C9935A;
+
+            /* Spacing */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+            --space-4xl: 128px;
+
+            /* Typography */
+            --font-heading: 'Fraunces', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* ═══════════════════════════════════════
+           RESET & BASE STYLES
+           ═══════════════════════════════════════ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--cream-base);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 0: ALERT BAR (STICKY)
+           ═══════════════════════════════════════ */
+
+        .alert-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(90deg, var(--burgundy-primary) 0%, var(--burgundy-hover) 100%);
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .alert-bar-content {
+            width: 100%;
+            max-width: 1280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alert-bar-text {
+            color: var(--white);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .alert-bar-progress {
+            width: 100%;
+            max-width: 400px;
+            height: 8px;
+            background: rgba(250, 247, 242, 0.2);
+            border-radius: 4px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .alert-bar-progress-fill {
+            height: 100%;
+            width: 75%;
+            background: var(--sage-green);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 1: HERO
+           ═══════════════════════════════════════ */
+
+        .hero-section {
+            background: var(--cream-base);
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            padding: calc(56px + var(--space-3xl)) var(--space-2xl) var(--space-3xl);
+            margin-top: 0;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 55% 40%;
+            gap: 5%;
+            align-items: start;
+        }
+
+        .hero-left h1 {
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-left h1 .launch-ready {
+            font-weight: 400;
+        }
+
+        .hero-left h1 .vip-ticket {
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--gold-gradient-start) 0%, var(--gold-gradient-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subhead {
+            font-size: 20px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-bullets {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .hero-bullets li svg {
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .video-block {
+            margin-top: var(--space-lg);
+            position: relative;
+            aspect-ratio: 16 / 9;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow:
+                0 4px 24px rgba(139, 38, 53, 0.08),
+                0 1px 4px rgba(139, 38, 53, 0.04);
+            background: #000;
+            cursor: pointer;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            transition: background 300ms ease;
+        }
+
+        .video-block:hover .video-overlay {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+        }
+
+        .video-overlay-text {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            right: var(--space-md);
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .play-button {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--terracotta);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 200ms ease;
+        }
+
+        .video-block:hover .play-button {
+            transform: scale(1.1);
+            background: var(--terracotta-hover);
+        }
+
+        /* ═══════════════════════════════════════
+           STICKY CARD (RIGHT COLUMN)
+           ═══════════════════════════════════════ */
+
+        .sticky-card-wrapper {
+            position: sticky;
+            top: 80px;
+        }
+
+        .sticky-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow:
+                0 4px 24px rgba(139, 38, 53, 0.08),
+                0 1px 4px rgba(139, 38, 53, 0.04);
+            padding: var(--space-xl);
+            border: 1px solid transparent;
+            transition: border-color 300ms ease;
+        }
+
+        .sticky-card:hover {
+            border-color: var(--border-light);
+        }
+
+        .vip-badge {
+            display: inline-block;
+            background: var(--terracotta);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-md);
+        }
+
+        .price-display {
+            font-family: var(--font-heading);
+            font-size: 64px;
+            font-weight: 600;
+            color: var(--burgundy-primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .price-subtext {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: var(--space-md);
+        }
+
+        .card-divider {
+            height: 1px;
+            background: var(--border-light);
+            margin: var(--space-md) 0;
+        }
+
+        .quick-benefits {
+            list-style: none;
+            margin-bottom: var(--space-md);
+        }
+
+        .quick-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .quick-benefits li svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ═══════════════════════════════════════
+           BUTTONS
+           ═══════════════════════════════════════ */
+
+        .button-stack {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--burgundy-primary) 0%, var(--burgundy-hover) 100%);
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 600;
+            padding: 20px var(--space-xl);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(139, 38, 53, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: transform 200ms ease, box-shadow 200ms ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(139, 38, 53, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--terracotta);
+            color: var(--burgundy-primary);
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 500;
+            padding: 18px var(--space-xl);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 200ms ease;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            border-color: var(--terracotta-hover);
+        }
+
+        .guarantee-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-align: center;
+            font-style: italic;
+            margin-top: var(--space-sm);
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 2: TICKET COMPARISON
+           ═══════════════════════════════════════ */
+
+        .comparison-section {
+            background: var(--white);
+            padding: var(--space-3xl) var(--space-2xl);
+        }
+
+        .comparison-container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .section-headline {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--burgundy-primary);
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+
+        .ticket-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow:
+                0 4px 24px rgba(139, 38, 53, 0.08),
+                0 1px 4px rgba(139, 38, 53, 0.04);
+            padding: var(--space-xl);
+            border: 1px solid transparent;
+            transition: border-color 300ms ease;
+        }
+
+        .ticket-card.free {
+            opacity: 0.95;
+            border-top: 2px solid #E5E5E5;
+        }
+
+        .ticket-card.vip {
+            border-top: 3px solid var(--burgundy-primary);
+            position: relative;
+        }
+
+        .ticket-card.vip::before {
+            content: "RECOMMENDED";
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background: var(--burgundy-primary);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .ticket-card:hover {
+            border-color: var(--border-light);
+        }
+
+        .ticket-header {
+            margin-bottom: var(--space-md);
+        }
+
+        .ticket-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .ticket-price {
+            font-family: var(--font-heading);
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--burgundy-primary);
+        }
+
+        .ticket-card.free .ticket-price {
+            color: var(--text-muted);
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: var(--space-sm);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .features-list li svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-included {
+            color: var(--text-primary);
+        }
+
+        .feature-excluded {
+            color: var(--text-muted);
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE DESIGN
+           ═══════════════════════════════════════ */
+
+        /* Tablet (768px - 1024px) */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+
+            .sticky-card-wrapper {
+                position: static;
+            }
+
+            .hero-section {
+                padding: calc(56px + var(--space-2xl)) var(--space-lg) var(--space-2xl);
+            }
+
+            .comparison-section {
+                padding: var(--space-2xl) var(--space-lg);
+            }
+        }
+
+        /* Mobile (< 768px) */
+        @media (max-width: 768px) {
+            .alert-bar {
+                height: 64px;
+                padding: 8px 20px;
+            }
+
+            .alert-bar-text {
+                font-size: 14px;
+                line-height: 1.3;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            h2 {
+                font-size: 40px;
+            }
+
+            h3 {
+                font-size: 28px;
+            }
+
+            body {
+                font-size: 17px;
+            }
+
+            .hero-section {
+                padding: calc(64px + var(--space-xl)) 20px var(--space-xl);
+            }
+
+            .hero-subhead {
+                font-size: 18px;
+            }
+
+            .hero-bullets li {
+                font-size: 17px;
+            }
+
+            .sticky-card {
+                padding: var(--space-md);
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                font-size: 17px;
+                padding: 18px var(--space-lg);
+            }
+
+            .comparison-section {
+                padding: var(--space-2xl) 20px;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .section-headline {
+                font-size: 36px;
+            }
+
+            .ticket-card {
+                padding: var(--space-md);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 0: ALERT BAR
+         ═══════════════════════════════════════ -->
+
+    <div class="alert-bar">
+        <div class="alert-bar-content">
+            <div class="alert-bar-text">
+                YOUR REGISTRATION ISN'T COMPLETE YET – DON'T CLOSE THIS PAGE.
+            </div>
+            <div class="alert-bar-progress">
+                <div class="alert-bar-progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 1: HERO
+         ═══════════════════════════════════════ -->
+
+    <section class="hero-section">
+        <div class="hero-container">
+            <!-- LEFT COLUMN -->
+            <div class="hero-left">
+                <h1>
+                    <span class="launch-ready">Upgrade to the</span><br>
+                    <span class="vip-ticket">Launch-Ready VIP Ticket</span>
+                </h1>
+
+                <p class="hero-subhead">
+                    Turn the free Etsy AI challenge into a focused launch sprint so you show up confident, get Bailey's help in a smaller room, and leave with listings that are actually ready to make sales.
+                </p>
+
+                <ul class="hero-bullets">
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>Have your first product idea and "starter listings" mapped out before Day 1 even starts.</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>Know exactly what to do after each session instead of drowning in random notes.</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <span>Ask Bailey questions in a smaller VIP room instead of getting lost in the main chat.</span>
+                    </li>
+                </ul>
+
+                <div class="video-block" onclick="alert('Video player would be integrated here')">
+                    <div class="video-overlay">
+                        <div class="video-overlay-text">
+                            Your VIP invite from Bailey is already playing – click to listen.
+                        </div>
+                        <div class="play-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN - STICKY CARD -->
+            <div class="sticky-card-wrapper">
+                <div class="sticky-card">
+                    <div class="vip-badge">VIP UPGRADE</div>
+
+                    <div class="price-display">$497</div>
+                    <div class="price-subtext">One-time investment</div>
+
+                    <div class="card-divider"></div>
+
+                    <ul class="quick-benefits">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>Pre-challenge starter kit</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>VIP-only Q&A with Bailey</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>Private WhatsApp group</span>
+                        </li>
+                    </ul>
+
+                    <div class="button-stack">
+                        <a href="#upgrade" class="btn-primary">
+                            YES, I WANT THE LAUNCH-READY VIP TICKET
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+
+                        <a href="#free-only" class="btn-secondary">
+                            NO, I'LL STAY ON THE FREE TICKET ONLY
+                        </a>
+                    </div>
+
+                    <p class="guarantee-text">
+                        Backed by a 7-day money-back guarantee after the challenge (details below).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2: TICKET COMPARISON
+         ═══════════════════════════════════════ -->
+
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <h2 class="section-headline">Choose Your Ticket Type Below:</h2>
+
+            <div class="comparison-grid">
+                <!-- FREE TICKET -->
+                <div class="ticket-card free">
+                    <div class="ticket-header">
+                        <h3 class="ticket-title">FREE CHALLENGE TICKET</h3>
+                        <div class="ticket-price">$0</div>
+                    </div>
+
+                    <ul class="features-list">
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>Access to all 3 main challenge days</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>Standard challenge workbook</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span>Access to the main community chat</span>
+                        </li>
+                        <li class="feature-excluded">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No pre-challenge starter kit</span>
+                        </li>
+                        <li class="feature-excluded">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No VIP Q&A sessions with Bailey</span>
+                        </li>
+                        <li class="feature-excluded">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No private VIP community</span>
+                        </li>
+                        <li class="feature-excluded">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No implementation templates</span>
+                        </li>
+                        <li class="feature-excluded">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No bonus AI tools & resources</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- VIP TICKET -->
+                <div class="ticket-card vip">
+                    <div class="ticket-header">
+                        <h3 class="ticket-title">LAUNCH-READY VIP TICKET</h3>
+                        <div class="ticket-price">$497</div>
+                    </div>
+
+                    <ul class="features-list">
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span><strong>Everything in the FREE ticket, plus:</strong></span>
+                        </li>
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span><strong>Pre-Challenge Starter Kit:</strong> Get your product idea & niche mapped before Day 1</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span><strong>VIP-Only Q&A Sessions:</strong> Ask Bailey your specific questions in a smaller group</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span><strong>Private VIP WhatsApp Group:</strong> Network with serious entrepreneurs only</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span><strong>Done-For-You Templates:</strong> Listing templates, SEO frameworks, & AI prompts</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span><strong>Post-Challenge Action Plan:</strong> Step-by-step roadmap for your first 30 days</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span><strong>Bonus AI Tools Pack:</strong> Premium AI tools & resources bundle (value: $297)</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8B5A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span><strong>7-Day Money-Back Guarantee:</strong> Try it risk-free</span>
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 24px;">
+                        <a href="#upgrade" class="btn-primary" style="width: 100%;">
+                            UPGRADE TO VIP NOW
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         FOOTER SPACER
+         ═══════════════════════════════════════ -->
+
+    <div style="height: 64px; background: var(--cream-base);"></div>
+
+    <script>
+        // Simple script for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate progress bar on load
+        window.addEventListener('load', () => {
+            const progressBar = document.querySelector('.alert-bar-progress-fill');
+            if (progressBar) {
+                setTimeout(() => {
+                    progressBar.style.width = '75%';
+                }, 100);
+            }
+        });
+    </script>
+
+</body>
+</html>
