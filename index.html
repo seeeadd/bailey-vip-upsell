@@ -31,8 +31,7 @@
             --white: #FFFFFF;
         }
 
-        /* FLAIR: Subtle paper texture added to body - creates warmth without being obvious
-           Applied at very low opacity (3%) so it feels organic, not dirty */
+        /* FLAIR: Paper texture on body - visible grain texture */
         body {
             font-family: 'Inter', sans-serif;
             color: var(--charcoal);
@@ -46,7 +45,7 @@
             position: fixed;
             inset: 0;
             background-image:
-                url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.2'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 0;
         }
@@ -116,8 +115,7 @@
             z-index: 1;
         }
 
-        /* FLAIR: Soft organic shape in background - adds visual interest without competing
-           RESTRAINT: Very subtle (opacity 0.04) so it doesn't distract */
+        /* FLAIR: Organic blob background - VISIBLE and dynamic */
         .hero::before {
             content: '';
             position: absolute;
@@ -125,7 +123,7 @@
             right: -100px;
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(232, 114, 92, 0.04) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(232, 114, 92, 0.18) 0%, transparent 70%);
             border-radius: 40% 60% 50% 50%;
             z-index: -1;
             animation: float 20s ease-in-out infinite;
@@ -163,11 +161,23 @@
             line-height: 1.1;
             margin-bottom: 24px;
             letter-spacing: -0.02em;
+            position: relative;
         }
 
-        /* SIGNATURE MOMENT 2: Hand-drawn underline effect
-           FLAIR: Organic brush stroke under "Launch-Ready" adds human touch
-           SOPHISTICATION: Not perfect/digital - has character without being messy */
+        /* BOLD DECORATIVE FLOURISH on hero title */
+        .hero-title::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -20px;
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--terracotta) 0%, transparent 100%);
+            border-radius: 3px;
+            transform: rotate(-2deg);
+        }
+
+        /* SIGNATURE MOMENT 2: Hand-drawn underline effect - BOLD & VISIBLE */
         .hero-highlight {
             color: var(--terracotta);
             position: relative;
@@ -177,17 +187,18 @@
         .hero-highlight::after {
             content: '';
             position: absolute;
-            left: -8px;
-            right: -8px;
-            bottom: 8px;
-            height: 20px;
+            left: -12px;
+            right: -12px;
+            bottom: 4px;
+            height: 32px;
             background: linear-gradient(to right,
-                rgba(232, 114, 92, 0.15) 0%,
-                rgba(232, 114, 92, 0.25) 50%,
-                rgba(232, 114, 92, 0.15) 100%);
+                rgba(232, 114, 92, 0.3) 0%,
+                rgba(232, 114, 92, 0.6) 50%,
+                rgba(232, 114, 92, 0.3) 100%);
             z-index: -1;
-            border-radius: 4px;
-            transform: rotate(-0.5deg);
+            border-radius: 8px;
+            transform: rotate(-1deg);
+            box-shadow: 0 2px 8px rgba(232, 114, 92, 0.2);
         }
 
         .hero-subtitle {
@@ -307,13 +318,12 @@
             overflow: hidden;
         }
 
-        /* FLAIR: Linen texture on price card - adds tactile quality
-           RESTRAINT: Only applied to VIP card, not everywhere */
+        /* FLAIR: Linen texture on price card - VISIBLE tactile quality */
         .price-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 0;
         }
@@ -455,9 +465,7 @@
             font-style: italic;
         }
 
-        /* VISUAL RHYTHM: Stats section with dotted pattern background
-           FLAIR: Subtle dots add texture without competing with content
-           RESTRAINT: Very low opacity (2%) keeps it sophisticated */
+        /* VISUAL RHYTHM: Stats section with dotted pattern background - VISIBLE */
         .stats-section {
             padding: 80px 60px;
             background: linear-gradient(180deg, var(--cream) 0%, white 100%);
@@ -469,7 +477,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(circle, rgba(232, 114, 92, 0.02) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(232, 114, 92, 0.12) 2px, transparent 2px);
             background-size: 30px 30px;
             pointer-events: none;
         }
@@ -508,15 +516,15 @@
             overflow: hidden;
         }
 
-        /* FLAIR: Corner accent - small decorative detail that adds polish */
+        /* FLAIR: Corner accent - BOLD decorative detail */
         .stat-card::after {
             content: '';
             position: absolute;
             top: 0;
             right: 0;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, transparent 50%, rgba(232, 114, 92, 0.05) 50%);
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, transparent 50%, rgba(232, 114, 92, 0.25) 50%);
         }
 
         /* TYPOGRAPHY FLOURISH: Numbers with gradient and shadow
@@ -563,6 +571,26 @@
             font-weight: 700;
             margin-bottom: 20px;
             line-height: 1.1;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* DRAMATIC brush stroke accent under section titles */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-1deg);
+            width: 80%;
+            height: 8px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(232, 114, 92, 0.4) 10%,
+                rgba(232, 114, 92, 0.7) 50%,
+                rgba(232, 114, 92, 0.4) 90%,
+                transparent 100%);
+            border-radius: 4px;
         }
 
         .section-subtitle {
@@ -578,8 +606,7 @@
             min-height: 700px;
         }
 
-        /* FLAIR: Diagonal stripe pattern shows FREE is limited/constrained
-           STRATEGIC: Pattern = restriction, Clean = freedom (VIP side) */
+        /* FLAIR: VISIBLE diagonal stripe pattern shows FREE is limited/constrained */
         .comparison-free {
             background: linear-gradient(135deg, #E8E8E8 0%, #D0D0D0 100%);
             padding: 60px 40px;
@@ -598,8 +625,8 @@
                 45deg,
                 transparent,
                 transparent 15px,
-                rgba(0,0,0,0.03) 15px,
-                rgba(0,0,0,0.03) 30px
+                rgba(0,0,0,0.15) 15px,
+                rgba(0,0,0,0.15) 30px
             );
         }
 
@@ -619,16 +646,16 @@
             position: relative;
         }
 
-        /* FLAIR: Soft glow behind VIP section - draws eye naturally */
+        /* FLAIR: VISIBLE glow behind VIP section - draws eye dramatically */
         .comparison-vip::after {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(232, 114, 92, 0.08) 0%, transparent 70%);
+            width: 90%;
+            height: 90%;
+            background: radial-gradient(circle, rgba(232, 114, 92, 0.25) 0%, transparent 70%);
             z-index: 0;
             border-radius: 50%;
         }
@@ -827,8 +854,7 @@
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
         }
 
-        /* VISUAL RHYTHM: Guarantee section with sage background - creates rest point
-           FLAIR: Darker section with texture provides contrast */
+        /* VISUAL RHYTHM: Guarantee section with sage background - VISIBLE texture */
         .guarantee-section {
             padding: 100px 60px;
             background: linear-gradient(180deg, white 0%, #F0F4F1 100%);
@@ -839,7 +865,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(circle, rgba(168, 181, 164, 0.03) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(168, 181, 164, 0.2) 2px, transparent 2px);
             background-size: 25px 25px;
         }
 
@@ -998,9 +1024,7 @@
             margin: 0 auto 12px;
         }
 
-        /* VISUAL CLIMAX: Final CTA with rich teal and texture
-           FLAIR: Dark background with grain texture creates premium finish
-           STRATEGIC: Dark section makes white price card pop dramatically */
+        /* VISUAL CLIMAX: Final CTA with rich teal and BOLD texture */
         .final-cta-section {
             padding: 100px 60px;
             background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
@@ -1008,12 +1032,12 @@
             overflow: hidden;
         }
 
-        /* FLAIR: Noise texture on dark background adds depth */
+        /* FLAIR: VISIBLE noise texture on dark background */
         .final-cta-section::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.25'/%3E%3C/svg%3E");
         }
 
         .final-cta-container {
