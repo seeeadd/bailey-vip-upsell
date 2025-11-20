@@ -16,20 +16,31 @@
            ═══════════════════════════════════════ */
 
         :root {
-            /* VIP Colors - Pink Primary */
+            /* Strategic Color Palette - Premium Positioning */
+            /* VIP Colors - Rich Pink for Energy */
             --vip-pink: #E85C7B;
             --vip-pink-hover: #D64868;
             --vip-pink-light: #FFF5F7;
+            --vip-pink-glow: rgba(232, 92, 123, 0.4);
 
-            /* Teal Accents */
-            --vip-teal: #4A8A8C;
+            /* Luxury Colors - Burgundy & Gold */
+            --burgundy: #8B2635;
+            --burgundy-dark: #6B1D28;
+            --gold: #D4AF37;
+            --gold-light: #E8C977;
+            --gold-dark: #B8962D;
+
+            /* Teal Accents - Deep & Sophisticated */
+            --vip-teal: #2F5F61;
             --vip-teal-light: #E8F4F4;
-            --vip-teal-dark: #3E7476;
+            --vip-teal-dark: #1E3D3E;
+            --sage-green: #A8B5A4;
 
             /* Backgrounds */
             --cream: #FAF7F2;
             --white: #FFFFFF;
             --warm-brown: #8B7355;
+            --black: #1A1A1A;
 
             /* Text */
             --text-primary: #2D2D2D;
@@ -43,6 +54,13 @@
             /* Typography */
             --font-heading: 'Fraunces', serif;
             --font-body: 'Inter', sans-serif;
+
+            /* Typography Scale - Strategic Hierarchy */
+            --type-hero: 120px;
+            --type-price: 80px;
+            --type-section: 60px;
+            --type-component: 32px;
+            --type-body: 18px;
         }
 
         /* ═══════════════════════════════════════
@@ -436,7 +454,7 @@
         /* EDITORIAL: Dramatic scale variation - VIP highlight is HUGE */
         .hero-h1 .vip-highlight {
             display: block;
-            font-size: 96px;
+            font-size: var(--type-hero);
             font-weight: 800;
             line-height: 0.95;
             margin-top: 8px;
@@ -566,17 +584,31 @@
 
         .sticky-card {
             padding: 48px 40px;
-            background: rgba(255, 255, 255, 0.95);
+            /* STRATEGIC: Dark burgundy background = premium, exclusive */
+            background: linear-gradient(165deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 2px solid rgba(232, 92, 123, 0.1);
+            border: 2px solid var(--gold);
             transform: rotate(-1deg);
-            /* Subtle pink glow for VIP card */
+            /* DRAMATIC: Strong floating effect with pink glow */
             box-shadow:
-                0 2px 4px rgba(45, 45, 45, 0.02),
-                0 8px 16px rgba(45, 45, 45, 0.04),
-                0 16px 48px rgba(232, 92, 123, 0.08),
-                0 0 80px rgba(232, 92, 123, 0.06);
+                0 8px 16px rgba(0, 0, 0, 0.3),
+                0 16px 32px rgba(0, 0, 0, 0.2),
+                0 24px 48px var(--vip-pink-glow),
+                0 0 80px rgba(232, 92, 123, 0.15);
+            position: relative;
+            overflow: visible;
+        }
+
+        /* Gold accent line on top edge */
+        .sticky-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
         }
 
         .sticky-card > * {
@@ -585,12 +617,11 @@
 
         .sticky-card .price-display {
             font-family: var(--font-heading);
-            font-size: 68px;
+            font-size: var(--type-price);
             font-weight: 800;
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            /* STRATEGIC: Gold price = luxury signal */
+            color: var(--gold);
+            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
             line-height: 1;
             margin: 20px 0 12px;
             letter-spacing: -0.04em;
@@ -598,15 +629,16 @@
 
         .sticky-card .price-subtext {
             font-size: 14px;
-            color: var(--text-muted);
+            color: var(--cream);
             margin-bottom: 28px;
             font-weight: 500;
             letter-spacing: 0.3px;
+            opacity: 0.9;
         }
 
         .card-divider {
             height: 1px;
-            background: #E5E5E5;
+            background: rgba(212, 175, 55, 0.2);
             margin: 24px 0;
         }
 
@@ -621,6 +653,7 @@
             gap: 12px;
             margin-bottom: 12px;
             font-size: 15px;
+            color: var(--cream);
         }
 
         .quick-benefits svg {
@@ -628,12 +661,87 @@
             margin-top: 2px;
         }
 
+        /* Update checkmark colors for dark card */
+        .sticky-card .quick-benefits svg circle {
+            fill: var(--sage-green);
+        }
+
+        .sticky-card .quick-benefits svg path {
+            stroke: var(--white);
+        }
+
         .guarantee-text {
             font-size: 13px;
-            color: var(--text-muted);
+            color: var(--cream);
             text-align: center;
             font-style: italic;
             margin-top: 16px;
+            opacity: 0.8;
+        }
+
+        /* ═══════════════════════════════════════
+           SOCIAL PROOF STATS - After Hero
+           ═══════════════════════════════════════ */
+
+        .social-proof-section {
+            background: linear-gradient(165deg, var(--cream) 0%, #FFFFFF 100%);
+            padding: 60px 60px 80px;
+            border-top: 1px solid rgba(232, 92, 123, 0.1);
+        }
+
+        .social-proof-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-proof-intro {
+            font-size: 20px;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .stat-card {
+            padding: 40px 32px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.04),
+                0 8px 24px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(232, 92, 123, 0.1);
+            transition: all 300ms ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 8px 16px rgba(0, 0, 0, 0.08),
+                0 12px 32px rgba(232, 92, 123, 0.15);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
         /* ═══════════════════════════════════════
@@ -668,7 +776,7 @@
         }
 
         .section-headline {
-            font-size: 52px;
+            font-size: var(--type-section);
             font-weight: 700;
             color: var(--text-primary);
             text-align: center;
@@ -709,46 +817,61 @@
             z-index: 1;
         }
 
-        /* EDITORIAL: Free card is smaller, slightly tilted, muted */
+        /* STRATEGIC: Free card is SMALL, muted, de-emphasized - conversion psychology */
         .ticket-card.free {
-            max-width: 380px;
-            opacity: 0.85;
-            transform: scale(0.85) translateY(80px) rotate(-2deg);
-            filter: grayscale(0.15);
+            max-width: 300px;
+            opacity: 0.7;
+            transform: scale(0.75) translateY(100px) rotate(-2deg);
+            filter: grayscale(0.3);
             transition: all 400ms ease;
+            background: linear-gradient(165deg, #F5F5F5 0%, #E8E8E8 100%);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .ticket-card.free .ticket-header {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .ticket-card.free .features-list li {
+            color: var(--text-muted);
+            font-size: 14px;
         }
 
         .ticket-card.free:hover {
-            opacity: 0.95;
-            transform: scale(0.87) translateY(75px) rotate(-2deg);
+            opacity: 0.8;
+            transform: scale(0.76) translateY(98px) rotate(-2deg);
         }
 
-        /* EDITORIAL: VIP card is MUCH LARGER (70%), dominant, overlaps FREE */
+        /* STRATEGIC: VIP card is 60% LARGER, dark, glowing - obvious choice */
         .ticket-card.vip {
-            max-width: 640px;
-            box-shadow:
-                0 8px 16px rgba(232, 92, 123, 0.15),
-                0 16px 48px rgba(232, 92, 123, 0.1),
-                0 32px 80px rgba(232, 92, 123, 0.08),
-                0 0 120px rgba(232, 92, 123, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            border: 2px solid rgba(232, 92, 123, 0.2);
+            max-width: 500px;
+            /* DRAMATIC: Dark burgundy background = luxury VIP lounge */
+            background: linear-gradient(165deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+            border: 2px solid var(--gold);
             padding: 64px 56px;
             position: relative;
-            background: linear-gradient(165deg, #FFFFFF 0%, rgba(255, 245, 247, 0.5) 100%);
             transform: rotate(-0.5deg);
             margin-left: -40px; /* Overlaps FREE card */
             transition: all 400ms ease;
+            /* STRATEGIC: Glowing effect draws eye magnetically */
+            box-shadow:
+                0 8px 16px rgba(0, 0, 0, 0.3),
+                0 16px 32px rgba(0, 0, 0, 0.2),
+                0 32px 64px var(--vip-pink-glow),
+                0 0 80px var(--vip-pink-glow),
+                inset 0 1px 0 rgba(212, 175, 55, 0.3);
         }
 
         .ticket-card.vip:hover {
-            transform: rotate(-0.5deg) translateY(-4px);
+            transform: rotate(-0.5deg) translateY(-4px) scale(1.02);
+            /* INTERACTION: Glow intensifies on hover */
             box-shadow:
-                0 12px 24px rgba(232, 92, 123, 0.18),
-                0 24px 64px rgba(232, 92, 123, 0.12),
-                0 48px 100px rgba(232, 92, 123, 0.1),
-                0 0 140px rgba(232, 92, 123, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+                0 12px 24px rgba(0, 0, 0, 0.4),
+                0 24px 48px rgba(0, 0, 0, 0.3),
+                0 48px 80px var(--vip-pink-glow),
+                0 0 100px var(--vip-pink-glow),
+                inset 0 1px 0 rgba(212, 175, 55, 0.4);
         }
 
         .ticket-card.vip::before {
@@ -757,8 +880,9 @@
             top: -16px;
             left: 50%;
             transform: translateX(-50%) skewX(-5deg);
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-pink-hover) 100%);
-            color: var(--white);
+            /* STRATEGIC: Gold ribbon = luxury signal */
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--burgundy-dark);
             font-size: 11px;
             font-weight: 800;
             text-transform: uppercase;
@@ -766,7 +890,7 @@
             padding: 10px 28px;
             border-radius: 0;
             clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
-            box-shadow: 0 4px 12px rgba(232, 92, 123, 0.4);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.6);
         }
 
         .ticket-header {
@@ -781,6 +905,7 @@
             font-size: 26px;
             font-weight: 700;
             letter-spacing: -0.02em;
+            color: var(--cream);
         }
 
         .ticket-price {
@@ -794,13 +919,31 @@
         }
 
         .ticket-card.vip .ticket-price {
-            font-size: 68px;
+            font-size: var(--type-price);
             font-weight: 800;
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            /* STRATEGIC: Gold price = luxury signal */
+            color: var(--gold);
+            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
             letter-spacing: -0.04em;
+        }
+
+        /* VIP card text needs to be light for dark background */
+        .ticket-card.vip .features-list li {
+            color: var(--cream);
+        }
+
+        .ticket-card.vip .ticket-note {
+            color: var(--cream);
+            opacity: 0.8;
+        }
+
+        /* Gold checkmarks for VIP card */
+        .ticket-card.vip .features-list svg circle {
+            fill: var(--sage-green);
+        }
+
+        .ticket-card.vip .features-list svg path {
+            stroke: var(--white);
         }
 
         .features-list {
@@ -1022,26 +1165,37 @@
             position: relative;
         }
 
-        /* COMPONENT 1: Large Image Focus (60% width, dominant visual) */
+        /* COMPONENT 1: STRATEGIC - Diagonal Large Image (70% width, text overlaid) */
         .component:nth-child(1) {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            max-width: 900px;
+            display: grid;
+            grid-template-columns: 70% 1fr;
+            align-items: start;
+            gap: 40px;
+            position: relative;
         }
 
         .component:nth-child(1) .component-image {
             width: 100%;
-            margin-bottom: -60px;
+            /* EDITORIAL: Diagonal positioning */
+            transform: rotate(-2deg);
             position: relative;
-            z-index: 2;
+            z-index: 1;
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.12),
+                0 16px 48px rgba(232, 92, 123, 0.15);
         }
 
         .component:nth-child(1) .component-content {
-            width: 85%;
-            margin-left: auto;
+            /* EDITORIAL: Content overlaps image in elegant box */
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            margin-top: 80px;
+            margin-left: -120px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
         }
 
         /* COMPONENT 2: Text Wraps Around (editorial magazine style) */
@@ -1062,62 +1216,105 @@
             grid-column: 2;
         }
 
-        /* COMPONENT 3: Diagonal Split (text left, image diagonal opposite) */
+        /* COMPONENT 3: STRATEGIC - Large Circular Bailey Photo, text wraps around */
         .component:nth-child(3) {
             display: grid;
-            grid-template-columns: 1fr 480px;
-            gap: 80px;
-            align-items: center;
+            grid-template-columns: 380px 1fr;
+            gap: 60px;
+            align-items: start;
             position: relative;
-        }
-
-        .component:nth-child(3) .component-content {
-            transform: translateY(-40px);
         }
 
         .component:nth-child(3) .component-image {
-            transform: translateY(40px);
+            /* EDITORIAL: Large circular photo with elegant frame */
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.15),
+                0 16px 48px rgba(232, 92, 123, 0.2),
+                0 0 60px rgba(212, 175, 55, 0.2);
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            position: sticky;
+            top: 120px;
         }
 
-        /* Artistic: connecting diagonal line */
+        .component:nth-child(3) .component-content {
+            /* Text wraps around circular photo */
+            padding-top: 40px;
+        }
+
+        /* VIP ONLY badge for component 3 */
         .component:nth-child(3)::after {
-            content: '';
+            content: 'VIP ONLY';
             position: absolute;
-            top: 30%;
-            left: 48%;
-            width: 200px;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(232, 92, 123, 0.2), transparent);
-            transform: rotate(-25deg);
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-pink-hover) 100%);
+            color: var(--white);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(232, 92, 123, 0.4);
         }
 
-        /* COMPONENT 4: Overlapping Elements (image + text card overlap) */
+        /* COMPONENT 4: STRATEGIC - Tilted WhatsApp Mockup (3° rotation) */
         .component:nth-child(4) {
             display: grid;
-            grid-template-columns: 550px 1fr;
-            gap: 40px;
-            align-items: start;
+            grid-template-columns: 480px 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .component:nth-child(4) .component-image {
+            /* EDITORIAL: Tilted 3° for visual interest */
+            transform: rotate(3deg);
             position: relative;
             z-index: 1;
+            box-shadow:
+                0 12px 32px rgba(0, 0, 0, 0.15),
+                0 24px 64px rgba(74, 138, 140, 0.15);
         }
 
         .component:nth-child(4) .component-content {
             position: relative;
             z-index: 2;
-            margin-left: -100px;
-            margin-top: 80px;
         }
 
-        /* COMPONENT 5: Full Bleed Drama (edge-to-edge, dramatic) */
+        /* Small "12 members online now" badge */
+        .component:nth-child(4) .component-content::after {
+            content: '12 members online now';
+            display: block;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--sage-green);
+            font-weight: 600;
+        }
+
+        /* COMPONENT 5: Full Bleed DARK Drama (edge-to-edge, STRATEGIC: burgundy background) */
         .component:nth-child(5) {
             margin: 0 -60px;
-            padding: 0;
+            padding: 80px 60px;
             display: grid;
             grid-template-columns: 1fr;
-            background: linear-gradient(135deg, rgba(232, 92, 123, 0.03), rgba(74, 138, 140, 0.03));
+            /* DRAMATIC: Dark burgundy background = premium, exclusive */
+            background: linear-gradient(165deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gold accent line at top */
+        .component:nth-child(5)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
         }
 
         .component:nth-child(5) .component-image {
@@ -1132,6 +1329,32 @@
             margin: -40px auto 0;
             position: relative;
             z-index: 2;
+        }
+
+        /* Light text for dark background */
+        .component:nth-child(5) .component-subhead {
+            color: var(--gold);
+        }
+
+        .component:nth-child(5) .component-body {
+            color: var(--cream);
+        }
+
+        .component:nth-child(5) .component-bullets li {
+            color: var(--cream);
+        }
+
+        .component:nth-child(5) .component-note {
+            color: var(--gold-light);
+        }
+
+        /* Gold checkmarks for dark component 5 */
+        .component:nth-child(5) .component-bullets svg circle {
+            fill: var(--sage-green);
+        }
+
+        .component:nth-child(5) .component-bullets svg path {
+            stroke: var(--gold);
         }
 
         .component-content {
@@ -1200,7 +1423,7 @@
         }
 
         .component-subhead {
-            font-size: 32px;
+            font-size: var(--type-component);
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 16px;
@@ -1291,7 +1514,8 @@
            ═══════════════════════════════════════ */
 
         .guarantee-section {
-            background: linear-gradient(135deg, var(--vip-teal-dark) 0%, #2D5F61 50%, var(--vip-teal) 100%);
+            /* STRATEGIC: Very dark burgundy/black background = serious, confident */
+            background: linear-gradient(165deg, var(--black) 0%, var(--burgundy-dark) 50%, var(--burgundy) 100%);
             padding: 100px 60px 120px;
             position: relative;
             overflow: hidden;
@@ -1320,23 +1544,25 @@
             align-items: center;
         }
 
-        /* EDITORIAL: "100%" as massive graphic element (left side) */
+        /* STRATEGIC: "100%" as HUGE decorative element (200px) */
         .guarantee-watermark {
             grid-column: 1;
             grid-row: 1 / 4;
             position: relative;
             font-family: var(--font-heading);
-            font-size: 220px;
+            font-size: 200px;
             font-weight: 900;
             line-height: 0.85;
-            color: var(--cream);
+            /* STRATEGIC: Gold/cream color for luxury */
+            color: var(--gold);
             z-index: 1;
             letter-spacing: -0.05em;
             text-align: center;
-            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+            -webkit-text-stroke: 2px rgba(212, 175, 55, 0.4);
             text-shadow:
-                0 4px 20px rgba(0, 0, 0, 0.2),
-                0 8px 40px rgba(0, 0, 0, 0.15);
+                0 4px 20px rgba(212, 175, 55, 0.3),
+                0 8px 40px rgba(212, 175, 55, 0.2);
+            opacity: 0.3;
         }
 
         .guarantee-section .badge {
@@ -1370,23 +1596,44 @@
             grid-column: 2;
         }
 
+        /* STRATEGIC: White inverted button stands out dramatically on dark background */
         .guarantee-section .btn-primary {
             background: var(--white);
-            color: var(--vip-teal-dark);
+            color: var(--burgundy-dark);
+            box-shadow:
+                0 4px 12px rgba(255, 255, 255, 0.2),
+                0 8px 24px rgba(255, 255, 255, 0.1);
         }
 
         .guarantee-section .btn-primary:hover {
-            background: var(--vip-pink-light);
+            background: var(--gold);
+            color: var(--burgundy-dark);
+            transform: translateY(-3px) scale(1.03);
         }
 
         .guarantee-section .btn-secondary {
             background: transparent;
-            border-color: var(--white);
-            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .guarantee-section .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* STRATEGIC: Gold seal illustration in bottom right corner */
+        .guarantee-container::after {
+            content: '◎';
+            position: absolute;
+            bottom: -60px;
+            right: -40px;
+            font-size: 240px;
+            color: var(--gold);
+            opacity: 0.15;
+            z-index: 0;
+            transform: rotate(-15deg);
         }
 
         /* ═══════════════════════════════════════
@@ -1665,6 +1912,62 @@
         .faq-section .button-stack {
             max-width: 500px;
             margin: 0 auto;
+        }
+
+        /* ═══════════════════════════════════════
+           TESTIMONIAL MARQUEE - Before Final CTA
+           ═══════════════════════════════════════ */
+
+        .testimonial-marquee-section {
+            background: linear-gradient(165deg, var(--cream) 0%, #FFFFFF 100%);
+            padding: 60px 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(232, 92, 123, 0.1);
+            border-bottom: 1px solid rgba(232, 92, 123, 0.1);
+        }
+
+        .marquee-wrapper {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll-left 30s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 60px;
+            padding-right: 60px;
+        }
+
+        .testimonial-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 28px;
+            background: var(--white);
+            border-radius: 100px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(232, 92, 123, 0.15);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--text-primary);
+            font-size: 15px;
+            font-weight: 500;
         }
 
         /* ═══════════════════════════════════════
@@ -2167,6 +2470,32 @@
                     <p class="guarantee-text">
                         Backed by a 7-day money-back guarantee after the challenge (details below).
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SOCIAL PROOF STATS - Results from Previous Challenge
+         ═══════════════════════════════════════ -->
+
+    <section class="social-proof-section">
+        <div class="social-proof-container">
+            <p class="social-proof-intro">
+                "Within 2 weeks of Bailey's last challenge, students made:"
+            </p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">New Shops<br>Launched</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$50K+</div>
+                    <div class="stat-label">Total Sales<br>Generated</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Still Active<br>After 30 Days</div>
                 </div>
             </div>
         </div>
@@ -2865,6 +3194,68 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════
+         TESTIMONIAL MARQUEE - Social Proof
+         ═══════════════════════════════════════ -->
+
+    <section class="testimonial-marquee-section">
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"Made $3K in first week"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"VIP workbook is incredible"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"Bailey answered my exact question"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"Worth 10x the price"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"Got my shop live in 3 days"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"WhatsApp group alone was worth it"</span>
+                </div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="marquee-content">
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"Made $3K in first week"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"VIP workbook is incredible"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"Bailey answered my exact question"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"Worth 10x the price"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"Got my shop live in 3 days"</span>
+                </div>
+                <div class="testimonial-item">
+                    <span class="testimonial-stars">★★★★★</span>
+                    <span class="testimonial-text">"WhatsApp group alone was worth it"</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- JavaScript -->
     <script>
         // Animate progress bar on load
@@ -2908,6 +3299,95 @@
                     alert('This would redirect to the ' + (href === '#checkout' ? 'checkout page' : 'free confirmation page'));
                 }
             });
+        });
+
+        // MICRO-INTERACTIONS: Scroll-triggered animations
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 200 &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScrollAnimations() {
+            // Fade in components
+            document.querySelectorAll('.component, .stat-card, .ticket-card').forEach(function(el) {
+                if (isElementInViewport(el) && !el.classList.contains('animated')) {
+                    el.classList.add('animated');
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(40px)';
+                    el.style.transition = 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)';
+                    setTimeout(function() {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, 50);
+                }
+            });
+        }
+
+        // MICRO-INTERACTIONS: Number count-up animation for stats
+        function animateNumber(el, target) {
+            if (el.dataset.animated) return;
+            el.dataset.animated = 'true';
+
+            const duration = 2000;
+            const start = 0;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function
+                const easeOutQuad = progress * (2 - progress);
+
+                if (target.includes('K')) {
+                    const numValue = parseInt(target.replace('K', ''));
+                    const current = Math.floor(easeOutQuad * numValue);
+                    el.textContent = current + 'K+';
+                } else if (target.includes('%')) {
+                    const numValue = parseInt(target.replace('%', ''));
+                    const current = Math.floor(easeOutQuad * numValue);
+                    el.textContent = current + '%';
+                } else {
+                    const numValue = parseInt(target.replace('+', ''));
+                    const current = Math.floor(easeOutQuad * numValue);
+                    el.textContent = current + '+';
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    el.textContent = target;
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Trigger stat animations when in view
+        function handleStatAnimations() {
+            document.querySelectorAll('.stat-number').forEach(function(el) {
+                if (isElementInViewport(el) && !el.dataset.animated) {
+                    const target = el.textContent;
+                    el.textContent = '0';
+                    animateNumber(el, target);
+                }
+            });
+        }
+
+        // Run on scroll and load
+        window.addEventListener('scroll', function() {
+            handleScrollAnimations();
+            handleStatAnimations();
+        });
+
+        window.addEventListener('load', function() {
+            handleScrollAnimations();
+            handleStatAnimations();
         });
     </script>
 
