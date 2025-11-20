@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade to Launch-Ready VIP Ticket | Bailey Vann's Boring Business Challenge</title>
+
+    <!-- Google Fonts: Fraunces + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════
+           CSS VARIABLES & DESIGN SYSTEM
+           ═══════════════════════════════════════ */
+
+        :root {
+            /* VIP Colors - Pink Primary */
+            --vip-pink: #E85C7B;
+            --vip-pink-hover: #D64868;
+            --vip-pink-light: #FFF5F7;
+
+            /* Teal Accents */
+            --vip-teal: #4A8A8C;
+            --vip-teal-light: #E8F4F4;
+            --vip-teal-dark: #3E7476;
+
+            /* Backgrounds */
+            --cream: #FAF7F2;
+            --white: #FFFFFF;
+            --warm-brown: #8B7355;
+
+            /* Text */
+            --text-primary: #2D2D2D;
+            --text-muted: #6B6B6B;
+            --text-light: #FFFFFF;
+
+            /* Supporting */
+            --muted-red: #D47A7A;
+            --border-light: rgba(0, 0, 0, 0.04);
+
+            /* Typography */
+            --font-heading: 'Fraunces', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* ═══════════════════════════════════════
+           RESET & BASE STYLES
+           ═══════════════════════════════════════ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--cream);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 0: ALERT BAR (STICKY)
+           ═══════════════════════════════════════ */
+
+        .alert-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-pink-hover) 100%);
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+        }
+
+        .alert-bar-content {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .alert-bar-text {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .alert-bar-progress {
+            width: 100%;
+            max-width: 300px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .alert-bar-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--vip-teal);
+            border-radius: 3px;
+            transition: width 1.5s ease-out;
+        }
+
+        /* ═══════════════════════════════════════
+           REUSABLE COMPONENTS
+           ═══════════════════════════════════════ */
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-teal {
+            background: var(--vip-teal);
+            color: var(--white);
+        }
+
+        .badge-pink {
+            background: var(--vip-pink);
+            color: var(--white);
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(45, 45, 45, 0.06);
+            border: 1px solid var(--border-light);
+            transition: border-color 300ms ease;
+        }
+
+        .card:hover {
+            border-color: rgba(232, 92, 123, 0.1);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 18px;
+            font-weight: 600;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 200ms ease;
+            border: none;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-pink-hover) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(232, 92, 123, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(232, 92, 123, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            border: 2px solid var(--vip-pink);
+            color: var(--vip-pink);
+            padding: 16px 40px;
+            font-weight: 500;
+            font-size: 17px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--vip-pink-light);
+            border-color: var(--vip-pink-hover);
+        }
+
+        .button-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 1: HERO
+           ═══════════════════════════════════════ */
+
+        .hero-section {
+            background: var(--cream);
+            padding: calc(52px + 80px) 60px 80px;
+            margin-top: 0;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 60% 35%;
+            gap: 5%;
+            align-items: start;
+        }
+
+        .hero-badge {
+            margin-bottom: 12px;
+        }
+
+        .hero-h1 {
+            font-size: 56px;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-h1 .vip-highlight {
+            color: var(--vip-pink);
+        }
+
+        .hero-subhead {
+            font-size: 20px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .hero-bullets {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .hero-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 14px;
+            font-size: 18px;
+        }
+
+        .hero-bullets svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .video-block {
+            margin-top: 32px;
+            aspect-ratio: 16/9;
+            border-radius: 16px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(45, 45, 45, 0.08);
+            cursor: pointer;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 300ms ease;
+        }
+
+        .video-block:hover .video-overlay {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+        }
+
+        .play-button {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--vip-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 200ms ease;
+        }
+
+        .video-block:hover .play-button {
+            transform: scale(1.1);
+            background: var(--vip-pink-hover);
+        }
+
+        /* Sticky Card (Right Column) */
+        .sticky-card-wrapper {
+            position: sticky;
+            top: 100px;
+        }
+
+        .sticky-card {
+            padding: 40px;
+        }
+
+        .sticky-card .price-display {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+            margin: 16px 0 8px;
+        }
+
+        .sticky-card .price-subtext {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .card-divider {
+            height: 1px;
+            background: #E5E5E5;
+            margin: 24px 0;
+        }
+
+        .quick-benefits {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .quick-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .quick-benefits svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .guarantee-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+            font-style: italic;
+            margin-top: 16px;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 2: TICKET COMPARISON
+           ═══════════════════════════════════════ */
+
+        .comparison-section {
+            background: var(--white);
+            padding: 80px 60px;
+        }
+
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-headline {
+            font-size: 42px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 40% 55%;
+            gap: 5%;
+            margin-bottom: 32px;
+        }
+
+        .ticket-card {
+            padding: 40px;
+        }
+
+        .ticket-card.free {
+            opacity: 0.95;
+        }
+
+        .ticket-card.vip {
+            box-shadow: 0 4px 20px rgba(232, 92, 123, 0.12);
+            border-top: 3px solid var(--vip-pink);
+            padding: 48px;
+            position: relative;
+        }
+
+        .ticket-card.vip::before {
+            content: 'BEST VALUE';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--vip-pink);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 20px;
+            border-radius: 20px;
+        }
+
+        .ticket-header {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .ticket-card.vip .ticket-header {
+            font-size: 24px;
+        }
+
+        .ticket-price {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .ticket-card.vip .ticket-price {
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--vip-pink);
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .ticket-card.vip .features-list li {
+            gap: 14px;
+        }
+
+        .features-list svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .ticket-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .bottom-note {
+            max-width: 800px;
+            margin: 32px auto 0;
+            text-align: center;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 3: WHY UPGRADE NOW
+           ═══════════════════════════════════════ */
+
+        .why-upgrade-section {
+            background: var(--cream);
+            padding: 72px 60px;
+        }
+
+        .why-upgrade-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .why-upgrade-section .section-headline {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .intro-paragraph {
+            font-size: 19px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            max-width: 720px;
+            margin: 0 auto 40px;
+        }
+
+        .arrow-bullets {
+            list-style: none;
+            max-width: 660px;
+            margin: 0 auto 40px;
+            text-align: left;
+        }
+
+        .arrow-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .arrow-bullets .arrow-icon {
+            font-size: 20px;
+            color: var(--vip-pink);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 4: WHAT'S INSIDE VIP TICKET
+           ═══════════════════════════════════════ */
+
+        .whats-inside-section {
+            background: var(--white);
+            padding: 80px 60px;
+        }
+
+        .whats-inside-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .whats-inside-section .section-headline {
+            margin-bottom: 56px;
+        }
+
+        .components-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 56px;
+        }
+
+        .component {
+            display: grid;
+            gap: 5%;
+            align-items: center;
+        }
+
+        .component.image-left {
+            grid-template-columns: 45% 50%;
+        }
+
+        .component.image-right {
+            grid-template-columns: 50% 45%;
+        }
+
+        .component.image-right .component-image {
+            order: 2;
+        }
+
+        .component.image-right .component-content {
+            order: 1;
+        }
+
+        .component.full-width {
+            grid-template-columns: 1fr;
+        }
+
+        .component-content {
+            padding: 40px;
+        }
+
+        .component.full-width .component-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .component-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--vip-pink);
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .component-subhead {
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .component-body {
+            font-size: 17px;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .component-bullets {
+            list-style: none;
+        }
+
+        .component-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .component-bullets svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .component-note {
+            font-size: 15px;
+            color: var(--vip-pink);
+            font-style: italic;
+            margin-top: 16px;
+        }
+
+        .component-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(45, 45, 45, 0.08);
+            background: var(--cream);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .component.full-width .component-image {
+            aspect-ratio: 16/9;
+            margin-bottom: 24px;
+        }
+
+        .image-placeholder {
+            color: var(--text-muted);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .final-cta {
+            margin-top: 56px;
+            text-align: center;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 5: GUARANTEE BLOCK
+           ═══════════════════════════════════════ */
+
+        .guarantee-section {
+            background: var(--vip-teal-dark);
+            padding: 72px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantee-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guarantee-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-heading);
+            font-size: 100px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.08);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .guarantee-section .badge {
+            margin-bottom: 16px;
+        }
+
+        .guarantee-section .section-headline {
+            font-size: 36px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .guarantee-body {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 720px;
+            margin: 0 auto 40px;
+        }
+
+        .guarantee-section .btn-primary {
+            background: var(--white);
+            color: var(--vip-teal-dark);
+        }
+
+        .guarantee-section .btn-primary:hover {
+            background: var(--vip-pink-light);
+        }
+
+        .guarantee-section .btn-secondary {
+            background: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .guarantee-section .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 6: IS THIS FOR YOU
+           ═══════════════════════════════════════ */
+
+        .filter-section {
+            background: var(--cream);
+            padding: 80px 60px;
+        }
+
+        .filter-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .filter-section .section-headline {
+            margin-bottom: 40px;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 28px;
+        }
+
+        .filter-card {
+            padding: 40px;
+        }
+
+        .filter-card.perfect {
+            border-top: 3px solid var(--vip-teal);
+        }
+
+        .filter-card.not-for-you {
+            border-top: 3px solid var(--muted-red);
+            opacity: 0.92;
+        }
+
+        .filter-icon {
+            margin-bottom: 16px;
+        }
+
+        .filter-card-header {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .filter-list {
+            list-style: none;
+        }
+
+        .filter-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        .filter-list svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .filter-bottom-note {
+            max-width: 800px;
+            margin: 28px auto;
+            text-align: center;
+            font-size: 16px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .filter-section .button-stack {
+            max-width: 500px;
+            margin: 28px auto 0;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 7: FAQ
+           ═══════════════════════════════════════ */
+
+        .faq-section {
+            background: var(--white);
+            padding: 80px 60px;
+        }
+
+        .faq-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .faq-section .section-headline {
+            margin-bottom: 56px;
+        }
+
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 56px;
+        }
+
+        .faq-item {
+            border-radius: 12px;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+            transition: all 300ms ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(232, 92, 123, 0.2);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .faq-question-text {
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .faq-icon {
+            flex-shrink: 0;
+            transition: transform 300ms ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 300ms ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            font-size: 17px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .faq-section .button-stack {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE: TABLET (768px - 1024px)
+           ═══════════════════════════════════════ */
+
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sticky-card-wrapper {
+                position: static;
+            }
+
+            .hero-section {
+                padding: calc(52px + 60px) 40px 60px;
+            }
+
+            .comparison-section,
+            .why-upgrade-section,
+            .whats-inside-section,
+            .guarantee-section,
+            .filter-section,
+            .faq-section {
+                padding: 60px 40px;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .component.image-left,
+            .component.image-right {
+                grid-template-columns: 1fr;
+            }
+
+            .component.image-right .component-image {
+                order: 1;
+            }
+
+            .component.image-right .component-content {
+                order: 2;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE: MOBILE (< 768px)
+           ═══════════════════════════════════════ */
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 17px;
+            }
+
+            .alert-bar {
+                height: 60px;
+                padding: 8px 16px;
+            }
+
+            .alert-bar-text {
+                font-size: 14px;
+                line-height: 1.3;
+            }
+
+            .hero-section {
+                padding: calc(60px + 48px) 24px 48px;
+            }
+
+            .hero-h1 {
+                font-size: 48px;
+            }
+
+            .hero-subhead {
+                font-size: 18px;
+            }
+
+            .hero-bullets li {
+                font-size: 17px;
+            }
+
+            .sticky-card {
+                padding: 24px;
+            }
+
+            .comparison-section,
+            .why-upgrade-section,
+            .whats-inside-section,
+            .guarantee-section,
+            .filter-section,
+            .faq-section {
+                padding: 56px 24px;
+            }
+
+            .section-headline {
+                font-size: 36px;
+            }
+
+            .why-upgrade-section .section-headline {
+                font-size: 36px;
+            }
+
+            .intro-paragraph {
+                font-size: 18px;
+            }
+
+            .arrow-bullets li {
+                font-size: 17px;
+            }
+
+            .component-content {
+                padding: 28px;
+            }
+
+            .component-subhead {
+                font-size: 24px;
+            }
+
+            .component-body {
+                font-size: 16px;
+            }
+
+            .guarantee-section .section-headline {
+                font-size: 32px;
+            }
+
+            .guarantee-body {
+                font-size: 16px;
+            }
+
+            .filter-card {
+                padding: 28px;
+            }
+
+            .faq-question-text {
+                font-size: 17px;
+            }
+
+            .faq-answer-content {
+                font-size: 16px;
+            }
+
+            .btn {
+                font-size: 17px;
+                padding: 18px 32px;
+            }
+
+            .btn-secondary {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 0: ALERT BAR
+         ═══════════════════════════════════════ -->
+
+    <div class="alert-bar">
+        <div class="alert-bar-content">
+            <div class="alert-bar-text">
+                YOUR REGISTRATION ISN'T COMPLETE YET – DON'T CLOSE THIS PAGE.
+            </div>
+            <div class="alert-bar-progress">
+                <div class="alert-bar-progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 1: HERO
+         ═══════════════════════════════════════ -->
+
+    <section class="hero-section">
+        <div class="hero-container">
+            <!-- LEFT COLUMN -->
+            <div class="hero-left">
+                <div class="badge badge-teal hero-badge">VIP UPGRADE</div>
+
+                <h1 class="hero-h1">
+                    Upgrade to the<br>
+                    <span class="vip-highlight">Launch-Ready VIP Ticket</span>
+                </h1>
+
+                <p class="hero-subhead">
+                    Turn the free Etsy AI challenge into a focused launch sprint so you show up confident, get Bailey's help in a smaller room, and leave with listings that are actually ready to make sales.
+                </p>
+
+                <ul class="hero-bullets">
+                    <li>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>Have your first product idea and "starter listings" mapped out before Day 1 even starts.</span>
+                    </li>
+                    <li>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>Know exactly what to do after each session instead of drowning in random notes.</span>
+                    </li>
+                    <li>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>Ask Bailey questions in a smaller VIP room instead of getting lost in the main chat.</span>
+                    </li>
+                </ul>
+
+                <div class="video-block" onclick="playVideo()">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN - STICKY CARD -->
+            <div class="sticky-card-wrapper">
+                <div class="sticky-card card">
+                    <div class="badge badge-pink">VIP UPGRADE</div>
+
+                    <div class="price-display">$497</div>
+                    <div class="price-subtext">One-time investment</div>
+
+                    <div class="card-divider"></div>
+
+                    <ul class="quick-benefits">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Pre-challenge starter kit</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>VIP-only Q&A with Bailey</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Private WhatsApp group</span>
+                        </li>
+                    </ul>
+
+                    <div class="button-stack">
+                        <a href="#checkout" class="btn btn-primary">
+                            YES, I WANT THE LAUNCH-READY VIP TICKET
+                        </a>
+                        <a href="#free" class="btn btn-secondary">
+                            NO, I'LL STAY ON THE FREE TICKET ONLY
+                        </a>
+                    </div>
+
+                    <p class="guarantee-text">
+                        Backed by a 7-day money-back guarantee after the challenge (details below).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2: TICKET COMPARISON
+         ═══════════════════════════════════════ -->
+
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <h2 class="section-headline">Choose Your Ticket Type Below:</h2>
+
+            <div class="comparison-grid">
+                <!-- FREE TICKET -->
+                <div class="ticket-card card free">
+                    <h3 class="ticket-header">FREE CHALLENGE TICKET</h3>
+                    <div class="ticket-price">$0</div>
+
+                    <ul class="features-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Access to all 3 main challenge days</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Standard challenge workbook</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Access to the main community chat</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No pre-challenge starter kit</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No VIP-only Q&A with Bailey</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No private VIP WhatsApp circle</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No VIP template & AI prompt vault</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>No entry into VIP shop audit</span>
+                        </li>
+                    </ul>
+
+                    <a href="#free" class="btn btn-secondary" style="width: 100%; display: flex;">
+                        NO, I WANT TO KEEP MY FREE TICKET
+                    </a>
+
+                    <p class="ticket-note">
+                        You'll be redirected to the standard confirmation page and community link.
+                    </p>
+                </div>
+
+                <!-- VIP TICKET -->
+                <div class="ticket-card card vip">
+                    <h3 class="ticket-header">LAUNCH-READY VIP TICKET</h3>
+                    <div class="ticket-price">$497</div>
+
+                    <ul class="features-list">
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span><strong>Everything in the FREE ticket, plus:</strong></span>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Pre-Challenge Shop Starter Kit</span>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>VIP Challenge Workbook & AI Prompt Pack</span>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>VIP-Only Implementation Q&A Call with Bailey</span>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Private VIP WhatsApp 'Green Room'</span>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Extended replay access</span>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Entry into VIP shop audit & 1-on-1 giveaway</span>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Mystery VIP-only tool</span>
+                        </li>
+                    </ul>
+
+                    <a href="#checkout" class="btn btn-primary" style="width: 100%; display: flex;">
+                        YES, I WANT THE LAUNCH-READY VIP TICKET
+                    </a>
+
+                    <p class="ticket-note">
+                        You'll be redirected to the secure checkout page to complete your upgrade.
+                    </p>
+                </div>
+            </div>
+
+            <p class="bottom-note">
+                Regardless of which ticket you choose, check your email for the challenge details. VIPs will receive separate links for their extra sessions and WhatsApp group.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3: WHY UPGRADE NOW
+         ═══════════════════════════════════════ -->
+
+    <section class="why-upgrade-section">
+        <div class="why-upgrade-container">
+            <h2 class="section-headline">Why Upgrade to VIP Before the Challenge Starts</h2>
+
+            <p class="intro-paragraph">
+                The free challenge will give you ideas. The Launch-Ready VIP Ticket is built to make sure those ideas turn into real listings, real momentum, and a shop that doesn't stay stuck in "I'll do it later."
+            </p>
+
+            <ul class="arrow-bullets">
+                <li>
+                    <span class="arrow-icon">→</span>
+                    <span>You'll show up already knowing your niche and first product instead of staring at a blank screen.</span>
+                </li>
+                <li>
+                    <span class="arrow-icon">→</span>
+                    <span>You'll follow a VIP workbook that tells you exactly what to implement after each session.</span>
+                </li>
+                <li>
+                    <span class="arrow-icon">→</span>
+                    <span>You'll have a small room to ask Bailey questions live, instead of competing with hundreds of comments.</span>
+                </li>
+                <li>
+                    <span class="arrow-icon">→</span>
+                    <span>You'll plug into a VIP WhatsApp circle where everyone is actually launching, not just watching.</span>
+                </li>
+            </ul>
+
+            <div class="button-stack" style="max-width: 500px; margin: 0 auto;">
+                <a href="#checkout" class="btn btn-primary">
+                    YES, I WANT THE LAUNCH-READY VIP TICKET
+                </a>
+                <a href="#free" class="btn btn-secondary">
+                    NO, I'LL STAY ON THE FREE TICKET ONLY
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4: WHAT'S INSIDE VIP TICKET
+         ═══════════════════════════════════════ -->
+
+    <section class="whats-inside-section">
+        <div class="whats-inside-container">
+            <h2 class="section-headline">Here's Everything You Get With Your Launch-Ready VIP Ticket</h2>
+
+            <div class="components-wrapper">
+                <!-- Component 1: Pre-Challenge Shop Starter Kit -->
+                <div class="component image-left">
+                    <div class="component-image">
+                        <div class="image-placeholder">
+                            [Pre-Challenge Kit Illustration]
+                        </div>
+                    </div>
+                    <div class="component-content card">
+                        <div class="component-number">1</div>
+                        <h3 class="component-subhead">Pre-Challenge Shop Starter Kit</h3>
+                        <p class="component-body">
+                            You'll receive instant access to a pre-challenge roadmap that walks you through picking your niche, researching your first product ideas, and setting up your Etsy shop foundations—so you show up to Day 1 already ahead of the curve.
+                        </p>
+                        <ul class="component-bullets">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Niche selection framework</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Product idea validation checklist</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Etsy shop setup walkthrough</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Component 2: VIP Workbook & AI Prompt Pack -->
+                <div class="component image-right">
+                    <div class="component-image">
+                        <div class="image-placeholder">
+                            [Workbook Mockup]
+                        </div>
+                    </div>
+                    <div class="component-content card">
+                        <div class="component-number">2</div>
+                        <h3 class="component-subhead">VIP Challenge Workbook & AI Prompt Pack</h3>
+                        <p class="component-body">
+                            Free attendees get ideas. VIPs get a step-by-step workbook that turns those ideas into action. Plus, you'll receive a curated vault of AI prompts specifically designed for Etsy sellers—copy, paste, and customize to create listings faster.
+                        </p>
+                        <ul class="component-bullets">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Daily implementation worksheets</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>50+ copy-paste AI prompts for Etsy</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Progress tracker & accountability tools</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Component 3: VIP-Only Q&A with Bailey -->
+                <div class="component image-left">
+                    <div class="component-image">
+                        <div class="image-placeholder">
+                            [Bailey Photo or Video Call Illustration]
+                        </div>
+                    </div>
+                    <div class="component-content card">
+                        <div class="component-number">3</div>
+                        <h3 class="component-subhead">VIP-Only Implementation Q&A with Bailey</h3>
+                        <p class="component-body">
+                            During the challenge, you'll get access to a private Q&A session with Bailey—just for VIPs. This isn't a massive group call. It's a smaller room where you can ask your specific questions, get personalized feedback, and troubleshoot your roadblocks in real-time.
+                        </p>
+                        <ul class="component-bullets">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Live access to Bailey in a small group setting</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Get your specific questions answered</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Replay access for reference</span>
+                            </li>
+                        </ul>
+                        <p class="component-note">
+                            This session is not available to free attendees.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Component 4: Private VIP WhatsApp Circle -->
+                <div class="component image-right">
+                    <div class="component-image">
+                        <div class="image-placeholder">
+                            [WhatsApp Interface Mockup]
+                        </div>
+                    </div>
+                    <div class="component-content card">
+                        <div class="component-number">4</div>
+                        <h3 class="component-subhead">Private VIP WhatsApp 'Green Room'</h3>
+                        <p class="component-body">
+                            Join a curated group of action-takers who are actually implementing, not just lurking. Share wins, ask quick questions, get feedback on your listings, and build relationships with fellow VIPs who are launching alongside you.
+                        </p>
+                        <ul class="component-bullets">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>VIP-only WhatsApp community</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Real-time feedback and support</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Network with serious entrepreneurs</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Component 5: Extended Replays & Prizes -->
+                <div class="component full-width">
+                    <div class="component-image">
+                        <div class="image-placeholder">
+                            [Gift Box or Mystery Tool Illustration]
+                        </div>
+                    </div>
+                    <div class="component-content card">
+                        <div class="component-number">5</div>
+                        <h3 class="component-subhead">Extended Replays, VIP Prizes & a Mystery Launch Tool</h3>
+                        <p class="component-body">
+                            VIPs get extended access to all challenge replays so you can revisit Bailey's training on your schedule. Plus, you'll be entered into exclusive giveaways including a 1-on-1 shop audit with Bailey and access to a mystery launch tool that will be revealed during the challenge.
+                        </p>
+                        <ul class="component-bullets">
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Extended replay access (30 days vs. 7 days for free)</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Entry into VIP-only shop audit giveaway</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Chance to win 1-on-1 time with Bailey</span>
+                            </li>
+                            <li>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Mystery VIP-only launch tool (revealed during challenge)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="final-cta button-stack" style="max-width: 500px; margin: 56px auto 0;">
+                <a href="#checkout" class="btn btn-primary">
+                    YES, I WANT THE LAUNCH-READY VIP TICKET
+                </a>
+                <a href="#free" class="btn btn-secondary">
+                    NO, I'LL STAY ON THE FREE TICKET ONLY
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 5: GUARANTEE BLOCK
+         ═══════════════════════════════════════ -->
+
+    <section class="guarantee-section">
+        <div class="guarantee-watermark">100%</div>
+        <div class="guarantee-container">
+            <div class="badge badge-pink">100% GUARANTEE</div>
+
+            <h2 class="section-headline">100% Money-Back Guarantee – Try VIP for the Entire Challenge</h2>
+
+            <p class="guarantee-body">
+                Upgrade to VIP now, participate in the entire challenge, use all the resources, attend the VIP sessions, and if you don't feel it was worth every penny, simply email us within 7 days after the challenge ends for a full refund. No questions asked, no hoops to jump through. You have nothing to lose and a fully launched Etsy shop to gain.
+            </p>
+
+            <div class="button-stack" style="max-width: 500px; margin: 0 auto;">
+                <a href="#checkout" class="btn btn-primary">
+                    YES, I WANT THE LAUNCH-READY VIP TICKET
+                </a>
+                <a href="#free" class="btn btn-secondary">
+                    NO, I'LL STAY ON THE FREE TICKET ONLY
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 6: IS THIS FOR YOU
+         ═══════════════════════════════════════ -->
+
+    <section class="filter-section">
+        <div class="filter-container">
+            <h2 class="section-headline">Is the Launch-Ready VIP Ticket For You?</h2>
+
+            <div class="filter-grid">
+                <!-- Perfect For You -->
+                <div class="filter-card card perfect">
+                    <div class="filter-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="filter-card-header">Perfect for you if...</h3>
+                    <ul class="filter-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>You're ready to actually launch an Etsy shop, not just "think about it"</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>You want done-for-you templates and systems to save time</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>You want direct access to Bailey in a smaller group</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>You're serious about building a real income stream</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>You want to be surrounded by other action-takers</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Probably Not For You -->
+                <div class="filter-card card not-for-you">
+                    <div class="filter-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="15" y1="9" x2="9" y2="15"></line>
+                            <line x1="9" y1="9" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 class="filter-card-header">Probably not for you if...</h3>
+                    <ul class="filter-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>You're just exploring and not ready to commit time or energy</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>You want to passively watch without implementing</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>You're looking for a "get rich quick" scheme</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>You're not willing to invest in your business growth</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>You prefer to figure everything out on your own</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="filter-bottom-note">
+                If you're on the fence, grab the VIP ticket now while it's available. You're fully protected by the guarantee.
+            </p>
+
+            <div class="button-stack">
+                <a href="#checkout" class="btn btn-primary">
+                    YES, I WANT THE LAUNCH-READY VIP TICKET
+                </a>
+                <a href="#free" class="btn btn-secondary">
+                    NO, I'LL STAY ON THE FREE TICKET ONLY
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 7: FAQ
+         ═══════════════════════════════════════ -->
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-headline">Frequently Asked Questions About the Launch-Ready VIP Ticket</h2>
+
+            <div class="faq-accordion">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-question-text">When do I get access to the VIP materials?</div>
+                        <div class="faq-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            You'll receive immediate access to your Pre-Challenge Shop Starter Kit as soon as you upgrade. The VIP Workbook, AI Prompt Pack, and WhatsApp group invite will be sent within 24 hours. You'll receive all session links and calendar invites via email before the challenge begins.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-question-text">What if I can't attend the VIP Q&A session live?</div>
+                        <div class="faq-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            No problem! All VIP sessions are recorded and you'll have extended replay access for 30 days. You can also submit questions in advance via the VIP WhatsApp group and Bailey will answer them during the live session.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-question-text">How is the VIP ticket different from the free challenge?</div>
+                        <div class="faq-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            The free challenge gives you the training and inspiration. The VIP ticket gives you implementation tools, direct access to Bailey in smaller groups, done-for-you templates, a private community of action-takers, and a pre-challenge head start so you're not scrambling to keep up.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-question-text">Is there a payment plan available?</div>
+                        <div class="faq-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            The VIP ticket is a one-time investment of $497. This keeps it simple and ensures you get instant access to all materials without worrying about future payments. Plus, you're protected by our 7-day money-back guarantee.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-question-text">Can I upgrade later if I change my mind?</div>
+                        <div class="faq-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            VIP tickets are only available during this limited enrollment window. Once the challenge starts, we close VIP access to protect the intimate group size and ensure everyone gets personalized attention. If you're on the fence, it's better to grab it now while it's available—you're protected by the guarantee anyway.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-question-text">What happens after I click "Yes, I want the VIP ticket"?</div>
+                        <div class="faq-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            You'll be redirected to a secure checkout page to complete your VIP upgrade. After payment, you'll receive immediate access to your Pre-Challenge Starter Kit, and all additional VIP materials and links will be delivered to your email within 24 hours.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-question-text">What if I'm brand new to Etsy? Will I be able to keep up?</div>
+                        <div class="faq-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolutely! The VIP ticket is actually perfect for beginners because you get the Pre-Challenge Starter Kit that walks you through the basics before Day 1. You'll also have access to Bailey in the VIP Q&A sessions and the WhatsApp group where you can ask beginner-friendly questions without feeling lost in a massive crowd.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-stack">
+                <a href="#checkout" class="btn btn-primary">
+                    YES, I WANT THE LAUNCH-READY VIP TICKET
+                </a>
+                <a href="#free" class="btn btn-secondary">
+                    NO, I'LL STAY ON THE FREE TICKET ONLY
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Animate progress bar on load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.alert-bar-progress-fill').style.width = '75%';
+            }, 300);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(function(question) {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                const wasActive = item.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(function(faqItem) {
+                    faqItem.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't active
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Video placeholder click
+        function playVideo() {
+            alert('Video player would be integrated here (YouTube/Vimeo embed)');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#checkout' || href === '#free') {
+                    e.preventDefault();
+                    // These would redirect to actual checkout/confirmation pages
+                    console.log('Redirecting to:', href);
+                    alert('This would redirect to the ' + (href === '#checkout' ? 'checkout page' : 'free confirmation page'));
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
