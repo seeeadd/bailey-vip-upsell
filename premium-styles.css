@@ -1,0 +1,293 @@
+/* ═══════════════════════════════════════
+   PREMIUM 2025 DESIGN SYSTEM
+   Clean, Professional, Conversion-Optimized
+   ═══════════════════════════════════════ */
+
+:root {
+    /* Colors - Clean & Professional */
+    --primary: #E85C7B;
+    --primary-dark: #C94861;
+    --primary-light: #FFE8ED;
+
+    --accent: #2C5F61;
+    --accent-light: #E5F2F3;
+
+    --text: #0A0A0A;
+    --text-secondary: #525252;
+    --text-tertiary: #A3A3A3;
+
+    --bg: #FFFFFF;
+    --bg-secondary: #FAFAFA;
+    --bg-tertiary: #F4F4F4;
+
+    --border: #E5E5E5;
+
+    /* Typography - Premium Scale */
+    --font-display: 'Fraunces', serif;
+    --font-sans: 'Inter', -apple-system, sans-serif;
+
+    /* Spacing - 8px base */
+    --space-1: 0.5rem;   /* 8px */
+    --space-2: 1rem;     /* 16px */
+    --space-3: 1.5rem;   /* 24px */
+    --space-4: 2rem;     /* 32px */
+    --space-6: 3rem;     /* 48px */
+    --space-8: 4rem;     /* 64px */
+    --space-12: 6rem;    /* 96px */
+    --space-16: 8rem;    /* 128px */
+
+    /* Premium Shadows */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+}
+
+/* ═══════════════════════════════════════
+   TYPOGRAPHY - PREMIUM HIERARCHY
+   ═══════════════════════════════════════ */
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: var(--space-4);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--space-2);
+}
+
+p {
+    margin-bottom: var(--space-3);
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════
+   LAYOUT - CLEAN GRID SYSTEM
+   ═══════════════════════════════════════ */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.section {
+    padding: var(--space-16) 0;
+}
+
+.section-sm {
+    padding: var(--space-12) 0;
+}
+
+/* ═══════════════════════════════════════
+   COMPONENTS - PREMIUM BUTTONS
+   ═══════════════════════════════════════ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0.75rem;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--bg);
+    color: var(--text);
+    border: 1.5px solid var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════
+   COMPONENTS - PREMIUM CARDS
+   ═══════════════════════════════════════ */
+
+.card {
+    background: var(--bg);
+    border-radius: 1.5rem;
+    border: 1px solid var(--border);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+/* ═══════════════════════════════════════
+   ALERT BAR - CLEAN & MINIMAL
+   ═══════════════════════════════════════ */
+
+.alert-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--primary);
+    padding: var(--space-2) var(--space-4);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.alert-bar-text {
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+/* ═══════════════════════════════════════
+   HERO - CLEAN & CONVERSION FOCUSED
+   ═══════════════════════════════════════ */
+
+.hero {
+    padding: calc(60px + var(--space-16)) var(--space-4) var(--space-16);
+    background: linear-gradient(to bottom, var(--bg) 0%, var(--bg-secondary) 100%);
+}
+
+.hero-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+}
+
+.hero-content h1 {
+    margin-bottom: var(--space-3);
+}
+
+.hero-content p {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-6);
+    max-width: 32rem;
+}
+
+/* ═══════════════════════════════════════
+   COMPARISON - STRATEGIC LAYOUT
+   ═══════════════════════════════════════ */
+
+.comparison {
+    padding: var(--space-16) var(--space-4);
+    background: var(--bg-secondary);
+}
+
+.comparison-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+/* ═══════════════════════════════════════
+   FEATURES - CLEAN GRID
+   ═══════════════════════════════════════ */
+
+.features {
+    padding: var(--space-16) var(--space-4);
+}
+
+.feature-grid {
+    max-width: 1200px;
+    margin: var(--space-8) auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE - MOBILE FIRST
+   ═══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .hero-grid,
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .section {
+        padding: var(--space-12) 0;
+    }
+}

@@ -3,3131 +3,596 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upgrade to Launch-Ready VIP Ticket | Bailey Vann's Boring Business Challenge</title>
+    <title>Upgrade to VIP | Bailey Vann's Boring Business Challenge</title>
 
-    <!-- Google Fonts: Fraunces + Inter -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="premium-styles.css">
 
     <style>
-        /* ═══════════════════════════════════════
-           CSS VARIABLES & DESIGN SYSTEM
-           ═══════════════════════════════════════ */
-
-        :root {
-            /* VIP Colors - Pink Primary */
-            --vip-pink: #E85C7B;
-            --vip-pink-hover: #D64868;
-            --vip-pink-light: #FFF5F7;
-
-            /* Teal Accents */
-            --vip-teal: #4A8A8C;
-            --vip-teal-light: #E8F4F4;
-            --vip-teal-dark: #3E7476;
-
-            /* Backgrounds */
-            --cream: #FAF7F2;
-            --white: #FFFFFF;
-            --warm-brown: #8B7355;
-
-            /* Text */
-            --text-primary: #2D2D2D;
-            --text-muted: #6B6B6B;
-            --text-light: #FFFFFF;
-
-            /* Supporting */
-            --muted-red: #D47A7A;
-            --border-light: rgba(0, 0, 0, 0.04);
-
-            /* Typography */
-            --font-heading: 'Fraunces', serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
-        /* ═══════════════════════════════════════
-           SIGNATURE VISUAL DNA - ANIMATED BLOBS
-           ═══════════════════════════════════════ */
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(5deg); }
-            66% { transform: translate(-20px, 20px) rotate(-5deg); }
-        }
-
-        @keyframes blob-morph {
-            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-        }
-
-        .blob-background {
-            position: absolute;
-            opacity: 0.08;
-            filter: blur(60px);
-            animation: float 20s ease-in-out infinite, blob-morph 15s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ═══════════════════════════════════════
-           RESET & BASE STYLES
-           ═══════════════════════════════════════ */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* Additional premium styles inline for simplicity */
         body {
-            font-family: var(--font-body);
-            font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--cream);
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(232, 92, 123, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(74, 138, 140, 0.03) 0%, transparent 50%),
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            line-height: 1.1;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
+        /* Premium spacing utilities */
+        .mt-4 { margin-top: 2rem; }
+        .mb-8 { margin-bottom: 4rem; }
+        .text-center { text-align: center; }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* ═══════════════════════════════════════
-           CREATIVE EDITORIAL ENHANCEMENTS
-           ═══════════════════════════════════════ */
-
-        /* Decorative circles that float around sections */
-        .decorative-circle {
-            position: absolute;
-            border-radius: 50%;
-            border: 2px solid;
-            opacity: 0.15;
-            pointer-events: none;
-        }
-
-        /* Hand-drawn underlines */
-        .hand-underline {
-            position: relative;
-        }
-
-        .hand-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: -5%;
-            width: 110%;
-            height: 12px;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,6 Q25,2 50,6 T100,6' stroke='%23E85C7B' stroke-width='2' fill='none' opacity='0.4'/%3E%3C/svg%3E") repeat-x;
-            background-size: 100px 12px;
-        }
-
-        /* Curved dividers */
-        .curved-divider {
-            position: absolute;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-
-        .curved-divider svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 60px;
-        }
-
-        /* Circle badges floating */
-        .circle-badge {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-heading);
-            font-weight: 800;
-            text-align: center;
-            line-height: 1.2;
-            border: 3px solid;
-            transform: rotate(-12deg);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Squiggly arrows */
-        .squiggly-arrow {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            opacity: 0.2;
-        }
-
-        /* ═══════════════════════════════════════
-           SECTION 0: ALERT BAR (STICKY)
-           ═══════════════════════════════════════ */
-
-        .alert-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: linear-gradient(135deg, #E85C7B 0%, #D64868 50%, #4A8A8C 100%);
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 24px;
-            box-shadow: 0 4px 24px rgba(232, 92, 123, 0.3);
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-        }
-
-        /* Animated diagonal stripes behind progress */
-        .alert-bar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255, 255, 255, 0.03) 10px,
-                rgba(255, 255, 255, 0.03) 20px
-            );
-            animation: stripe-scroll 20s linear infinite;
-        }
-
-        @keyframes stripe-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(50px); }
-        }
-
-        .alert-bar-content {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .alert-bar-text {
-            color: var(--white);
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-align: center;
-        }
-
-        .alert-bar-progress {
-            width: 100%;
-            max-width: 300px;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .alert-bar-progress-fill {
-            height: 100%;
-            width: 0%;
-            background: var(--vip-teal);
-            border-radius: 3px;
-            transition: width 1.5s ease-out;
-        }
-
-        /* ═══════════════════════════════════════
-           REUSABLE COMPONENTS
-           ═══════════════════════════════════════ */
-
-        .badge {
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 0;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            position: relative;
-            clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
-            transform: skewX(-5deg);
-        }
-
-        .badge > * {
-            transform: skewX(5deg);
-            display: inline-block;
-        }
-
-        .badge-teal {
-            background: linear-gradient(135deg, var(--vip-teal) 0%, var(--vip-teal-dark) 100%);
-            color: var(--white);
-            box-shadow: 0 4px 12px rgba(74, 138, 140, 0.3);
-        }
-
-        .badge-pink {
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-pink-hover) 100%);
-            color: var(--white);
-            box-shadow: 0 4px 12px rgba(232, 92, 123, 0.3);
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 24px;
-            box-shadow:
-                0 2px 4px rgba(45, 45, 45, 0.02),
-                0 8px 16px rgba(45, 45, 45, 0.04),
-                0 16px 48px rgba(45, 45, 45, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* CREATIVE: Scribble corner accent */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 80px;
-            height: 80px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M40,10 Q50,20 60,10 T80,20' stroke='%23E85C7B' stroke-width='2' fill='none' opacity='0.1'/%3E%3Cpath d='M20,40 Q30,50 40,40 T60,50' stroke='%234A8A8C' stroke-width='2' fill='none' opacity='0.1'/%3E%3C/svg%3E") no-repeat;
-            background-size: contain;
-            z-index: 0;
-        }
-
-        /* CREATIVE: Gradient shimmer on top */
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg,
-                transparent,
-                rgba(232, 92, 123, 0.3) 30%,
-                rgba(74, 138, 140, 0.3) 70%,
-                transparent);
-        }
-
-        .card:hover {
-            transform: translateY(-4px) rotate(0.5deg);
-            box-shadow:
-                0 4px 8px rgba(45, 45, 45, 0.03),
-                0 12px 24px rgba(45, 45, 45, 0.06),
-                0 24px 64px rgba(45, 45, 45, 0.08);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-family: var(--font-body);
-            font-size: 17px;
-            font-weight: 700;
-            padding: 20px 48px;
-            border-radius: 12px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            text-align: center;
-            line-height: 1.2;
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.3px;
-        }
-
-        .btn::after {
-            content: '→';
-            position: absolute;
-            right: 24px;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .btn:hover::after {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--vip-pink) 0%, #D64868 50%, var(--vip-teal) 100%);
-            background-size: 200% 100%;
-            background-position: 0% 0%;
-            color: var(--white);
-            box-shadow:
-                0 4px 12px rgba(232, 92, 123, 0.25),
-                0 8px 24px rgba(232, 92, 123, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
-            opacity: 0;
-            transition: opacity 300ms ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow:
-                0 6px 16px rgba(232, 92, 123, 0.3),
-                0 12px 32px rgba(232, 92, 123, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            background-position: 100% 0%;
-        }
-
-        .btn-primary:hover::before {
-            opacity: 1;
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            border: 2px solid var(--vip-pink);
-            color: var(--vip-pink);
-            padding: 18px 48px;
-            font-weight: 600;
-            font-size: 16px;
-            box-shadow: 0 2px 8px rgba(232, 92, 123, 0.1);
-        }
-
-        .btn-secondary::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--vip-pink-light), var(--vip-teal-light));
-            opacity: 0;
-            transition: opacity 300ms ease;
-            z-index: -1;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            border-color: var(--vip-teal);
-            color: var(--vip-teal);
-            box-shadow: 0 4px 16px rgba(74, 138, 140, 0.2);
-        }
-
-        .btn-secondary:hover::before {
-            opacity: 1;
-        }
-
-        .button-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        /* ═══════════════════════════════════════
-           SECTION 1: HERO
-           ═══════════════════════════════════════ */
-
-        .hero-section {
-            background: linear-gradient(165deg, #FAF7F2 0%, #FFFFFF 100%);
-            padding: calc(52px + 100px) 60px 120px;
-            margin-top: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* CREATIVE: Floating sticker badges */
-        .hero-section::after {
-            content: '★';
-            position: absolute;
-            top: 15%;
-            right: 8%;
-            font-size: 120px;
-            color: rgba(232, 92, 123, 0.08);
-            transform: rotate(15deg);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(232, 92, 123, 0.1) 0%, transparent 70%);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: blob-morph 20s ease-in-out infinite;
-            z-index: 0;
-        }
-
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            bottom: -15%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(74, 138, 140, 0.08) 0%, transparent 70%);
-            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-            animation: blob-morph 25s ease-in-out infinite reverse;
-            z-index: 0;
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            gap: 60px;
-            align-items: flex-start;
-        }
-
-        .hero-left {
-            flex: 1;
-            position: relative;
-            max-width: 700px;
-        }
-
-        /* Editorial: Create magazine-style wrap around video */
-        .hero-content-wrapper {
-            position: relative;
-        }
-
-        .hero-headline-section {
-            position: relative;
-            padding: 40px;
-            margin: -40px -40px 40px -40px;
-            background: linear-gradient(125deg, rgba(232, 92, 123, 0.03) 0%, transparent 60%);
-            border-left: 2px solid rgba(232, 92, 123, 0.15);
-        }
-
-        .hero-badge {
-            margin-bottom: 24px;
-            animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .hero-h1 {
-            font-size: 42px;
-            font-weight: 600;
-            color: var(--text-primary);
-            line-height: 1.15;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-            animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s backwards;
-        }
-
-        /* EDITORIAL: Dramatic scale variation - VIP highlight is HUGE */
-        .hero-h1 .vip-highlight {
-            display: block;
-            font-size: 96px;
-            font-weight: 800;
-            line-height: 0.95;
-            margin-top: 8px;
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            letter-spacing: -0.04em;
-        }
-
-        /* Artistic touch: thin connecting line */
-        .hero-h1 .vip-highlight::after {
-            content: '';
-            position: absolute;
-            right: -80px;
-            top: 50%;
-            width: 200px;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(232, 92, 123, 0.3), transparent);
-        }
-
-        .hero-subhead {
-            font-size: 21px;
-            color: var(--text-primary);
-            line-height: 1.7;
-            margin-bottom: 40px;
-            font-weight: 400;
-            animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
-        }
-
-        .hero-bullets {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-
-        .hero-bullets li {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 14px;
-            font-size: 18px;
-        }
-
-        .hero-bullets svg {
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        /* EDITORIAL: Large off-center video with elegant border */
-        .video-block {
-            margin: 48px 0 32px -60px;
-            width: calc(100% + 100px);
-            max-width: 650px;
-            aspect-ratio: 16/9;
-            border-radius: 8px;
-            background: #000;
-            position: relative;
-            overflow: hidden;
-            box-shadow:
-                0 0 0 1px rgba(232, 92, 123, 0.2),
-                0 8px 32px rgba(45, 45, 45, 0.12);
-            cursor: pointer;
-        }
-
-        /* Artistic: Border extends as decorative line */
-        .video-block::after {
-            content: '';
-            position: absolute;
-            right: -120px;
-            top: 50%;
-            width: 120px;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(74, 138, 140, 0.3), transparent);
-            pointer-events: none;
-        }
-
-        .video-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 300ms ease;
-        }
-
-        .video-block:hover .video-overlay {
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));
-        }
-
-        .play-button {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: var(--vip-pink);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 200ms ease;
-        }
-
-        .video-block:hover .play-button {
-            transform: scale(1.1);
-            background: var(--vip-pink-hover);
-        }
-
-        /* EDITORIAL: Floating price card - not perfectly aligned */
-        .sticky-card-wrapper {
+        /* Price card - premium styling */
+        .price-card {
             position: sticky;
-            top: 120px;
-            width: 420px;
-            flex-shrink: 0;
-            animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
+            top: 100px;
+            background: white;
+            border: 1px solid #E5E5E5;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
         }
 
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .sticky-card {
-            padding: 48px 40px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 2px solid rgba(232, 92, 123, 0.1);
-            transform: rotate(-1deg);
-            /* Subtle pink glow for VIP card */
-            box-shadow:
-                0 2px 4px rgba(45, 45, 45, 0.02),
-                0 8px 16px rgba(45, 45, 45, 0.04),
-                0 16px 48px rgba(232, 92, 123, 0.08),
-                0 0 80px rgba(232, 92, 123, 0.06);
-        }
-
-        .sticky-card > * {
-            transform: rotate(1deg);
-        }
-
-        .sticky-card .price-display {
-            font-family: var(--font-heading);
-            font-size: 68px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            margin: 20px 0 12px;
-            letter-spacing: -0.04em;
-        }
-
-        .sticky-card .price-subtext {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 28px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-        }
-
-        .card-divider {
-            height: 1px;
-            background: #E5E5E5;
-            margin: 24px 0;
-        }
-
-        .quick-benefits {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-
-        .quick-benefits li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 15px;
-        }
-
-        .quick-benefits svg {
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .guarantee-text {
-            font-size: 13px;
-            color: var(--text-muted);
-            text-align: center;
-            font-style: italic;
-            margin-top: 16px;
-        }
-
-        /* ═══════════════════════════════════════
-           SECTION 2: TICKET COMPARISON
-           ═══════════════════════════════════════ */
-
-        .comparison-section {
-            background:
-                linear-gradient(165deg, transparent 0%, transparent 45%, rgba(232, 92, 123, 0.03) 45%, rgba(232, 92, 123, 0.03) 55%, transparent 55%),
-                linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 100%);
-            padding: 100px 60px 120px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* CREATIVE: Checkered pattern accent */
-        .comparison-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background-image:
-                repeating-linear-gradient(0deg, rgba(232, 92, 123, 0.03) 0px, rgba(232, 92, 123, 0.03) 20px, transparent 20px, transparent 40px),
-                repeating-linear-gradient(90deg, rgba(232, 92, 123, 0.03) 0px, rgba(232, 92, 123, 0.03) 20px, transparent 20px, transparent 40px);
-            z-index: 0;
-            opacity: 0.5;
-        }
-
-        /* CREATIVE: Floating circle badge */
-        .comparison-section::after {
-            content: 'VIP';
-            position: absolute;
-            bottom: 10%;
-            left: 5%;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: var(--vip-pink);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-heading);
-            font-size: 24px;
-            font-weight: 800;
-            transform: rotate(-15deg);
-            box-shadow: 0 12px 40px rgba(232, 92, 123, 0.3);
-            border: 4px solid white;
-            z-index: 0;
-        }
-
-        .comparison-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-headline {
-            font-size: 52px;
+        .price {
+            font-family: 'Fraunces', serif;
+            font-size: 4rem;
             font-weight: 700;
-            color: var(--text-primary);
-            text-align: center;
-            margin-bottom: 64px;
-            letter-spacing: -0.02em;
-            line-height: 1.15;
-            position: relative;
-            display: inline-block;
+            line-height: 1;
+            color: #E85C7B;
+            margin: 1rem 0;
         }
 
-        /* CREATIVE: Hand-drawn circle around headlines */
-        .section-headline::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: calc(100% + 80px);
-            height: calc(100% + 40px);
-            transform: translate(-50%, -50%) rotate(-2deg);
-            border: 3px solid rgba(232, 92, 123, 0.15);
-            border-radius: 50% 48% 52% 50%;
-            z-index: -1;
+        /* Features list */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
         }
 
-        .comparison-container .section-headline::before,
-        .filter-container .section-headline::before {
-            display: block;
-        }
-
-        /* EDITORIAL: Asymmetric comparison - VIP is 70% larger, different positions */
-        .comparison-grid {
+        .feature-list li {
             display: flex;
             align-items: flex-start;
-            gap: 60px;
-            margin-bottom: 48px;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .feature-list svg {
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        /* Comparison cards */
+        .comparison-card {
+            background: white;
+            border: 2px solid #E5E5E5;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            transition: all 250ms ease;
+        }
+
+        .comparison-card.vip {
+            border-color: #E85C7B;
+            box-shadow: 0 8px 32px rgba(232, 92, 123, 0.15);
             position: relative;
-            justify-content: center;
-            padding: 60px 0;
         }
 
-        /* VS element between cards */
-        .comparison-grid::before {
-            content: 'VS';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-family: var(--font-heading);
-            font-size: 80px;
-            font-weight: 800;
-            color: rgba(232, 92, 123, 0.08);
-            z-index: 0;
-            letter-spacing: 0.1em;
-        }
-
-        .ticket-card {
-            padding: 48px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* EDITORIAL: Free card is smaller, slightly tilted, muted */
-        .ticket-card.free {
-            max-width: 380px;
-            opacity: 0.85;
-            transform: scale(0.85) translateY(80px) rotate(-2deg);
-            filter: grayscale(0.15);
-            transition: all 400ms ease;
-        }
-
-        .ticket-card.free:hover {
-            opacity: 0.95;
-            transform: scale(0.87) translateY(75px) rotate(-2deg);
-        }
-
-        /* EDITORIAL: VIP card is MUCH LARGER (70%), dominant, overlaps FREE */
-        .ticket-card.vip {
-            max-width: 640px;
-            box-shadow:
-                0 8px 16px rgba(232, 92, 123, 0.15),
-                0 16px 48px rgba(232, 92, 123, 0.1),
-                0 32px 80px rgba(232, 92, 123, 0.08),
-                0 0 120px rgba(232, 92, 123, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            border: 2px solid rgba(232, 92, 123, 0.2);
-            padding: 64px 56px;
-            position: relative;
-            background: linear-gradient(165deg, #FFFFFF 0%, rgba(255, 245, 247, 0.5) 100%);
-            transform: rotate(-0.5deg);
-            margin-left: -40px; /* Overlaps FREE card */
-            transition: all 400ms ease;
-        }
-
-        .ticket-card.vip:hover {
-            transform: rotate(-0.5deg) translateY(-4px);
-            box-shadow:
-                0 12px 24px rgba(232, 92, 123, 0.18),
-                0 24px 64px rgba(232, 92, 123, 0.12),
-                0 48px 100px rgba(232, 92, 123, 0.1),
-                0 0 140px rgba(232, 92, 123, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        }
-
-        .ticket-card.vip::before {
+        .comparison-card.vip::before {
             content: 'BEST VALUE';
             position: absolute;
-            top: -16px;
+            top: -14px;
             left: 50%;
-            transform: translateX(-50%) skewX(-5deg);
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-pink-hover) 100%);
-            color: var(--white);
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 10px 28px;
-            border-radius: 0;
-            clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
-            box-shadow: 0 4px 12px rgba(232, 92, 123, 0.4);
-        }
-
-        .ticket-header {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: -0.01em;
-            color: var(--text-primary);
-        }
-
-        .ticket-card.vip .ticket-header {
-            font-size: 26px;
+            transform: translateX(-50%);
+            background: #E85C7B;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.05em;
         }
 
-        .ticket-price {
-            font-family: var(--font-heading);
-            font-size: 54px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 28px;
-            letter-spacing: -0.03em;
-            line-height: 1;
-        }
-
-        .ticket-card.vip .ticket-price {
-            font-size: 68px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.04em;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-
-        .features-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 14px;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .ticket-card.vip .features-list li {
-            gap: 14px;
-        }
-
-        .features-list svg {
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .ticket-note {
-            font-size: 13px;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 16px;
-        }
-
-        .bottom-note {
-            max-width: 800px;
-            margin: 32px auto 0;
-            text-align: center;
-            font-size: 15px;
-            color: var(--text-muted);
-        }
-
-        /* ═══════════════════════════════════════
-           SECTION 3: WHY UPGRADE NOW
-           ═══════════════════════════════════════ */
-
-        .why-upgrade-section {
-            background: linear-gradient(180deg, #FAF7F2 0%, #FFFFFF 50%, #FAF7F2 100%);
-            padding: 120px 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* CREATIVE: Wavy top divider */
-        .why-upgrade-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'%3E%3Cpath d='M0,40 Q300,0 600,40 T1200,40 L1200,80 L0,80 Z' fill='%23FFFFFF'/%3E%3C/svg%3E") no-repeat;
-            background-size: 100% 80px;
-            z-index: 1;
-        }
-
-        /* CREATIVE: Scattered dots pattern */
-        .why-upgrade-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 400px;
-            height: 400px;
-            background-image: radial-gradient(circle, rgba(74, 138, 140, 0.1) 2px, transparent 2px);
-            background-size: 40px 40px;
-            z-index: 0;
-        }
-
-        /* EDITORIAL: Asymmetric layout - not centered */
-        .why-upgrade-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+        /* What's Inside - clean grid */
+        .component-grid {
             display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 80px;
-            align-items: start;
+            gap: 4rem;
+            margin-top: 4rem;
         }
 
-        .why-upgrade-section .section-headline {
-            font-size: 56px;
-            margin-bottom: 24px;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            text-align: left;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(232, 92, 123, 0.15);
-            grid-column: 1 / -1;
-        }
-
-        .intro-paragraph {
-            font-size: 22px;
-            color: var(--text-primary);
-            line-height: 1.65;
-            margin-bottom: 40px;
-            font-weight: 400;
-            grid-column: 1 / -1;
-            max-width: 820px;
-        }
-
-        /* EDITORIAL: Bullets in contained card (left-aligned) */
-        .arrow-bullets {
-            list-style: none;
-            text-align: left;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 16px;
-            border: 1px solid rgba(232, 92, 123, 0.1);
-            box-shadow: 0 4px 16px rgba(45, 45, 45, 0.04);
-            grid-column: 1;
-        }
-
-        .arrow-bullets li {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 20px;
-            font-size: 18px;
-            line-height: 1.6;
-            transition: all 200ms ease;
-        }
-
-        .arrow-bullets li:last-child {
-            margin-bottom: 0;
-        }
-
-        .arrow-bullets li:hover {
-            transform: translateX(4px);
-        }
-
-        .arrow-bullets .arrow-icon {
-            font-size: 24px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            flex-shrink: 0;
-            margin-top: 0;
-        }
-
-        /* EDITORIAL: Large visual element on right at different scale */
-        .why-upgrade-visual {
-            grid-column: 2;
-            grid-row: 3;
-            position: relative;
-            padding: 60px 40px;
-            background: linear-gradient(135deg, rgba(232, 92, 123, 0.05), rgba(74, 138, 140, 0.05));
-            border-radius: 16px;
-            border: 2px solid rgba(232, 92, 123, 0.1);
-            text-align: center;
-        }
-
-        .why-upgrade-visual::before {
-            content: '4';
-            font-family: var(--font-heading);
-            font-size: 180px;
-            font-weight: 800;
-            line-height: 1;
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0.15;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .why-upgrade-visual-content {
-            position: relative;
-            z-index: 1;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-            line-height: 1.4;
-        }
-
-        /* ═══════════════════════════════════════
-           SECTION 4: WHAT'S INSIDE VIP TICKET
-           ═══════════════════════════════════════ */
-
-        .whats-inside-section {
-            background:
-                radial-gradient(circle at 20% 80%, rgba(232, 92, 123, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(74, 138, 140, 0.04) 0%, transparent 50%),
-                linear-gradient(165deg, #FFFFFF 0%, #FAF7F2 100%);
-            padding: 120px 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* CREATIVE: Curved top wave */
-        .whats-inside-section::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 100' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C300,80 500,20 800,50 C1000,70 1100,40 1200,50 L1200,0 L0,0 Z' fill='%23FAF7F2'/%3E%3C/svg%3E") no-repeat;
-            background-size: 100% 100px;
-            z-index: 1;
-        }
-
-        /* CREATIVE: Squiggly arrow pointing */
-        .whats-inside-section::after {
-            content: url("data:image/svg+xml,%3Csvg width='150' height='150' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,100 Q40,20 80,60 T140,40' stroke='%23E85C7B' stroke-width='3' fill='none' opacity='0.15' stroke-dasharray='5,5'/%3E%3Cpolygon points='135,35 145,40 140,50' fill='%23E85C7B' opacity='0.15'/%3E%3C/svg%3E");
-            position: absolute;
-            top: 12%;
-            left: 3%;
-            z-index: 0;
-        }
-
-        .whats-inside-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .whats-inside-section .section-headline {
-            margin-bottom: 80px;
-        }
-
-        /* EDITORIAL: Mixed compositions - each component has different layout */
-        .components-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 100px;
-        }
-
-        /* Component Base */
         .component {
-            position: relative;
-        }
-
-        /* COMPONENT 1: Large Image Focus (60% width, dominant visual) */
-        .component:nth-child(1) {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            max-width: 900px;
-        }
-
-        .component:nth-child(1) .component-image {
-            width: 100%;
-            margin-bottom: -60px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .component:nth-child(1) .component-content {
-            width: 85%;
-            margin-left: auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* COMPONENT 2: Text Wraps Around (editorial magazine style) */
-        .component:nth-child(2) {
             display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .component:nth-child(2) .component-image {
-            grid-row: 1 / 3;
-            position: sticky;
-            top: 120px;
-        }
-
-        .component:nth-child(2) .component-content {
-            grid-column: 2;
-        }
-
-        /* COMPONENT 3: Diagonal Split (text left, image diagonal opposite) */
-        .component:nth-child(3) {
-            display: grid;
-            grid-template-columns: 1fr 480px;
-            gap: 80px;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
-            position: relative;
         }
 
-        .component:nth-child(3) .component-content {
-            transform: translateY(-40px);
+        .component:nth-child(even) {
+            direction: rtl;
         }
 
-        .component:nth-child(3) .component-image {
-            transform: translateY(40px);
-        }
-
-        /* Artistic: connecting diagonal line */
-        .component:nth-child(3)::after {
-            content: '';
-            position: absolute;
-            top: 30%;
-            left: 48%;
-            width: 200px;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(232, 92, 123, 0.2), transparent);
-            transform: rotate(-25deg);
-        }
-
-        /* COMPONENT 4: Overlapping Elements (image + text card overlap) */
-        .component:nth-child(4) {
-            display: grid;
-            grid-template-columns: 550px 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .component:nth-child(4) .component-image {
-            position: relative;
-            z-index: 1;
-        }
-
-        .component:nth-child(4) .component-content {
-            position: relative;
-            z-index: 2;
-            margin-left: -100px;
-            margin-top: 80px;
-        }
-
-        /* COMPONENT 5: Full Bleed Drama (edge-to-edge, dramatic) */
-        .component:nth-child(5) {
-            margin: 0 -60px;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr;
-            background: linear-gradient(135deg, rgba(232, 92, 123, 0.03), rgba(74, 138, 140, 0.03));
-        }
-
-        .component:nth-child(5) .component-image {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 60px 0;
-        }
-
-        .component:nth-child(5) .component-content {
-            max-width: 900px;
-            margin: -40px auto 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .component-content {
-            padding: 48px;
-            position: relative;
-        }
-
-        /* CREATIVE: Sticker-style number badges with shadows */
-        .component-number {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--vip-pink) 0%, var(--vip-teal) 100%);
-            color: var(--white);
-            font-family: var(--font-heading);
-            font-size: 28px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            box-shadow:
-                0 0 0 4px var(--white),
-                0 0 0 6px rgba(232, 92, 123, 0.2),
-                0 8px 20px rgba(232, 92, 123, 0.3),
-                0 4px 8px rgba(0, 0, 0, 0.1);
-            transform: rotate(-3deg);
-            position: relative;
-        }
-
-        /* CREATIVE: Sparkle effect on numbers */
-        .component-number::after {
-            content: '✦';
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            font-size: 16px;
-            color: var(--vip-pink);
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        /* Varied number badge styles */
-        .component:nth-child(1) .component-number {
-            width: 72px;
-            height: 72px;
-            font-size: 32px;
-            border-radius: 16px;
-        }
-
-        .component:nth-child(2) .component-number {
-            transform: rotate(5deg);
-            width: 56px;
-            height: 56px;
-            font-size: 24px;
-        }
-
-        .component:nth-child(3) .component-number {
-            border-radius: 12px;
-            transform: rotate(-5deg);
-        }
-
-        .component:nth-child(4) .component-number {
-            width: 80px;
-            height: 80px;
-            font-size: 36px;
-            border-radius: 50%;
-        }
-
-        .component:nth-child(5) .component-number {
-            border-radius: 50%;
-            transform: rotate(8deg);
-            width: 68px;
-            height: 68px;
-            font-size: 30px;
-        }
-
-        .component-subhead {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-
-        .component-body {
-            font-size: 18px;
-            color: var(--text-primary);
-            line-height: 1.7;
-            margin-bottom: 24px;
-        }
-
-        .component-bullets {
-            list-style: none;
-        }
-
-        .component-bullets li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .component-bullets svg {
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .component-note {
-            font-size: 15px;
-            color: var(--vip-pink);
-            font-style: italic;
-            margin-top: 16px;
+        .component:nth-child(even) > * {
+            direction: ltr;
         }
 
         .component-image {
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow:
-                0 4px 12px rgba(45, 45, 45, 0.06),
-                0 12px 32px rgba(45, 45, 45, 0.08);
-            background: linear-gradient(135deg, var(--cream) 0%, #FFFFFF 100%);
+            background: #F4F4F4;
+            border-radius: 1rem;
             aspect-ratio: 4/3;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            transform: rotate(1deg);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #A3A3A3;
         }
 
-        .component:nth-child(even) .component-image {
-            transform: rotate(-1deg);
-        }
-
-        .component-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(232, 92, 123, 0.05) 0%, transparent 60%);
-        }
-
-        .image-placeholder {
-            color: var(--text-muted);
-            font-size: 15px;
-            text-align: center;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
-        }
-
-        .final-cta {
-            margin-top: 56px;
-            text-align: center;
-        }
-
-        /* ═══════════════════════════════════════
-           SECTION 5: GUARANTEE BLOCK
-           ═══════════════════════════════════════ */
-
-        .guarantee-section {
-            background: linear-gradient(135deg, var(--vip-teal-dark) 0%, #2D5F61 50%, var(--vip-teal) 100%);
-            padding: 100px 60px 120px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .guarantee-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.3;
-        }
-
-        /* EDITORIAL: Asymmetric layout with HUGE "100%" graphic */
-        .guarantee-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 80px;
+        .component-number {
+            display: inline-flex;
             align-items: center;
-        }
-
-        /* EDITORIAL: "100%" as massive graphic element (left side) */
-        .guarantee-watermark {
-            grid-column: 1;
-            grid-row: 1 / 4;
-            position: relative;
-            font-family: var(--font-heading);
-            font-size: 220px;
-            font-weight: 900;
-            line-height: 0.85;
-            color: var(--cream);
-            z-index: 1;
-            letter-spacing: -0.05em;
-            text-align: center;
-            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
-            text-shadow:
-                0 4px 20px rgba(0, 0, 0, 0.2),
-                0 8px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .guarantee-section .badge {
-            margin-bottom: 24px;
-            grid-column: 2;
-            justify-self: start;
-        }
-
-        .guarantee-section .section-headline {
-            font-size: 48px;
-            color: var(--white);
-            margin-bottom: 28px;
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-            text-align: left;
-            grid-column: 2;
-        }
-
-        .guarantee-body {
-            font-size: 19px;
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.7;
-            margin-bottom: 40px;
-            font-weight: 400;
-            text-align: left;
-            grid-column: 2;
-        }
-
-        /* CTA buttons span right column */
-        .guarantee-section .button-stack {
-            grid-column: 2;
-        }
-
-        .guarantee-section .btn-primary {
-            background: var(--white);
-            color: var(--vip-teal-dark);
-        }
-
-        .guarantee-section .btn-primary:hover {
-            background: var(--vip-pink-light);
-        }
-
-        .guarantee-section .btn-secondary {
-            background: transparent;
-            border-color: var(--white);
-            color: var(--white);
-        }
-
-        .guarantee-section .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* ═══════════════════════════════════════
-           SECTION 6: IS THIS FOR YOU
-           ═══════════════════════════════════════ */
-
-        .filter-section {
-            background: linear-gradient(165deg, #FAF7F2 0%, #FFFFFF 50%, #FAF7F2 100%);
-            padding: 120px 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .filter-section::before {
-            content: '';
-            position: absolute;
-            bottom: -10%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(232, 92, 123, 0.04) 0%, transparent 70%);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: blob-morph 28s ease-in-out infinite;
-        }
-
-        .filter-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .filter-section .section-headline {
-            margin-bottom: 64px;
-        }
-
-        /* EDITORIAL: Perfect card LARGER (visual hierarchy) */
-        .filter-grid {
-            display: flex;
-            align-items: flex-start;
-            gap: 60px;
-            margin-bottom: 48px;
             justify-content: center;
-            position: relative;
+            width: 3rem;
+            height: 3rem;
+            background: #E85C7B;
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
         }
 
-        .filter-card {
-            position: relative;
-            transition: all 400ms ease;
-        }
-
-        /* EDITORIAL: "Perfect for" card is LARGER, dominant */
-        .filter-card.perfect {
-            max-width: 580px;
-            padding: 56px 48px;
-            border: 2px solid rgba(74, 138, 140, 0.3);
-            background: linear-gradient(165deg, #FFFFFF 0%, rgba(232, 244, 244, 0.3) 100%);
-            transform: rotate(-0.5deg) scale(1.15);
-            box-shadow:
-                0 8px 16px rgba(74, 138, 140, 0.12),
-                0 16px 32px rgba(74, 138, 140, 0.08),
-                0 32px 64px rgba(74, 138, 140, 0.04);
-        }
-
-        .filter-card.perfect::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, var(--vip-teal) 0%, var(--vip-teal-dark) 100%);
-        }
-
-        .filter-card.perfect:hover {
-            transform: rotate(-0.5deg) scale(1.17) translateY(-4px);
-        }
-
-        /* EDITORIAL: "Not for you" card is SMALLER, muted */
-        .filter-card.not-for-you {
-            max-width: 420px;
-            padding: 40px 36px;
-            border: 2px solid rgba(212, 122, 122, 0.2);
-            background: linear-gradient(165deg, #FFFFFF 0%, rgba(255, 245, 247, 0.3) 100%);
-            opacity: 0.8;
-            transform: rotate(0.5deg) scale(0.92) translateY(40px);
-        }
-
-        .filter-card.not-for-you::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--muted-red) 0%, #C66666 100%);
-        }
-
-        .filter-card.not-for-you:hover {
-            opacity: 0.9;
-            transform: rotate(0.5deg) scale(0.94) translateY(38px);
-        }
-
-        .filter-icon {
-            margin-bottom: 16px;
-        }
-
-        .filter-card-header {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-        }
-
-        .filter-list {
-            list-style: none;
-        }
-
-        .filter-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 14px;
-            font-size: 17px;
-            line-height: 1.5;
-        }
-
-        .filter-list svg {
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .filter-bottom-note {
-            max-width: 800px;
-            margin: 28px auto;
+        /* Guarantee section */
+        .guarantee {
+            background: #2C5F61;
+            color: white;
+            padding: 5rem 2rem;
             text-align: center;
-            font-size: 16px;
-            color: var(--text-muted);
-            font-style: italic;
         }
 
-        .filter-section .button-stack {
-            max-width: 500px;
-            margin: 28px auto 0;
+        .guarantee h2 {
+            color: white;
         }
 
-        /* ═══════════════════════════════════════
-           SECTION 7: FAQ
-           ═══════════════════════════════════════ */
-
-        .faq-section {
-            background: linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 100%);
-            padding: 120px 60px 140px;
-            position: relative;
-            overflow: hidden;
+        .guarantee p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 42rem;
+            margin: 0 auto 2rem;
         }
 
-        /* CREATIVE: Diagonal color block */
-        .faq-section::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, rgba(232, 92, 123, 0.04), rgba(74, 138, 140, 0.04));
-            transform: rotate(-15deg);
-            border-radius: 30%;
-            z-index: 0;
-        }
-
-        /* CREATIVE: Question mark stickers */
-        .faq-section::after {
-            content: '?';
-            position: absolute;
-            bottom: 10%;
-            left: 8%;
-            font-family: var(--font-heading);
-            font-size: 200px;
-            font-weight: 800;
-            color: rgba(232, 92, 123, 0.05);
-            z-index: 0;
-        }
-
-        .faq-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .faq-section .section-headline {
-            margin-bottom: 72px;
-        }
-
-        /* EDITORIAL: Two-column FAQ with varied widths */
-        .faq-accordion {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px 40px;
-            margin-bottom: 72px;
-        }
-
+        /* FAQ */
         .faq-item {
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 2px solid rgba(232, 92, 123, 0.08);
+            background: white;
+            border: 1px solid #E5E5E5;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
             overflow: hidden;
-            transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* EDITORIAL: Some questions span full width for variety */
-        .faq-item:nth-child(3),
-        .faq-item:nth-child(6) {
-            grid-column: 1 / -1;
-            max-width: 900px;
-            justify-self: center;
-        }
-
-        /* Varied positioning */
-        .faq-item:nth-child(1) {
-            transform: translateY(-12px);
-        }
-
-        .faq-item:nth-child(2) {
-            transform: translateY(12px);
-        }
-
-        .faq-item:nth-child(4) {
-            transform: translateY(-8px);
-        }
-
-        .faq-item:nth-child(5) {
-            transform: translateY(8px);
-        }
-
-        .faq-item:hover,
-        .faq-item.active {
-            border-color: rgba(232, 92, 123, 0.3);
-            transform: translateY(0) !important;
-            box-shadow: 0 8px 24px rgba(232, 92, 123, 0.15);
         }
 
         .faq-question {
-            padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 1.5rem 2rem;
             cursor: pointer;
-            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 200ms ease;
         }
 
-        .faq-question-text {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            flex: 1;
-            padding-right: 20px;
-            letter-spacing: -0.01em;
-            line-height: 1.4;
-        }
-
-        .faq-icon {
-            flex-shrink: 0;
-            transition: transform 300ms ease;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
+        .faq-question:hover {
+            background: #FAFAFA;
         }
 
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 300ms ease;
+            padding: 0 2rem 1.5rem;
+            color: #525252;
+            line-height: 1.7;
         }
 
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        .faq-answer-content {
-            padding: 0 24px 24px;
-            font-size: 17px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .faq-section .button-stack {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* ═══════════════════════════════════════
-           RESPONSIVE: TABLET (768px - 1024px)
-           ═══════════════════════════════════════ */
-
-        /* ═══════════════════════════════════════
-           RESPONSIVE: TABLET (< 1024px)
-           ═══════════════════════════════════════ */
-
-        @media (max-width: 1024px) {
-            /* Hero: Stack layout but maintain interest */
-            .hero-container {
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .hero-left {
-                max-width: 100%;
-            }
-
-            .sticky-card-wrapper {
-                position: static;
-                width: 100%;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .hero-h1 .vip-highlight {
-                font-size: 72px;
-            }
-
-            .video-block {
-                margin-left: 0;
-                width: 100%;
-            }
-
-            .hero-section {
-                padding: calc(52px + 60px) 40px 60px;
-            }
-
-            .comparison-section,
-            .why-upgrade-section,
-            .whats-inside-section,
-            .guarantee-section,
-            .filter-section,
-            .faq-section {
-                padding: 60px 40px;
-            }
-
-            /* Comparison: Stack but maintain scale difference */
-            .comparison-grid {
-                flex-direction: column;
-                align-items: center;
-                gap: 40px;
-            }
-
-            .ticket-card.free {
-                transform: scale(0.92) rotate(-2deg);
-                order: 2;
-            }
-
-            .ticket-card.vip {
-                margin-left: 0;
-                transform: scale(1) rotate(-0.5deg);
-                order: 1;
-            }
-
-            /* Why Upgrade: Stack layout */
-            .why-upgrade-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .arrow-bullets,
-            .why-upgrade-visual {
-                grid-column: 1;
-                grid-row: auto;
-            }
-
-            /* Components: Simplify but keep variety */
-            .component:nth-child(1),
-            .component:nth-child(2),
-            .component:nth-child(3),
-            .component:nth-child(4) {
-                display: flex;
-                flex-direction: column;
-                gap: 32px;
-            }
-
-            .component:nth-child(1) .component-content,
-            .component:nth-child(2) .component-content,
-            .component:nth-child(3) .component-content,
-            .component:nth-child(4) .component-content {
-                width: 100%;
-                margin: 0;
-                transform: translateY(0);
-            }
-
-            .component:nth-child(1) .component-image,
-            .component:nth-child(2) .component-image,
-            .component:nth-child(3) .component-image,
-            .component:nth-child(4) .component-image {
-                margin: 0;
-                transform: translateY(0);
-            }
-
-            /* Guarantee: Stack layout */
-            .guarantee-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .guarantee-watermark {
-                grid-column: 1;
-                grid-row: 1;
-                font-size: 140px;
-            }
-
-            .guarantee-section .badge,
-            .guarantee-section .section-headline,
-            .guarantee-body,
-            .guarantee-section .button-stack {
-                grid-column: 1;
-            }
-
-            /* Filter: Stack cards */
-            .filter-grid {
-                flex-direction: column;
-                align-items: center;
-                gap: 32px;
-            }
-
-            .filter-card.perfect,
-            .filter-card.not-for-you {
-                transform: scale(1) rotate(0);
-            }
-
-            /* FAQ: Single column on tablet */
-            .faq-accordion {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .faq-item:nth-child(3),
-            .faq-item:nth-child(6) {
-                grid-column: 1;
-                max-width: 100%;
-            }
-        }
-
-        /* ═══════════════════════════════════════
-           RESPONSIVE: MOBILE (< 768px)
-           ═══════════════════════════════════════ */
-
+        /* Responsive */
         @media (max-width: 768px) {
-            body {
-                font-size: 17px;
+            .component {
+                grid-template-columns: 1fr;
             }
 
-            .alert-bar {
-                height: 60px;
-                padding: 8px 16px;
+            .component:nth-child(even) {
+                direction: ltr;
             }
 
-            .alert-bar-text {
-                font-size: 13px;
-                line-height: 1.3;
-            }
-
-            .hero-section {
-                padding: calc(60px + 60px) 24px 80px;
-            }
-
-            .hero-section::before,
-            .hero-section::after {
-                width: 400px;
-                height: 400px;
-            }
-
-            .hero-left {
-                padding-right: 0;
-            }
-
-            .hero-h1 {
-                font-size: 36px;
-                margin-bottom: 24px;
-            }
-
-            .hero-h1 .vip-highlight {
-                font-size: 56px;
-            }
-
-            .hero-h1 .vip-highlight::after {
-                display: none;
-            }
-
-            .hero-subhead {
-                font-size: 19px;
-            }
-
-            .hero-bullets li {
-                font-size: 17px;
-            }
-
-            .sticky-card {
-                padding: 32px 28px;
-                transform: rotate(0);
-            }
-
-            .sticky-card .price-display {
-                font-size: 56px;
-            }
-
-            .comparison-section {
-                padding: 80px 24px;
-            }
-
-            .why-upgrade-section,
-            .whats-inside-section,
-            .guarantee-section,
-            .filter-section,
-            .faq-section {
-                padding: 80px 24px;
-            }
-
-            .section-headline {
-                font-size: 38px;
-                margin-bottom: 48px;
-            }
-
-            .ticket-card {
-                padding: 36px 28px;
-            }
-
-            .ticket-card.free {
-                transform: scale(1) translateY(0);
-            }
-
-            .ticket-card.vip {
-                transform: scale(1) rotate(0);
-                padding: 40px 28px;
-            }
-
-            .ticket-price {
-                font-size: 48px;
-            }
-
-            .ticket-card.vip .ticket-price {
-                font-size: 56px;
-            }
-
-            .why-upgrade-section .section-headline {
-                font-size: 40px;
-            }
-
-            .intro-paragraph {
-                font-size: 19px;
-            }
-
-            .arrow-bullets li {
-                font-size: 17px;
-                padding: 20px 24px;
-            }
-
-            .arrow-bullets li:nth-child(odd),
-            .arrow-bullets li:nth-child(even) {
-                transform: translateX(0);
-            }
-
-            .component:nth-child(odd) .component-content,
-            .component:nth-child(even) .component-content {
-                transform: translateY(0);
-            }
-
-            /* Reset all component special layouts to simple stack */
-            .component:nth-child(5) {
-                margin: 0;
-            }
-
-            .component:nth-child(5) .component-image {
-                padding: 40px 24px 0;
-            }
-
-            .component-content {
-                padding: 32px 28px;
-            }
-
-            .component-number {
-                width: 56px;
-                height: 56px;
-                font-size: 24px;
-            }
-
-            /* Reset varied component number styles for mobile */
-            .component:nth-child(1) .component-number,
-            .component:nth-child(2) .component-number,
-            .component:nth-child(3) .component-number,
-            .component:nth-child(4) .component-number,
-            .component:nth-child(5) .component-number {
-                width: 56px;
-                height: 56px;
-                font-size: 24px;
-                border-radius: 50%;
-                transform: rotate(-3deg);
-            }
-
-            .component-subhead {
-                font-size: 26px;
-            }
-
-            .component-body {
-                font-size: 17px;
-            }
-
-            .component-image {
-                transform: rotate(0);
-            }
-
-            .guarantee-watermark {
-                font-size: 100px;
-                text-align: center;
-            }
-
-            .guarantee-section .section-headline {
-                font-size: 34px;
-                text-align: center;
-            }
-
-            .guarantee-body {
-                font-size: 18px;
-                text-align: center;
-            }
-
-            .guarantee-section .badge {
-                justify-self: center;
-            }
-
-            .guarantee-section .button-stack {
-                align-items: center;
-            }
-
-            .filter-card {
-                padding: 32px 28px;
-            }
-
-            .filter-card.perfect,
-            .filter-card.not-for-you {
-                max-width: 100%;
-            }
-
-            .faq-item:nth-child(1),
-            .faq-item:nth-child(2),
-            .faq-item:nth-child(4),
-            .faq-item:nth-child(5) {
-                transform: translateY(0);
-            }
-
-            .filter-card.perfect,
-            .filter-card.not-for-you {
-                transform: rotate(0) translateY(0);
-            }
-
-            .faq-item:nth-child(odd),
-            .faq-item:nth-child(even) {
-                transform: translateX(0);
-            }
-
-            .faq-question-text {
-                font-size: 18px;
-            }
-
-            .faq-answer-content {
-                font-size: 16px;
-            }
-
-            .btn {
-                font-size: 16px;
-                padding: 18px 36px;
-            }
-
-            .btn-secondary {
-                font-size: 15px;
-                padding: 16px 36px;
+            .price {
+                font-size: 3rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ═══════════════════════════════════════
-         SECTION 0: ALERT BAR
-         ═══════════════════════════════════════ -->
-
+    <!-- Alert Bar -->
     <div class="alert-bar">
-        <div class="alert-bar-content">
-            <div class="alert-bar-text">
-                YOUR REGISTRATION ISN'T COMPLETE YET – DON'T CLOSE THIS PAGE.
-            </div>
-            <div class="alert-bar-progress">
-                <div class="alert-bar-progress-fill"></div>
-            </div>
+        <div class="alert-bar-text">
+            YOUR REGISTRATION ISN'T COMPLETE YET – UPGRADE TO VIP BEFORE THE CHALLENGE STARTS
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-         SECTION 1: HERO
-         ═══════════════════════════════════════ -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div style="display: inline-block; background: #FFE8ED; color: #E85C7B; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem;">
+                    VIP UPGRADE
+                </div>
 
-    <section class="hero-section">
-        <div class="hero-container">
-            <!-- LEFT COLUMN -->
-            <div class="hero-left">
-                <div class="badge badge-teal hero-badge"><span>VIP UPGRADE</span></div>
+                <h1>Upgrade to the<br>Launch-Ready VIP Ticket</h1>
 
-                <h1 class="hero-h1">
-                    Upgrade to the<br>
-                    <span class="vip-highlight">Launch-Ready VIP Ticket</span>
-                </h1>
-
-                <p class="hero-subhead">
+                <p class="text-lg">
                     Turn the free Etsy AI challenge into a focused launch sprint so you show up confident, get Bailey's help in a smaller room, and leave with listings that are actually ready to make sales.
                 </p>
 
-                <ul class="hero-bullets">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#checkout" class="btn btn-primary">Upgrade to VIP – $497</a>
+                    <a href="#comparison" class="btn btn-secondary">Compare Tickets</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div style="font-size: 0.875rem; font-weight: 600; color: #E85C7B; margin-bottom: 0.5rem;">
+                    VIP UPGRADE
+                </div>
+                <div class="price">$497</div>
+                <div style="color: #A3A3A3; margin-bottom: 2rem;">One-time investment</div>
+
+                <ul class="feature-list">
                     <li>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#2C5F61" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#2C5F61" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <span>Have your first product idea and "starter listings" mapped out before Day 1 even starts.</span>
+                        <span>Pre-challenge starter kit</span>
                     </li>
                     <li>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#2C5F61" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#2C5F61" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <span>Know exactly what to do after each session instead of drowning in random notes.</span>
+                        <span>VIP-only Q&A with Bailey</span>
                     </li>
                     <li>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#2C5F61" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#2C5F61" stroke-width="2" stroke-linecap="round"/>
                         </svg>
-                        <span>Ask Bailey questions in a smaller VIP room instead of getting lost in the main chat.</span>
+                        <span>Private WhatsApp group</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#2C5F61" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#2C5F61" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Extended replay access</span>
                     </li>
                 </ul>
 
-                <div class="video-block" onclick="playVideo()">
-                    <div class="video-overlay">
-                        <div class="play-button">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <a href="#checkout" class="btn btn-primary" style="width: 100%;">Upgrade Now</a>
 
-            <!-- RIGHT COLUMN - STICKY CARD -->
-            <div class="sticky-card-wrapper">
-                <div class="sticky-card card">
-                    <div class="badge badge-pink"><span>VIP UPGRADE</span></div>
-
-                    <div class="price-display">$497</div>
-                    <div class="price-subtext">One-time investment</div>
-
-                    <div class="card-divider"></div>
-
-                    <ul class="quick-benefits">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Pre-challenge starter kit</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>VIP-only Q&A with Bailey</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Private WhatsApp group</span>
-                        </li>
-                    </ul>
-
-                    <div class="button-stack">
-                        <a href="#checkout" class="btn btn-primary">
-                            YES, I WANT THE LAUNCH-READY VIP TICKET
-                        </a>
-                        <a href="#free" class="btn btn-secondary">
-                            NO, I'LL STAY ON THE FREE TICKET ONLY
-                        </a>
-                    </div>
-
-                    <p class="guarantee-text">
-                        Backed by a 7-day money-back guarantee after the challenge (details below).
-                    </p>
-                </div>
+                <p style="text-align: center; color: #A3A3A3; font-size: 0.875rem; margin-top: 1rem; margin-bottom: 0;">
+                    100% money-back guarantee
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         SECTION 2: TICKET COMPARISON
-         ═══════════════════════════════════════ -->
-
-    <section class="comparison-section">
-        <div class="comparison-container">
-            <h2 class="section-headline">Choose Your Ticket Type Below:</h2>
-
-            <div class="comparison-grid">
-                <!-- FREE TICKET -->
-                <div class="ticket-card card free">
-                    <h3 class="ticket-header">FREE CHALLENGE TICKET</h3>
-                    <div class="ticket-price">$0</div>
-
-                    <ul class="features-list">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Access to all 3 main challenge days</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Standard challenge workbook</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Access to the main community chat</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>No pre-challenge starter kit</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>No VIP-only Q&A with Bailey</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>No private VIP WhatsApp circle</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>No VIP template & AI prompt vault</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>No entry into VIP shop audit</span>
-                        </li>
-                    </ul>
-
-                    <a href="#free" class="btn btn-secondary" style="width: 100%; display: flex;">
-                        NO, I WANT TO KEEP MY FREE TICKET
-                    </a>
-
-                    <p class="ticket-note">
-                        You'll be redirected to the standard confirmation page and community link.
-                    </p>
-                </div>
-
-                <!-- VIP TICKET -->
-                <div class="ticket-card card vip">
-                    <h3 class="ticket-header">LAUNCH-READY VIP TICKET</h3>
-                    <div class="ticket-price">$497</div>
-
-                    <ul class="features-list">
-                        <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span><strong>Everything in the FREE ticket, plus:</strong></span>
-                        </li>
-                        <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Pre-Challenge Shop Starter Kit</span>
-                        </li>
-                        <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>VIP Challenge Workbook & AI Prompt Pack</span>
-                        </li>
-                        <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>VIP-Only Implementation Q&A Call with Bailey</span>
-                        </li>
-                        <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Private VIP WhatsApp 'Green Room'</span>
-                        </li>
-                        <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Extended replay access</span>
-                        </li>
-                        <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Entry into VIP shop audit & 1-on-1 giveaway</span>
-                        </li>
-                        <li>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Mystery VIP-only tool</span>
-                        </li>
-                    </ul>
-
-                    <a href="#checkout" class="btn btn-primary" style="width: 100%; display: flex;">
-                        YES, I WANT THE LAUNCH-READY VIP TICKET
-                    </a>
-
-                    <p class="ticket-note">
-                        You'll be redirected to the secure checkout page to complete your upgrade.
-                    </p>
-                </div>
-            </div>
-
-            <p class="bottom-note">
-                Regardless of which ticket you choose, check your email for the challenge details. VIPs will receive separate links for their extra sessions and WhatsApp group.
+    <!-- Comparison Section -->
+    <section id="comparison" class="comparison">
+        <div class="container text-center">
+            <h2>Choose Your Ticket Type</h2>
+            <p style="color: #525252; max-width: 32rem; margin: 0 auto 3rem;">
+                Both tickets give you access to the 3-day challenge. VIP adds structure, support, and accountability.
             </p>
         </div>
-    </section>
 
-    <!-- ═══════════════════════════════════════
-         SECTION 3: WHY UPGRADE NOW
-         ═══════════════════════════════════════ -->
+        <div class="comparison-grid">
+            <!-- Free Ticket -->
+            <div class="comparison-card">
+                <h3>Free Challenge Ticket</h3>
+                <div class="price" style="font-size: 3rem; color: #0A0A0A;">$0</div>
 
-    <section class="why-upgrade-section">
-        <div class="why-upgrade-container">
-            <h2 class="section-headline">Why Upgrade to VIP Before the Challenge Starts</h2>
+                <ul class="feature-list" style="margin-top: 2rem;">
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#2C5F61" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#2C5F61" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Access to all 3 live sessions</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#2C5F61" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#2C5F61" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Standard workbook</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#2C5F61" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#2C5F61" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Main community chat</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#2C5F61" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#2C5F61" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>7-day replay access</span>
+                    </li>
+                </ul>
 
-            <p class="intro-paragraph">
-                The free challenge will give you ideas. The Launch-Ready VIP Ticket is built to make sure those ideas turn into real listings, real momentum, and a shop that doesn't stay stuck in "I'll do it later."
-            </p>
-
-            <ul class="arrow-bullets">
-                <li>
-                    <span class="arrow-icon">→</span>
-                    <span>You'll show up already knowing your niche and first product instead of staring at a blank screen.</span>
-                </li>
-                <li>
-                    <span class="arrow-icon">→</span>
-                    <span>You'll follow a VIP workbook that tells you exactly what to implement after each session.</span>
-                </li>
-                <li>
-                    <span class="arrow-icon">→</span>
-                    <span>You'll have a small room to ask Bailey questions live, instead of competing with hundreds of comments.</span>
-                </li>
-                <li>
-                    <span class="arrow-icon">→</span>
-                    <span>You'll plug into a VIP WhatsApp circle where everyone is actually launching, not just watching.</span>
-                </li>
-            </ul>
-
-            <!-- Visual Element (Large "4" graphic) -->
-            <div class="why-upgrade-visual">
-                <div class="why-upgrade-visual-content">
-                    4 Game-Changing Benefits
-                </div>
+                <a href="#free" class="btn btn-secondary" style="width: 100%; margin-top: 2rem;">Keep Free Ticket</a>
             </div>
 
-            <div class="button-stack" style="max-width: 500px; margin: 0 auto;">
-                <a href="#checkout" class="btn btn-primary">
-                    YES, I WANT THE LAUNCH-READY VIP TICKET
-                </a>
-                <a href="#free" class="btn btn-secondary">
-                    NO, I'LL STAY ON THE FREE TICKET ONLY
-                </a>
+            <!-- VIP Ticket -->
+            <div class="comparison-card vip">
+                <h3>Launch-Ready VIP Ticket</h3>
+                <div class="price" style="font-size: 3rem;">$497</div>
+
+                <ul class="feature-list" style="margin-top: 2rem;">
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#E85C7B" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#E85C7B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span><strong>Everything in Free, PLUS:</strong></span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#E85C7B" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#E85C7B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Pre-Challenge Shop Starter Kit</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#E85C7B" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#E85C7B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>VIP Workbook & AI Prompt Pack</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#E85C7B" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#E85C7B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>VIP-Only Q&A with Bailey</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#E85C7B" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#E85C7B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Private VIP WhatsApp Group</span>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="9" stroke="#E85C7B" stroke-width="2"/>
+                            <path d="M6 10l3 3 5-6" stroke="#E85C7B" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>30-day replay access + prizes</span>
+                    </li>
+                </ul>
+
+                <a href="#checkout" class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Upgrade to VIP</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         SECTION 4: WHAT'S INSIDE VIP TICKET
-         ═══════════════════════════════════════ -->
+    <!-- Why Upgrade -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 48rem; margin: 0 auto; text-align: center;">
+                <h2>Why Upgrade to VIP?</h2>
+                <p class="text-lg">
+                    The free challenge will give you ideas. The VIP ticket makes sure those ideas turn into real listings and real momentum.
+                </p>
+            </div>
 
-    <section class="whats-inside-section">
-        <div class="whats-inside-container">
-            <h2 class="section-headline">Here's Everything You Get With Your Launch-Ready VIP Ticket</h2>
+            <div style="max-width: 56rem; margin: 3rem auto; background: white; border: 1px solid #E5E5E5; border-radius: 1.5rem; padding: 3rem;">
+                <ul class="feature-list" style="margin: 0;">
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 13l4 4L19 7" stroke="#E85C7B" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>You'll show up already knowing your niche and first product instead of staring at a blank screen</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 13l4 4L19 7" stroke="#E85C7B" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>You'll follow a VIP workbook that tells you exactly what to implement after each session</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 13l4 4L19 7" stroke="#E85C7B" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>You'll ask Bailey questions in a smaller VIP room instead of competing with hundreds of comments</span>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 13l4 4L19 7" stroke="#E85C7B" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>You'll plug into a VIP WhatsApp circle where everyone is actually launching, not just watching</span>
+                    </li>
+                </ul>
+            </div>
 
-            <div class="components-wrapper">
-                <!-- Component 1: Pre-Challenge Shop Starter Kit -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#checkout" class="btn btn-primary">Upgrade to VIP – $497</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Inside -->
+    <section class="section" style="background: #FAFAFA;">
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2>Everything You Get With VIP</h2>
+            </div>
+
+            <div class="component-grid" style="max-width: 1100px; margin: 0 auto;">
+                <!-- Component 1 -->
                 <div class="component">
                     <div class="component-image">
-                        <div class="image-placeholder">
-                            [Pre-Challenge Kit Illustration]
-                        </div>
+                        [Image Placeholder]
                     </div>
-                    <div class="component-content card">
+                    <div>
                         <div class="component-number">1</div>
-                        <h3 class="component-subhead">Pre-Challenge Shop Starter Kit</h3>
-                        <p class="component-body">
-                            You'll receive instant access to a pre-challenge roadmap that walks you through picking your niche, researching your first product ideas, and setting up your Etsy shop foundations—so you show up to Day 1 already ahead of the curve.
+                        <h3>Pre-Challenge Shop Starter Kit</h3>
+                        <p>
+                            Get instant access to a pre-challenge roadmap that walks you through picking your niche, researching product ideas, and setting up your Etsy shop—so you show up to Day 1 already ahead.
                         </p>
-                        <ul class="component-bullets">
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Niche selection framework</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Product idea validation checklist</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Etsy shop setup walkthrough</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
 
-                <!-- Component 2: VIP Workbook & AI Prompt Pack -->
+                <!-- Component 2 -->
                 <div class="component">
                     <div class="component-image">
-                        <div class="image-placeholder">
-                            [Workbook Mockup]
-                        </div>
+                        [Image Placeholder]
                     </div>
-                    <div class="component-content card">
+                    <div>
                         <div class="component-number">2</div>
-                        <h3 class="component-subhead">VIP Challenge Workbook & AI Prompt Pack</h3>
-                        <p class="component-body">
-                            Free attendees get ideas. VIPs get a step-by-step workbook that turns those ideas into action. Plus, you'll receive a curated vault of AI prompts specifically designed for Etsy sellers—copy, paste, and customize to create listings faster.
+                        <h3>VIP Workbook & AI Prompt Pack</h3>
+                        <p>
+                            Free attendees get ideas. VIPs get a step-by-step workbook that turns those ideas into action, plus 50+ copy-paste AI prompts for Etsy.
                         </p>
-                        <ul class="component-bullets">
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Daily implementation worksheets</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>50+ copy-paste AI prompts for Etsy</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Progress tracker & accountability tools</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
 
-                <!-- Component 3: VIP-Only Q&A with Bailey -->
+                <!-- Component 3 -->
                 <div class="component">
                     <div class="component-image">
-                        <div class="image-placeholder">
-                            [Bailey Photo or Video Call Illustration]
-                        </div>
+                        [Image Placeholder]
                     </div>
-                    <div class="component-content card">
+                    <div>
                         <div class="component-number">3</div>
-                        <h3 class="component-subhead">VIP-Only Implementation Q&A with Bailey</h3>
-                        <p class="component-body">
-                            During the challenge, you'll get access to a private Q&A session with Bailey—just for VIPs. This isn't a massive group call. It's a smaller room where you can ask your specific questions, get personalized feedback, and troubleshoot your roadblocks in real-time.
-                        </p>
-                        <ul class="component-bullets">
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Live access to Bailey in a small group setting</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Get your specific questions answered</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Replay access for reference</span>
-                            </li>
-                        </ul>
-                        <p class="component-note">
-                            This session is not available to free attendees.
+                        <h3>VIP-Only Q&A with Bailey</h3>
+                        <p>
+                            Get access to a private Q&A session with Bailey—just for VIPs. Ask your specific questions and get personalized feedback in a smaller room.
                         </p>
                     </div>
                 </div>
 
-                <!-- Component 4: Private VIP WhatsApp Circle -->
+                <!-- Component 4 -->
                 <div class="component">
                     <div class="component-image">
-                        <div class="image-placeholder">
-                            [WhatsApp Interface Mockup]
-                        </div>
+                        [Image Placeholder]
                     </div>
-                    <div class="component-content card">
+                    <div>
                         <div class="component-number">4</div>
-                        <h3 class="component-subhead">Private VIP WhatsApp 'Green Room'</h3>
-                        <p class="component-body">
-                            Join a curated group of action-takers who are actually implementing, not just lurking. Share wins, ask quick questions, get feedback on your listings, and build relationships with fellow VIPs who are launching alongside you.
+                        <h3>Private VIP WhatsApp Group</h3>
+                        <p>
+                            Join a curated group of action-takers. Share wins, ask quick questions, get feedback on your listings, and build relationships with fellow VIPs.
                         </p>
-                        <ul class="component-bullets">
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>VIP-only WhatsApp community</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Real-time feedback and support</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Network with serious entrepreneurs</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
 
-                <!-- Component 5: Extended Replays & Prizes -->
+                <!-- Component 5 -->
                 <div class="component">
                     <div class="component-image">
-                        <div class="image-placeholder">
-                            [Gift Box or Mystery Tool Illustration]
-                        </div>
+                        [Image Placeholder]
                     </div>
-                    <div class="component-content card">
+                    <div>
                         <div class="component-number">5</div>
-                        <h3 class="component-subhead">Extended Replays, VIP Prizes & a Mystery Launch Tool</h3>
-                        <p class="component-body">
-                            VIPs get extended access to all challenge replays so you can revisit Bailey's training on your schedule. Plus, you'll be entered into exclusive giveaways including a 1-on-1 shop audit with Bailey and access to a mystery launch tool that will be revealed during the challenge.
+                        <h3>Extended Replays & VIP Prizes</h3>
+                        <p>
+                            Get 30-day replay access (vs 7 days for free), entry into exclusive giveaways including a 1-on-1 shop audit, plus a mystery launch tool.
                         </p>
-                        <ul class="component-bullets">
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Extended replay access (30 days vs. 7 days for free)</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Entry into VIP-only shop audit giveaway</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Chance to win 1-on-1 time with Bailey</span>
-                            </li>
-                            <li>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                                <span>Mystery VIP-only launch tool (revealed during challenge)</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="final-cta button-stack" style="max-width: 500px; margin: 56px auto 0;">
-                <a href="#checkout" class="btn btn-primary">
-                    YES, I WANT THE LAUNCH-READY VIP TICKET
-                </a>
-                <a href="#free" class="btn btn-secondary">
-                    NO, I'LL STAY ON THE FREE TICKET ONLY
-                </a>
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#checkout" class="btn btn-primary">Upgrade to VIP – $497</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         SECTION 5: GUARANTEE BLOCK
-         ═══════════════════════════════════════ -->
-
-    <section class="guarantee-section">
-        <div class="guarantee-watermark">100%</div>
-        <div class="guarantee-container">
-            <div class="badge badge-pink"><span>100% GUARANTEE</span></div>
-
-            <h2 class="section-headline">100% Money-Back Guarantee – Try VIP for the Entire Challenge</h2>
-
-            <p class="guarantee-body">
-                Upgrade to VIP now, participate in the entire challenge, use all the resources, attend the VIP sessions, and if you don't feel it was worth every penny, simply email us within 7 days after the challenge ends for a full refund. No questions asked, no hoops to jump through. You have nothing to lose and a fully launched Etsy shop to gain.
-            </p>
-
-            <div class="button-stack" style="max-width: 500px; margin: 0 auto;">
-                <a href="#checkout" class="btn btn-primary">
-                    YES, I WANT THE LAUNCH-READY VIP TICKET
-                </a>
-                <a href="#free" class="btn btn-secondary">
-                    NO, I'LL STAY ON THE FREE TICKET ONLY
-                </a>
-            </div>
-        </div>
+    <!-- Guarantee -->
+    <section class="guarantee">
+        <h2>100% Money-Back Guarantee</h2>
+        <p>
+            Upgrade to VIP now, participate in the entire challenge, use all the resources, attend the VIP sessions, and if you don't feel it was worth every penny, simply email us within 7 days after the challenge ends for a full refund. No questions asked.
+        </p>
+        <a href="#checkout" class="btn" style="background: white; color: #2C5F61;">Upgrade to VIP – $497</a>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         SECTION 6: IS THIS FOR YOU
-         ═══════════════════════════════════════ -->
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2>Frequently Asked Questions</h2>
+            </div>
 
-    <section class="filter-section">
-        <div class="filter-container">
-            <h2 class="section-headline">Is the Launch-Ready VIP Ticket For You?</h2>
-
-            <div class="filter-grid">
-                <!-- Perfect For You -->
-                <div class="filter-card card perfect">
-                    <div class="filter-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            <div style="max-width: 48rem; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>When does the challenge start?</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h3 class="filter-card-header">Perfect for you if...</h3>
-                    <ul class="filter-list">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>You're ready to actually launch an Etsy shop, not just "think about it"</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>You want done-for-you templates and systems to save time</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>You want direct access to Bailey in a smaller group</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>You're serious about building a real income stream</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A8A8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>You want to be surrounded by other action-takers</span>
-                        </li>
-                    </ul>
+                    <div class="faq-answer">
+                        The challenge runs for 3 days starting [DATE]. VIP members get pre-challenge access immediately after purchase.
+                    </div>
                 </div>
 
-                <!-- Probably Not For You -->
-                <div class="filter-card card not-for-you">
-                    <div class="filter-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="15" y1="9" x2="9" y2="15"></line>
-                            <line x1="9" y1="9" x2="15" y2="15"></line>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if I can't attend live?</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h3 class="filter-card-header">Probably not for you if...</h3>
-                    <ul class="filter-list">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>You're just exploring and not ready to commit time or energy</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>You want to passively watch without implementing</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>You're looking for a "get rich quick" scheme</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>You're not willing to invest in your business growth</span>
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D47A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                            <span>You prefer to figure everything out on your own</span>
-                        </li>
-                    </ul>
+                    <div class="faq-answer">
+                        All sessions are recorded. VIP members get 30-day replay access vs 7 days for free attendees.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I upgrade later?</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, but the price may increase and you'll miss the pre-challenge materials. Best to upgrade now.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the refund policy?</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        100% money-back guarantee within 7 days after the challenge ends. No questions asked.
+                    </div>
                 </div>
             </div>
 
-            <p class="filter-bottom-note">
-                If you're on the fence, grab the VIP ticket now while it's available. You're fully protected by the guarantee.
-            </p>
-
-            <div class="button-stack">
-                <a href="#checkout" class="btn btn-primary">
-                    YES, I WANT THE LAUNCH-READY VIP TICKET
-                </a>
-                <a href="#free" class="btn btn-secondary">
-                    NO, I'LL STAY ON THE FREE TICKET ONLY
-                </a>
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="#checkout" class="btn btn-primary">Upgrade to VIP – $497</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════
-         SECTION 7: FAQ
-         ═══════════════════════════════════════ -->
-
-    <section class="faq-section">
-        <div class="faq-container">
-            <h2 class="section-headline">Frequently Asked Questions About the Launch-Ready VIP Ticket</h2>
-
-            <div class="faq-accordion">
-                <!-- FAQ 1 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-text">When do I get access to the VIP materials?</div>
-                        <div class="faq-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            You'll receive immediate access to your Pre-Challenge Shop Starter Kit as soon as you upgrade. The VIP Workbook, AI Prompt Pack, and WhatsApp group invite will be sent within 24 hours. You'll receive all session links and calendar invites via email before the challenge begins.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-text">What if I can't attend the VIP Q&A session live?</div>
-                        <div class="faq-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            No problem! All VIP sessions are recorded and you'll have extended replay access for 30 days. You can also submit questions in advance via the VIP WhatsApp group and Bailey will answer them during the live session.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-text">How is the VIP ticket different from the free challenge?</div>
-                        <div class="faq-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            The free challenge gives you the training and inspiration. The VIP ticket gives you implementation tools, direct access to Bailey in smaller groups, done-for-you templates, a private community of action-takers, and a pre-challenge head start so you're not scrambling to keep up.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-text">Is there a payment plan available?</div>
-                        <div class="faq-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            The VIP ticket is a one-time investment of $497. This keeps it simple and ensures you get instant access to all materials without worrying about future payments. Plus, you're protected by our 7-day money-back guarantee.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-text">Can I upgrade later if I change my mind?</div>
-                        <div class="faq-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            VIP tickets are only available during this limited enrollment window. Once the challenge starts, we close VIP access to protect the intimate group size and ensure everyone gets personalized attention. If you're on the fence, it's better to grab it now while it's available—you're protected by the guarantee anyway.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-text">What happens after I click "Yes, I want the VIP ticket"?</div>
-                        <div class="faq-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            You'll be redirected to a secure checkout page to complete your VIP upgrade. After payment, you'll receive immediate access to your Pre-Challenge Starter Kit, and all additional VIP materials and links will be delivered to your email within 24 hours.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <div class="faq-question-text">What if I'm brand new to Etsy? Will I be able to keep up?</div>
-                        <div class="faq-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E85C7B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Absolutely! The VIP ticket is actually perfect for beginners because you get the Pre-Challenge Starter Kit that walks you through the basics before Day 1. You'll also have access to Bailey in the VIP Q&A sessions and the WhatsApp group where you can ask beginner-friendly questions without feeling lost in a massive crowd.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="button-stack">
-                <a href="#checkout" class="btn btn-primary">
-                    YES, I WANT THE LAUNCH-READY VIP TICKET
-                </a>
-                <a href="#free" class="btn btn-secondary">
-                    NO, I'LL STAY ON THE FREE TICKET ONLY
-                </a>
-            </div>
-        </div>
+    <!-- Footer CTA -->
+    <section style="background: #FAFAFA; padding: 4rem 2rem; text-align: center;">
+        <h2 style="margin-bottom: 1rem;">Ready to launch your Etsy shop?</h2>
+        <p style="color: #525252; margin-bottom: 2rem; max-width: 32rem; margin-left: auto; margin-right: auto;">
+            Join the VIP ticket and get everything you need to turn your ideas into real, profitable listings.
+        </p>
+        <a href="#checkout" class="btn btn-primary">Upgrade to VIP – $497</a>
     </section>
-
-    <!-- JavaScript -->
-    <script>
-        // Animate progress bar on load
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.querySelector('.alert-bar-progress-fill').style.width = '75%';
-            }, 300);
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(function(question) {
-            question.addEventListener('click', function() {
-                const item = this.parentElement;
-                const wasActive = item.classList.contains('active');
-
-                // Close all items
-                document.querySelectorAll('.faq-item').forEach(function(faqItem) {
-                    faqItem.classList.remove('active');
-                });
-
-                // Open clicked item if it wasn't active
-                if (!wasActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Video placeholder click
-        function playVideo() {
-            alert('Video player would be integrated here (YouTube/Vimeo embed)');
-        }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#checkout' || href === '#free') {
-                    e.preventDefault();
-                    // These would redirect to actual checkout/confirmation pages
-                    console.log('Redirecting to:', href);
-                    alert('This would redirect to the ' + (href === '#checkout' ? 'checkout page' : 'free confirmation page'));
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>
