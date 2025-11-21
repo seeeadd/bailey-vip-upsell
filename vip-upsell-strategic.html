@@ -120,12 +120,27 @@
            PSYCHOLOGY: Show value gap IMMEDIATELY - no scrolling to understand
            HIERARCHY: $67 is THE hero, not the headline
            MOBILE: Stack price on top (not bottom) - decision first
+           ORGANIC: Asymmetric gradient blob backgrounds (not clean gradient)
            ===================================== */
         .hero-section {
-            background: linear-gradient(180deg, var(--cream) 0%, #FFFFFF 100%);
+            background:
+                radial-gradient(ellipse 800px 600px at 20% 40%, rgba(78, 205, 196, 0.08), transparent),
+                radial-gradient(ellipse 700px 500px at 80% 60%, rgba(255, 107, 157, 0.08), transparent),
+                linear-gradient(180deg, var(--cream) 0%, #FFFFFF 100%);
             padding: 140px 24px 60px;
             position: relative;
             overflow: hidden;
+        }
+
+        /* ORGANIC: Hand-drawn style divider at bottom */
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='8' viewBox='0 0 100 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,4 Q25,1 50,4 T100,4' stroke='%234ECDC4' stroke-width='3' fill='none' opacity='0.3'/%3E%3C/svg%3E") repeat-x;
         }
 
         /* ARTISTIC: Subtle texture for warmth */
@@ -304,6 +319,19 @@
             margin-bottom: 60px;
             line-height: 1.2;
             letter-spacing: -1px;
+            position: relative;
+        }
+
+        /* CREATIVE: Handwritten accent under headlines */
+        .section-headline::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 6px;
+            background: url("data:image/svg+xml,%3Csvg width='120' height='6' viewBox='0 0 120 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2,3 Q30,1 60,3 T118,3' stroke='%23FF6B9D' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M1,5 Q30,4 60,5 T119,4' stroke='%234ECDC4' stroke-width='1.5' fill='none' stroke-linecap='round' opacity='0.5'/%3E%3C/svg%3E") no-repeat center;
         }
 
         /* LAYOUT: Asymmetric grid - VIP gets MORE space
@@ -666,6 +694,96 @@
         }
 
         /* =====================================
+           CREATIVE GRAPHICS: Custom Illustrations
+
+           DECISION: Hand-drawn SVG illustrations (not generic icons)
+           PSYCHOLOGY: Visual metaphors make benefits memorable
+           BRAND: Organic, handmade feel for Etsy audience
+           ===================================== */
+
+        .component-illustration {
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* VISUAL VARIETY: Different illustration styles for each component */
+        .illustration-recordings {
+            text-align: center;
+        }
+
+        .illustration-kit {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .illustration-whatsapp {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .illustration-qa {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .illustration-toolkit {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        /* CREATIVE: Toolkit item cards with icons */
+        .toolkit-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .toolkit-item:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--gold);
+        }
+
+        .toolkit-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .toolkit-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.3;
+        }
+
+        /* ORGANIC: Wavy divider between components */
+        .component-divider {
+            height: 60px;
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .component-divider svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* =====================================
            RESPONSIVE: MOBILE-FIRST STRATEGY
 
            DECISION: Stack VIP on TOP (not bottom)
@@ -872,72 +990,236 @@
                 Here's Everything You Get for <span style="background: linear-gradient(135deg, var(--pink-primary), var(--teal-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$67</span>
             </h2>
 
-            <!-- COMPONENT 1: Simple baseline -->
+            <!-- COMPONENT 1: Custom illustration - stacked video reels -->
             <div class="component-1">
-                <div class="component-number">1</div>
+                <div class="component-illustration illustration-recordings">
+                    <!-- CREATIVE: Hand-drawn film reels stacking up -->
+                    <svg width="300" height="180" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Film reel 1 (Day 1) -->
+                        <g transform="translate(50, 40)">
+                            <circle cx="50" cy="50" r="45" fill="#4ECDC4" opacity="0.2" stroke="#2F5F61" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="30" fill="none" stroke="#2F5F61" stroke-width="2" stroke-dasharray="5,5"/>
+                            <circle cx="50" cy="50" r="8" fill="#2F5F61"/>
+                            <text x="50" y="110" text-anchor="middle" font-family="Caveat, cursive" font-size="16" font-weight="700" fill="#2F5F61">Day 1</text>
+                        </g>
+                        <!-- Film reel 2 (Day 2) -->
+                        <g transform="translate(110, 60)">
+                            <circle cx="50" cy="50" r="45" fill="#FF6B9D" opacity="0.2" stroke="#C7254E" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="30" fill="none" stroke="#C7254E" stroke-width="2" stroke-dasharray="5,5"/>
+                            <circle cx="50" cy="50" r="8" fill="#C7254E"/>
+                            <text x="50" y="110" text-anchor="middle" font-family="Caveat, cursive" font-size="16" font-weight="700" fill="#C7254E">Day 2</text>
+                        </g>
+                        <!-- Film reel 3 (Day 3) -->
+                        <g transform="translate(170, 40)">
+                            <circle cx="50" cy="50" r="45" fill="#FFD166" opacity="0.2" stroke="#F4A261" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="30" fill="none" stroke="#F4A261" stroke-width="2" stroke-dasharray="5,5"/>
+                            <circle cx="50" cy="50" r="8" fill="#F4A261"/>
+                            <text x="50" y="110" text-anchor="middle" font-family="Caveat, cursive" font-size="16" font-weight="700" fill="#F4A261">Day 3</text>
+                        </g>
+                        <!-- Infinity symbol -->
+                        <path d="M 20 150 Q 40 130, 60 150 Q 80 170, 100 150 Q 120 130, 140 150" stroke="#2F5F61" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+                        <text x="150" y="155" font-family="Caveat, cursive" font-size="18" font-weight="700" fill="#2F5F61">Lifetime!</text>
+                    </svg>
+                </div>
                 <h3 class="component-title">Lifetime Recording Access</h3>
-                <p class="component-desc">Never miss a moment, even when life gets chaotic.</p>
-                <ul class="component-list">
-                    <li>✓ All 3 challenge days in HD</li>
-                    <li>✓ Download slides and resources</li>
-                    <li>✓ Rewatch whenever you need</li>
-                </ul>
+                <p class="component-desc">Never miss a moment, even when life gets chaotic. Watch at 11pm when kids are asleep, or catch up on weekends.</p>
             </div>
 
-            <!-- COMPONENT 2: Medium upgrade -->
+            <!-- ORGANIC DIVIDER -->
+            <div class="component-divider">
+                <svg viewBox="0 0 1000 60" preserveAspectRatio="none">
+                    <path d="M0,30 Q250,10 500,30 T1000,30" stroke="#4ECDC4" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="5,5"/>
+                </svg>
+            </div>
+
+            <!-- COMPONENT 2: Illustrated starter kit -->
             <div class="component-2">
-                <div class="component-number">2</div>
+                <div class="component-illustration illustration-kit">
+                    <!-- CREATIVE: 4 illustrated cards representing each kit item -->
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <rect x="10" y="10" width="120" height="120" rx="12" fill="#FFD166" opacity="0.2" stroke="#F4A261" stroke-width="3"/>
+                        <circle cx="70" cy="60" r="20" fill="none" stroke="#F4A261" stroke-width="3"/>
+                        <polygon points="65,55 65,65 75,60" fill="#F4A261"/>
+                        <text x="70" y="105" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#F4A261">Prep</text>
+                        <text x="70" y="120" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#F4A261">Video</text>
+                    </svg>
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <rect x="10" y="10" width="120" height="120" rx="12" fill="#4ECDC4" opacity="0.2" stroke="#2F5F61" stroke-width="3"/>
+                        <rect x="40" y="40" width="60" height="45" rx="4" fill="none" stroke="#2F5F61" stroke-width="2"/>
+                        <rect x="50" y="50" width="40" height="25" fill="#2F5F61" opacity="0.3"/>
+                        <text x="70" y="105" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#2F5F61">Shop</text>
+                        <text x="70" y="120" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#2F5F61">Tour</text>
+                    </svg>
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <rect x="10" y="10" width="120" height="120" rx="12" fill="#FF6B9D" opacity="0.2" stroke="#C7254E" stroke-width="3"/>
+                        <line x1="40" y1="50" x2="100" y2="50" stroke="#C7254E" stroke-width="2"/>
+                        <line x1="40" y1="70" x2="100" y2="70" stroke="#C7254E" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="4" fill="#C7254E"/>
+                        <circle cx="50" cy="70" r="4" fill="#C7254E"/>
+                        <text x="70" y="105" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#C7254E">Decision</text>
+                        <text x="70" y="120" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#C7254E">Matrix</text>
+                    </svg>
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <rect x="10" y="10" width="120" height="120" rx="12" fill="#A8E6E3" opacity="0.3" stroke="#4ECDC4" stroke-width="3"/>
+                        <text x="70" y="60" text-anchor="middle" font-family="Caveat" font-size="36" font-weight="700" fill="#2F5F61">50</text>
+                        <text x="70" y="105" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#2F5F61">Winning</text>
+                        <text x="70" y="120" text-anchor="middle" font-family="Inter" font-size="12" font-weight="700" fill="#2F5F61">Examples</text>
+                    </svg>
+                </div>
                 <h3 class="component-title">The "Come Prepared" Quick Start Kit</h3>
-                <p class="component-desc">Show up on Day 1 ready to move with Bailey's pre-work material.</p>
-                <ul class="component-list">
-                    <li><strong>Pre-Challenge Prep Video:</strong> "How to Audit Your Shop BEFORE Day 1"</li>
-                    <li><strong>Bailey's Shop Walkthrough:</strong> Behind-the-scenes of her $1M shop</li>
-                    <li><strong>The Delete Decision Matrix:</strong> Know exactly which listings to cut</li>
-                    <li><strong>50 Winning Product Examples:</strong> Real products that sell</li>
-                </ul>
+                <p class="component-desc">Show up on Day 1 ready to move. Not with a blank screen and "I'll figure it out later."</p>
             </div>
 
-            <!-- COMPONENT 3: FEATURED (Most personal) -->
+            <div class="component-divider">
+                <svg viewBox="0 0 1000 60" preserveAspectRatio="none">
+                    <path d="M0,30 Q250,50 500,30 T1000,30" stroke="#FF6B9D" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="5,5"/>
+                </svg>
+            </div>
+
+            <!-- COMPONENT 3: FEATURED - Custom phone mockup -->
             <div class="component-3">
-                <div class="component-number">3</div>
+                <div class="component-illustration illustration-whatsapp">
+                    <!-- CREATIVE: iPhone mockup with WhatsApp messages from Bailey -->
+                    <svg width="400" height="320" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Phone outline -->
+                        <rect x="80" y="20" width="240" height="280" rx="24" fill="#1E1E1E" stroke="#333" stroke-width="3"/>
+                        <rect x="90" y="45" width="220" height="230" rx="8" fill="#ECE5DD"/>
+
+                        <!-- WhatsApp header -->
+                        <rect x="90" y="30" width="220" height="15" rx="8" fill="#075E54"/>
+                        <circle cx="100" cy="37" r="3" fill="white" opacity="0.8"/>
+                        <text x="110" y="42" font-family="Inter" font-size="8" font-weight="700" fill="white">VIP Challenge Group</text>
+
+                        <!-- Message bubbles from Bailey -->
+                        <g transform="translate(95, 55)">
+                            <!-- Bailey's message 1 -->
+                            <rect x="5" y="5" width="180" height="35" rx="12" fill="#DCF8C6"/>
+                            <text x="15" y="20" font-family="Inter" font-size="9" font-weight="600" fill="#2F5F61">Bailey 💚</text>
+                            <text x="15" y="32" font-family="Inter" font-size="8" fill="#333">Great question! Here's how I'd</text>
+                            <text x="15" y="42" font-family="Inter" font-size="8" fill="#333">approach your shop...</text>
+
+                            <!-- Your message -->
+                            <rect x="30" y="55" width="180" height="25" rx="12" fill="white"/>
+                            <text x="40" y="67" font-family="Inter" font-size="8" fill="#333">Should I delete this listing?</text>
+                            <text x="40" y="77" font-family="Inter" font-size="8" fill="#333">It's not converting 🤔</text>
+
+                            <!-- Bailey's voice note -->
+                            <rect x="5" y="90" width="160" height="28" rx="12" fill="#DCF8C6"/>
+                            <circle cx="20" cy="104" r="8" fill="#075E54"/>
+                            <polygon points="18,101 18,107 23,104" fill="white"/>
+                            <rect x="35" y="98" width="80" height="4" rx="2" fill="#2F5F61" opacity="0.3"/>
+                            <text x="120" y="108" font-family="Inter" font-size="7" fill="#666">0:47</text>
+
+                            <!-- Another seller's message -->
+                            <rect x="30" y="130" width="180" height="25" rx="12" fill="white"/>
+                            <text x="40" y="142" font-family="Inter" font-size="8" fill="#333">I just got my first sale using</text>
+                            <text x="40" y="152" font-family="Inter" font-size="8" fill="#333">Bailey's pricing formula! 🎉</text>
+
+                            <!-- Bailey's reaction -->
+                            <rect x="5" y="165" width="120" height="20" rx="12" fill="#DCF8C6"/>
+                            <text x="15" y="178" font-family="Inter" font-size="10" fill="#333">YES! 🙌 Tell us more!</text>
+                        </g>
+
+                        <!-- "Active now" indicator -->
+                        <circle cx="300" cy="290" r="5" fill="#4ECDC4"/>
+                        <text x="240" y="295" font-family="Inter" font-size="9" fill="#666">✓ Active now</text>
+                    </svg>
+                </div>
                 <h3 class="component-title">7-Day Private WhatsApp with Bailey</h3>
-                <p class="component-desc">Direct access to Bailey and a small group of serious sellers. Not a crowded Facebook group.</p>
-                <ul class="component-list">
-                    <li>✓ Ask your specific questions in VIP thread</li>
-                    <li>✓ Share progress and get quick feedback</li>
-                    <li>✓ Network with sellers actually implementing</li>
-                    <li>✓ Get Bailey's voice notes with personal tips</li>
-                </ul>
-            </div>
-
-            <!-- COMPONENT 4: Rich standard -->
-            <div class="component-4">
-                <div class="component-number">4</div>
-                <h3 class="component-title">VIP-Only Live Q&A Sessions</h3>
-                <p class="component-desc">Bailey's eyes on YOUR shop, YOUR products, YOUR situation. Personalized feedback, not generic advice.</p>
-                <ul class="component-list">
-                    <li><strong>End of Day 2:</strong> 30-min "Ask Bailey Anything" VIP call</li>
-                    <li><strong>Day 4:</strong> 60-min Implementation Q&A to review shops</li>
-                    <li>✓ Chance to get your shop reviewed live</li>
-                    <li>✓ Recordings provided to rewatch feedback</li>
-                </ul>
-            </div>
-
-            <!-- COMPONENT 5: MASSIVE HERO CLIMAX -->
-            <div class="component-5">
-                <div class="component-number">5</div>
-                <h3 class="component-title">The "Fast Action" Toolkit</h3>
-                <p class="component-desc">Plug-and-play tools to move from idea to first sale as fast as possible.</p>
-                <ul class="component-list">
-                    <li><strong>AI Prompt Library:</strong> 20 copy-paste templates for listings, SEO, and product ideas</li>
-                    <li><strong>Profit Calculator Spreadsheet:</strong> Quickly see what's worth your time</li>
-                    <li><strong>2025 Seasonal Planning Calendar:</strong> Ride demand spikes instead of missing them</li>
-                    <li><strong>First Sale Template Pack:</strong> Messages, offers, mini promotions</li>
-                    <li><strong>Mockup Magic Bundle:</strong> Bailey's collection to upgrade listing photos instantly</li>
-                </ul>
-                <p style="margin-top: 32px; font-size: 18px; font-weight: 700; color: var(--gold);">
-                    💎 These aren't PDFs you'll download and forget. These are tools you'll use in the first 48 hours.
+                <p class="component-desc">Not a crowded Facebook group. Direct access to Bailey + a small crew of serious sellers who are actually implementing.</p>
+                <p style="margin-top: 16px; font-size: 15px; color: #666; font-style: italic;">
+                    "Having Bailey a voice note away when I'm stuck at midnight = priceless" - Previous VIP
                 </p>
+            </div>
+
+            <div class="component-divider">
+                <svg viewBox="0 0 1000 60" preserveAspectRatio="none">
+                    <path d="M0,30 Q250,10 500,30 T1000,30" stroke="#4ECDC4" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="5,5"/>
+                </svg>
+            </div>
+
+            <!-- COMPONENT 4: Illustrated Q&A session -->
+            <div class="component-4">
+                <div class="component-illustration illustration-qa">
+                    <!-- CREATIVE: Grid of shop screens being reviewed -->
+                    <svg width="160" height="120" viewBox="0 0 160 120">
+                        <rect x="10" y="10" width="140" height="100" rx="8" fill="#FFB3D1" opacity="0.2" stroke="#FF6B9D" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="80" y="35" text-anchor="middle" font-family="Inter" font-size="10" font-weight="700" fill="#C7254E">Your Shop</text>
+                        <rect x="30" y="45" width="100" height="50" rx="4" fill="white" stroke="#FF6B9D" stroke-width="2"/>
+                        <line x1="40" y1="55" x2="120" y2="55" stroke="#FF6B9D" stroke-width="2"/>
+                        <rect x="40" y="62" width="35" height="25" rx="2" fill="#FFB3D1" opacity="0.5"/>
+                        <rect x="80" y="62" width="35" height="25" rx="2" fill="#FFB3D1" opacity="0.5"/>
+                        <circle cx="80" cy="105" r="8" fill="#4ECDC4"/>
+                        <text x="80" y="109" text-anchor="middle" font-family="Caveat" font-size="10" font-weight="700" fill="white">✓</text>
+                    </svg>
+                    <svg width="160" height="120" viewBox="0 0 160 120">
+                        <rect x="10" y="10" width="140" height="100" rx="8" fill="#A8E6E3" opacity="0.2" stroke="#4ECDC4" stroke-width="2"/>
+                        <circle cx="80" cy="40" r="20" fill="#4ECDC4" opacity="0.3"/>
+                        <circle cx="80" cy="40" r="12" fill="#4ECDC4"/>
+                        <text x="80" y="75" text-anchor="middle" font-family="Caveat" font-size="14" font-weight="700" fill="#2F5F61">Bailey</text>
+                        <text x="80" y="92" text-anchor="middle" font-family="Inter" font-size="9" fill="#2F5F61">reviewing</text>
+                        <text x="80" y="104" text-anchor="middle" font-family="Inter" font-size="9" fill="#2F5F61">live</text>
+                    </svg>
+                    <svg width="160" height="120" viewBox="0 0 160 120">
+                        <rect x="10" y="10" width="140" height="100" rx="8" fill="#FFD166" opacity="0.2" stroke="#F4A261" stroke-width="2"/>
+                        <circle cx="50" cy="40" r="15" fill="white" stroke="#F4A261" stroke-width="2"/>
+                        <circle cx="110" cy="40" r="15" fill="white" stroke="#F4A261" stroke-width="2"/>
+                        <circle cx="50" cy="80" r="15" fill="white" stroke="#F4A261" stroke-width="2"/>
+                        <circle cx="110" cy="80" r="15" fill="white" stroke="#F4A261" stroke-width="2"/>
+                        <text x="80" y="107" text-anchor="middle" font-family="Inter" font-size="9" font-weight="700" fill="#F4A261">Other VIPs</text>
+                    </svg>
+                </div>
+                <h3 class="component-title">VIP-Only Live Q&A Sessions</h3>
+                <p class="component-desc">Bailey's eyes on YOUR shop, YOUR products, YOUR situation. Not "here's general advice for everyone."</p>
+                <div style="margin-top: 20px; padding: 16px; background: rgba(78, 205, 196, 0.1); border-left: 4px solid var(--teal-primary); border-radius: 8px;">
+                    <p style="font-size: 14px; color: #333; margin: 0;"><strong>Day 2:</strong> 30-min "Ask Bailey Anything" VIP call</p>
+                    <p style="font-size: 14px; color: #333; margin: 8px 0 0 0;"><strong>Day 4:</strong> 60-min Implementation Q&A (shop reviews)</p>
+                </div>
+            </div>
+
+            <div class="component-divider">
+                <svg viewBox="0 0 1000 60" preserveAspectRatio="none">
+                    <path d="M0,30 Q250,45 500,30 T1000,30" stroke="#FFD166" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="5,5"/>
+                </svg>
+            </div>
+
+            <!-- COMPONENT 5: MASSIVE HERO CLIMAX with interactive toolkit cards -->
+            <div class="component-5">
+                <h3 class="component-title">🔥 The "Fast Action" Toolkit</h3>
+                <p class="component-desc">Plug-and-play tools to move from idea to first sale as fast as possible. Not theory PDFs you'll "read someday."</p>
+
+                <!-- CREATIVE: Interactive toolkit cards with hover effects -->
+                <div class="illustration-toolkit">
+                    <div class="toolkit-item">
+                        <span class="toolkit-icon">🤖</span>
+                        <div class="toolkit-label">AI Prompt Library</div>
+                    </div>
+                    <div class="toolkit-item">
+                        <span class="toolkit-icon">💰</span>
+                        <div class="toolkit-label">Profit Calculator</div>
+                    </div>
+                    <div class="toolkit-item">
+                        <span class="toolkit-icon">📅</span>
+                        <div class="toolkit-label">2025 Seasonal Calendar</div>
+                    </div>
+                    <div class="toolkit-item">
+                        <span class="toolkit-icon">💌</span>
+                        <div class="toolkit-label">First Sale Templates</div>
+                    </div>
+                    <div class="toolkit-item">
+                        <span class="toolkit-icon">📸</span>
+                        <div class="toolkit-label">Mockup Bundle</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 32px; padding: 24px; background: rgba(255, 209, 102, 0.1); border: 2px dashed var(--gold); border-radius: 16px; position: relative; z-index: 1;">
+                    <p style="font-size: 18px; font-weight: 700; color: var(--gold); margin: 0 0 12px 0;">
+                        💎 Worth $197 if sold separately
+                    </p>
+                    <p style="font-size: 16px; color: rgba(255, 255, 255, 0.95); margin: 0; line-height: 1.6;">
+                        These aren't PDFs you'll download and forget. These are tools you'll use in the first 48 hours to actually launch or improve your shop.
+                    </p>
+                </div>
             </div>
 
             <div style="text-align: center; margin-top: 60px;">
