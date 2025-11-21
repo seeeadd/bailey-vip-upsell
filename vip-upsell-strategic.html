@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Day Etsy Accelerator VIP Experience - $67 | Bailey Vann</title>
+    <meta name="description" content="Get lifetime recordings, direct WhatsApp access to Bailey, VIP Q&A sessions, and the Fast Action Toolkit. Everything you need to actually IMPLEMENT what you learn.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =====================================
+           LAYOUT STRATEGY RESET
+           ===================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-primary: #FF6B9D;
+            --pink-dark: #C7254E;
+            --pink-light: #FFB3D1;
+            --teal-primary: #4ECDC4;
+            --teal-dark: #2F5F61;
+            --teal-light: #A8E6E3;
+            --gold: #FFD166;
+            --gold-dark: #F4A261;
+            --cream: #FAF7F2;
+            --cream-dark: #F5EFE7;
+            --navy: #2F5F61;
+            --gray-light: #E0E0E0;
+            --gray-medium: #999999;
+            --gray-dark: #666666;
+            --warm-white: #FFFCF7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #333;
+            background: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .handwritten {
+            font-family: 'Caveat', cursive;
+        }
+
+        /* =====================================
+           LAYOUT STRATEGY: STICKY PRICE HEADER
+
+           PSYCHOLOGY: Price should NEVER leave view on mobile
+           CONVERSION: Decision point always accessible
+           MOBILE-FIRST: Primary conversion happens on phone
+           ===================================== */
+        .sticky-price-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-dark));
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-price-bar.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-price-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .sticky-price {
+            font-size: 32px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .sticky-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        .sticky-cta {
+            background: white;
+            color: var(--pink-primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 14px;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* =====================================
+           LAYOUT STRATEGY: HERO SECTION
+
+           DECISION: Price-first comparison layout (not generic sidebar)
+           PSYCHOLOGY: Show value gap IMMEDIATELY - no scrolling to understand
+           HIERARCHY: $67 is THE hero, not the headline
+           MOBILE: Stack price on top (not bottom) - decision first
+           ===================================== */
+        .hero-section {
+            background: linear-gradient(180deg, var(--cream) 0%, #FFFFFF 100%);
+            padding: 140px 24px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ARTISTIC: Subtle texture for warmth */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* LAYOUT: Centered, single column (not two-column split)
+           REASONING: Forces user to read top-to-bottom story
+           MOBILE: No layout shift, same experience */
+        .hero-headline {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--navy);
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subhead {
+            text-align: center;
+            font-size: 22px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* =====================================
+           LAYOUT STRATEGY: PRICE HERO CARD
+
+           DECISION: Massive centered price card (not sidebar)
+           PSYCHOLOGY: $67 should trigger "wait, that's IT?!" reaction
+           VISUAL: Floating, glowing, impossible to miss
+           HIERARCHY: Biggest element on page
+           ===================================== */
+        .price-hero-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--warm-white) 100%);
+            border-radius: 28px;
+            padding: 50px 40px;
+            max-width: 600px;
+            margin: 0 auto 60px;
+            text-align: center;
+            position: relative;
+            /* CREATIVE: Massive layered shadows for "floating" effect */
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                0 8px 24px rgba(255, 107, 157, 0.15),
+                0 16px 48px rgba(78, 205, 196, 0.1),
+                0 24px 80px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ARTISTIC: Gradient glow border */
+        .price-hero-card::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, var(--pink-primary), var(--teal-primary));
+            border-radius: 28px;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .price-hero-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--teal-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        /* CONVERSION MOMENT: The $67 reveal
+           HIERARCHY: Largest text on entire page
+           PSYCHOLOGY: Size = value, gradient = premium */
+        .price-hero-amount {
+            font-size: 96px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -4px;
+            line-height: 1;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 4px 16px rgba(255, 107, 157, 0.3));
+        }
+
+        .price-hero-note {
+            font-size: 16px;
+            color: var(--gray-medium);
+            margin-bottom: 32px;
+        }
+
+        .price-hero-cta {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 22px 32px;
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-dark));
+            color: white;
+            font-size: 17px;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(255, 107, 157, 0.35);
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .price-hero-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(255, 107, 157, 0.5);
+        }
+
+        /* =====================================
+           LAYOUT STRATEGY: COMPARISON SECTION
+
+           DECISION: Asymmetric cards - VIP dominates visually
+           LAYOUT: 70/30 split (not 50/50) - VIP is PHYSICALLY larger
+           PSYCHOLOGY: Size = importance = value
+           VISUAL: FREE fades to background, VIP pops forward
+           MOBILE: VIP stacks on top (decision first)
+           ===================================== */
+        .comparison-section {
+            background: #FFFFFF;
+            padding: 100px 24px;
+            position: relative;
+        }
+
+        /* TEXTURE: Scattered dots for energy */
+        .comparison-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, var(--teal-primary) 1.5px, transparent 1.5px);
+            background-size: 32px 32px;
+            opacity: 0.04;
+            pointer-events: none;
+        }
+
+        .comparison-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-headline {
+            font-size: 48px;
+            font-weight: 900;
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: 60px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        /* LAYOUT: Asymmetric grid - VIP gets MORE space
+           REASONING: Visual hierarchy through size
+           NOT 1fr 1fr (equal) - that's lazy design */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 30% 70%;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* PSYCHOLOGY: FREE card intentionally diminished
+           Muted colors, smaller, less shadow, lower opacity */
+        .ticket-card-free {
+            background: linear-gradient(180deg, #F5F5F5, var(--gray-light));
+            border-radius: 20px;
+            padding: 32px 24px;
+            opacity: 0.75;
+            transform: scale(0.95);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            border: 2px solid var(--gray-light);
+        }
+
+        /* CONVERSION FOCUS: VIP card DOMINATES the comparison
+           Larger, brighter, more shadow, warm colors, elevated */
+        .ticket-card-vip {
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 252, 247, 1) 60%, rgba(250, 247, 242, 1) 100%);
+            border-radius: 24px;
+            padding: 48px 40px;
+            position: relative;
+            transform: scale(1.02);
+            /* ARTISTIC: Strong shadows = importance */
+            box-shadow:
+                0 4px 16px rgba(78, 205, 196, 0.2),
+                0 12px 40px rgba(255, 107, 157, 0.15),
+                0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 3px solid var(--teal-primary);
+        }
+
+        /* TEXTURE: Warmth on VIP card */
+        .ticket-card-vip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+            border-radius: 24px;
+        }
+
+        .vip-badge-top {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-1deg);
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+            color: white;
+            padding: 10px 28px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            box-shadow: 0 4px 16px rgba(78, 205, 196, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .ticket-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .ticket-card-free .ticket-title {
+            font-size: 20px;
+            color: var(--gray-dark);
+            font-weight: 700;
+        }
+
+        .ticket-price {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            line-height: 1;
+            margin-bottom: 28px;
+        }
+
+        .price-number {
+            font-size: 56px;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .ticket-card-free .price-number {
+            font-size: 48px;
+            color: var(--gray-dark);
+        }
+
+        /* ARTISTIC: VIP price gets gradient glow */
+        .ticket-card-vip .price-number {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 68px;
+        }
+
+        .ticket-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .ticket-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .ticket-card-free .ticket-features li {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .btn-vip-large {
+            width: 100%;
+            padding: 20px 28px;
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+            color: white;
+            font-size: 16px;
+            font-weight: 800;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(78, 205, 196, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-vip-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 28px rgba(78, 205, 196, 0.5);
+        }
+
+        /* =====================================
+           LAYOUT STRATEGY: COMPONENTS SECTION
+
+           DECISION: Progressive sizing (crescendo layout)
+           PSYCHOLOGY: Each component gets BIGGER = building excitement
+           VISUAL: 1 (small) → 2 (medium) → 3 (featured) → 4 (large) → 5 (MASSIVE)
+           CONVERSION: Toolkit (#5) should feel like the CLIMAX
+           NOT: Five identical boxes (that's lazy, kills interest)
+           ===================================== */
+        .components-section {
+            background: var(--cream);
+            padding: 100px 24px;
+            position: relative;
+        }
+
+        .components-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+        }
+
+        .components-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* COMPONENT 1: Small baseline
+           LAYOUT: Compact, minimal, sets expectation */
+        .component-1 {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 28px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        /* COMPONENT 2: Slight upgrade
+           LAYOUT: Medium size, add subtle gradient */
+        .component-2 {
+            background: linear-gradient(180deg, white, var(--warm-white));
+            border-radius: 18px;
+            padding: 38px 32px;
+            margin-bottom: 36px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+        }
+
+        /* COMPONENT 3: FEATURED (WhatsApp - most personal)
+           LAYOUT: Large, teal accent, special treatment
+           PSYCHOLOGY: Personal connection = unique value
+           VISUAL: Breaks pattern significantly */
+        .component-3 {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.05), rgba(168, 230, 227, 0.08));
+            border-radius: 20px;
+            padding: 48px 40px;
+            margin-bottom: 40px;
+            border: 3px solid var(--teal-primary);
+            position: relative;
+            box-shadow: 0 6px 24px rgba(78, 205, 196, 0.15);
+        }
+
+        .component-3::before {
+            content: '✨ MOST PERSONAL';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            box-shadow: 0 3px 12px rgba(78, 205, 196, 0.3);
+        }
+
+        /* COMPONENT 4: Rich standard
+           LAYOUT: Back to medium but richer styling */
+        .component-4 {
+            background: linear-gradient(180deg, white, rgba(255, 252, 247, 1));
+            border-radius: 20px;
+            padding: 42px 36px;
+            margin-bottom: 48px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(78, 205, 196, 0.1);
+        }
+
+        /* COMPONENT 5 (TOOLKIT): MASSIVE HERO CLIMAX
+           LAYOUT: 2x height, dark background, gold accents
+           PSYCHOLOGY: THIS is the closer, the "wow" moment
+           VISUAL: Dominates the scroll, impossible to miss
+           CONVERSION: Value stacking culminates here */
+        .component-5 {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--teal-dark) 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 64px 48px;
+            position: relative;
+            overflow: hidden;
+            /* ARTISTIC: Massive shadows = most important */
+            box-shadow:
+                0 8px 32px rgba(47, 95, 97, 0.3),
+                0 16px 64px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(78, 205, 196, 0.4);
+        }
+
+        /* TEXTURE: Noise on dark background */
+        .component-5::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        /* ARTISTIC: Glow overlay */
+        .component-5::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse, rgba(78, 205, 196, 0.15), transparent 60%);
+            pointer-events: none;
+        }
+
+        .component-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(78, 205, 196, 0.3);
+        }
+
+        .component-5 .component-number {
+            width: 56px;
+            height: 56px;
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-dark));
+            box-shadow: 0 6px 24px rgba(255, 107, 157, 0.5);
+        }
+
+        .component-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .component-5 .component-title {
+            color: white;
+            font-size: 36px;
+        }
+
+        .component-desc {
+            font-size: 17px;
+            color: var(--gray-dark);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .component-5 .component-desc {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 19px;
+        }
+
+        .component-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .component-list li {
+            font-size: 16px;
+            line-height: 1.7;
+            padding-left: 8px;
+        }
+
+        .component-5 .component-list li {
+            color: white;
+            font-size: 17px;
+        }
+
+        /* =====================================
+           RESPONSIVE: MOBILE-FIRST STRATEGY
+
+           DECISION: Stack VIP on TOP (not bottom)
+           PSYCHOLOGY: Make decision accessible first
+           CONVERSION: Don't make them scroll past content to see price
+           ===================================== */
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 36px;
+            }
+
+            .price-hero-amount {
+                font-size: 72px;
+            }
+
+            /* MOBILE: Comparison stacks with VIP ON TOP
+               REASONING: Decision first, not last */
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            /* VIP appears FIRST in mobile stack */
+            .ticket-card-vip {
+                order: -1;
+                transform: scale(1);
+            }
+
+            .ticket-card-free {
+                transform: scale(0.92);
+            }
+
+            .section-headline {
+                font-size: 32px;
+            }
+
+            .component-5 {
+                padding: 48px 32px;
+            }
+
+            .component-5 .component-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- =====================================
+         LAYOUT: Sticky Price Bar (Mobile)
+
+         APPEARS: After user scrolls past hero price
+         PSYCHOLOGY: Keep decision point visible
+         CONVERSION: Can upgrade at any scroll position
+         ===================================== -->
+    <div class="sticky-price-bar" id="stickyBar">
+        <div class="sticky-price-content">
+            <div class="sticky-price">$67</div>
+            <div class="sticky-label">VIP Upgrade</div>
+        </div>
+        <a href="#upgrade" class="sticky-cta">UPGRADE NOW</a>
+    </div>
+
+    <!-- =====================================
+         LAYOUT STRATEGY: Hero Section
+
+         HIERARCHY: Price FIRST (not headline)
+         FLOW: Price → what you get → CTA
+         PSYCHOLOGY: Address objection immediately
+         ===================================== -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <h1 class="hero-headline">
+                Upgrade to the <span style="background: linear-gradient(135deg, var(--pink-primary), var(--teal-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Complete VIP Experience</span>
+            </h1>
+
+            <p class="hero-subhead">
+                Get lifetime recordings, personal WhatsApp access to Bailey, VIP Q&A sessions, and the Fast Action Toolkit.
+                Everything you need to actually <strong>IMPLEMENT</strong> what you learn.
+            </p>
+
+            <!-- CONVERSION MOMENT: The $67 Hero Card
+                 LAYOUT: Centered, floating, impossible to miss
+                 SIZE: Largest element to trigger "that's it?!" reaction -->
+            <div class="price-hero-card" id="heroPrice">
+                <div class="price-hero-label">3-Day Etsy Accelerator VIP</div>
+                <div class="price-hero-amount">$67</div>
+                <p class="price-hero-note">One-time investment • Lifetime access • 7-day guarantee</p>
+                <a href="#upgrade" class="price-hero-cta">YES, UPGRADE ME TO VIP FOR $67</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================
+         LAYOUT STRATEGY: Comparison Section
+
+         GRID: 30/70 split (asymmetric, not 50/50)
+         VISUAL: VIP DOMINATES through size
+         PSYCHOLOGY: Physical size = perceived value
+         MOBILE: VIP stacks FIRST (decision first)
+         ===================================== -->
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <h2 class="section-headline">
+                Choose Your Experience:
+            </h2>
+
+            <div class="comparison-grid">
+                <!-- FREE: Intentionally diminished, muted, smaller -->
+                <div class="ticket-card-free">
+                    <h3 class="ticket-title">Free Ticket</h3>
+                    <div class="ticket-price">
+                        <span class="price-number">$0</span>
+                    </div>
+                    <ul class="ticket-features">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#CCCCCC"/>
+                                <path d="M6 10L9 13L14 8" stroke="#666" stroke-width="2"/>
+                            </svg>
+                            Live sessions
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#CCCCCC"/>
+                                <path d="M6 10L9 13L14 8" stroke="#666" stroke-width="2"/>
+                            </svg>
+                            Workbook
+                        </li>
+                        <li style="opacity: 0.5;">✗ No recordings</li>
+                        <li style="opacity: 0.5;">✗ No Bailey access</li>
+                        <li style="opacity: 0.5;">✗ No toolkit</li>
+                    </ul>
+                </div>
+
+                <!-- VIP: DOMINANT - larger, brighter, elevated -->
+                <div class="ticket-card-vip">
+                    <div class="vip-badge-top">⚡ LAUNCH-READY VIP</div>
+
+                    <h3 class="ticket-title">Complete VIP Experience</h3>
+                    <div class="ticket-price">
+                        <span class="price-number">$67</span>
+                    </div>
+
+                    <ul class="ticket-features">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2.5"/>
+                            </svg>
+                            <span>Live sessions + <strong>lifetime HD recordings</strong></span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2.5"/>
+                            </svg>
+                            <span><strong>"Come Prepared" Quick Start Kit</strong> (50 examples, shop walkthrough)</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2.5"/>
+                            </svg>
+                            <span><strong>7-day private WhatsApp</strong> with Bailey</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2.5"/>
+                            </svg>
+                            <span><strong>VIP-only Q&A sessions</strong> (Day 2 + Day 4)</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="white" stroke-width="2.5"/>
+                            </svg>
+                            <span><strong>Fast Action Toolkit</strong> (AI prompts, calculator, templates, mockups)</span>
+                        </li>
+                    </ul>
+
+                    <button class="btn-vip-large">YES, I WANT THE VIP EXPERIENCE FOR $67</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================
+         LAYOUT STRATEGY: Components Section
+
+         CRESCENDO: Progressive sizing 1→5
+         COMPONENT 1: Small (baseline)
+         COMPONENT 2: Medium (warming up)
+         COMPONENT 3: Featured (WhatsApp = most personal)
+         COMPONENT 4: Large (rich standard)
+         COMPONENT 5: MASSIVE (Toolkit = climax, closer)
+
+         PSYCHOLOGY: Building excitement, not repetition
+         CONVERSION: Toolkit should feel like THE prize
+         ===================================== -->
+    <section class="components-section">
+        <div class="components-container">
+            <h2 class="section-headline">
+                Here's Everything You Get for <span style="background: linear-gradient(135deg, var(--pink-primary), var(--teal-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$67</span>
+            </h2>
+
+            <!-- COMPONENT 1: Simple baseline -->
+            <div class="component-1">
+                <div class="component-number">1</div>
+                <h3 class="component-title">Lifetime Recording Access</h3>
+                <p class="component-desc">Never miss a moment, even when life gets chaotic.</p>
+                <ul class="component-list">
+                    <li>✓ All 3 challenge days in HD</li>
+                    <li>✓ Download slides and resources</li>
+                    <li>✓ Rewatch whenever you need</li>
+                </ul>
+            </div>
+
+            <!-- COMPONENT 2: Medium upgrade -->
+            <div class="component-2">
+                <div class="component-number">2</div>
+                <h3 class="component-title">The "Come Prepared" Quick Start Kit</h3>
+                <p class="component-desc">Show up on Day 1 ready to move with Bailey's pre-work material.</p>
+                <ul class="component-list">
+                    <li><strong>Pre-Challenge Prep Video:</strong> "How to Audit Your Shop BEFORE Day 1"</li>
+                    <li><strong>Bailey's Shop Walkthrough:</strong> Behind-the-scenes of her $1M shop</li>
+                    <li><strong>The Delete Decision Matrix:</strong> Know exactly which listings to cut</li>
+                    <li><strong>50 Winning Product Examples:</strong> Real products that sell</li>
+                </ul>
+            </div>
+
+            <!-- COMPONENT 3: FEATURED (Most personal) -->
+            <div class="component-3">
+                <div class="component-number">3</div>
+                <h3 class="component-title">7-Day Private WhatsApp with Bailey</h3>
+                <p class="component-desc">Direct access to Bailey and a small group of serious sellers. Not a crowded Facebook group.</p>
+                <ul class="component-list">
+                    <li>✓ Ask your specific questions in VIP thread</li>
+                    <li>✓ Share progress and get quick feedback</li>
+                    <li>✓ Network with sellers actually implementing</li>
+                    <li>✓ Get Bailey's voice notes with personal tips</li>
+                </ul>
+            </div>
+
+            <!-- COMPONENT 4: Rich standard -->
+            <div class="component-4">
+                <div class="component-number">4</div>
+                <h3 class="component-title">VIP-Only Live Q&A Sessions</h3>
+                <p class="component-desc">Bailey's eyes on YOUR shop, YOUR products, YOUR situation. Personalized feedback, not generic advice.</p>
+                <ul class="component-list">
+                    <li><strong>End of Day 2:</strong> 30-min "Ask Bailey Anything" VIP call</li>
+                    <li><strong>Day 4:</strong> 60-min Implementation Q&A to review shops</li>
+                    <li>✓ Chance to get your shop reviewed live</li>
+                    <li>✓ Recordings provided to rewatch feedback</li>
+                </ul>
+            </div>
+
+            <!-- COMPONENT 5: MASSIVE HERO CLIMAX -->
+            <div class="component-5">
+                <div class="component-number">5</div>
+                <h3 class="component-title">The "Fast Action" Toolkit</h3>
+                <p class="component-desc">Plug-and-play tools to move from idea to first sale as fast as possible.</p>
+                <ul class="component-list">
+                    <li><strong>AI Prompt Library:</strong> 20 copy-paste templates for listings, SEO, and product ideas</li>
+                    <li><strong>Profit Calculator Spreadsheet:</strong> Quickly see what's worth your time</li>
+                    <li><strong>2025 Seasonal Planning Calendar:</strong> Ride demand spikes instead of missing them</li>
+                    <li><strong>First Sale Template Pack:</strong> Messages, offers, mini promotions</li>
+                    <li><strong>Mockup Magic Bundle:</strong> Bailey's collection to upgrade listing photos instantly</li>
+                </ul>
+                <p style="margin-top: 32px; font-size: 18px; font-weight: 700; color: var(--gold);">
+                    💎 These aren't PDFs you'll download and forget. These are tools you'll use in the first 48 hours.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="#upgrade" class="price-hero-cta" style="display: inline-block;">
+                    YES, I WANT ALL 5 COMPONENTS FOR $67
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // CONVERSION: Show sticky price bar after scrolling past hero
+        const stickyBar = document.getElementById('stickyBar');
+        const heroPrice = document.getElementById('heroPrice');
+
+        window.addEventListener('scroll', () => {
+            const heroRect = heroPrice.getBoundingClientRect();
+            if (heroRect.bottom < 0) {
+                stickyBar.classList.add('visible');
+            } else {
+                stickyBar.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
