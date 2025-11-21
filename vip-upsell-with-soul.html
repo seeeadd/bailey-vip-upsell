@@ -58,6 +58,72 @@
             font-family: 'Caveat', cursive;
         }
 
+        /* ARTISTIC: Handwritten annotations scattered throughout */
+        .handwritten-note {
+            font-family: 'Caveat', cursive;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--pink-primary);
+            position: absolute;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* CREATIVE: Hand-drawn arrow pointing to important elements */
+        .hand-drawn-arrow {
+            position: absolute;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        /* ARTISTIC: Hand-drawn circle/highlight around text */
+        .hand-drawn-circle {
+            position: absolute;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        /* DECORATIVE: Sticker-style badges */
+        .sticker-badge {
+            position: absolute;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy);
+            font-family: 'Caveat', cursive;
+            font-size: 17px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(255, 209, 102, 0.4),
+                        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            z-index: 10;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* ARTISTIC: Scribble underlines */
+        .scribble-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .scribble-underline::after {
+            content: '';
+            position: absolute;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            height: 14px;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='14' viewBox='0 0 100 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 11 Q 20 8, 40 10 T 80 9 T 98 11' stroke='%23FFD166' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M1 8 Q 18 6, 38 8 T 78 7 T 97 9' stroke='%23FFD166' stroke-width='2' fill='none' stroke-linecap='round' opacity='0.5'/%3E%3C/svg%3E") repeat-x;
+            background-size: 100px 14px;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
         /* =====================================
            ARTISTIC CHOICE: TEXTURE SYSTEM
 
@@ -1664,7 +1730,7 @@
                 </h1>
 
                 <p class="hero-subhead">
-                    Get everything you need to actually <strong>IMPLEMENT</strong> what you learn
+                    Get everything you need to actually <strong class="scribble-underline">IMPLEMENT</strong> what you learn
                     <span class="text-muted">(not just take notes that die in a drawer).</span>
                 </p>
 
@@ -1700,6 +1766,22 @@
             </div>
 
             <div class="hero-right">
+                <!-- ARTISTIC: Handwritten "Yes!" annotation -->
+                <div class="handwritten-note" style="top: -40px; right: -30px; transform: rotate(8deg);">
+                    Yes! →
+                </div>
+
+                <!-- CREATIVE: Hand-drawn arrow pointing to card -->
+                <svg class="hand-drawn-arrow" style="top: -25px; right: 60px; width: 80px; height: 60px;" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 50 Q 20 10, 60 15" stroke="#FF6B9D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="2,3"/>
+                    <path d="M55 10 L 65 15 L 58 20" stroke="#FF6B9D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                </svg>
+
+                <!-- DECORATIVE: Sticker badge -->
+                <div class="sticker-badge" style="top: -15px; left: -25px; transform: rotate(-12deg); font-size: 14px;">
+                    Only<br>$67!
+                </div>
+
                 <div class="vip-price-card">
                     <div class="price-card-header">
                         <span class="price-card-label">The 3-Day Etsy Accelerator</span>
@@ -1838,6 +1920,17 @@
                 <div class="ticket-card vip-ticket">
                     <div class="vip-badge-top">LAUNCH-READY VIP</div>
 
+                    <!-- ARTISTIC: Handwritten note pointing to VIP benefits -->
+                    <div class="handwritten-note" style="top: 180px; left: -120px; transform: rotate(-8deg); font-size: 22px;">
+                        This is where<br>the magic happens ✨
+                    </div>
+
+                    <!-- CREATIVE: Curved arrow -->
+                    <svg class="hand-drawn-arrow" style="top: 150px; left: -40px; width: 60px; height: 80px;" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 10 Q 30 40, 45 70" stroke="#4ECDC4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="3,4"/>
+                        <path d="M40 65 L 48 73 L 43 78" stroke="#4ECDC4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+
                     <div class="ticket-header">
                         <h3 class="ticket-title">3-Day Etsy Accelerator VIP</h3>
                         <div class="ticket-price">
@@ -1912,7 +2005,7 @@
             </h2>
 
             <p class="intro-paragraph">
-                The <strong>free challenge</strong> gives you the strategy. <strong>VIP</strong> makes sure you can
+                The <strong>free challenge</strong> gives you the strategy. <strong class="scribble-underline">VIP</strong> makes sure you can
                 <strong>actually implement it</strong> – even if kids interrupt, work gets busy, or you need feedback on your specific shop.
             </p>
 
@@ -1993,6 +2086,11 @@
                 <span class="highlight-gradient">$67 VIP Experience</span>
             </h2>
 
+            <!-- ARTISTIC: Handwritten excitement note -->
+            <div class="handwritten-note" style="position: relative; display: inline-block; left: 30px; top: -15px; font-size: 24px; transform: rotate(3deg); color: #4ECDC4;">
+                So much goodness! ✨
+            </div>
+
             <div class="components-list">
                 <!-- CRESCENDO: Component 1 - Simple treatment with light grain texture -->
                 <div class="component-item">
@@ -2049,6 +2147,22 @@
                      Dark gradient background, white text, multiple textures, strong shadows
                      This is the visual crescendo - the "wow" moment that stands out -->
                 <div class="component-item hero-component">
+                    <!-- ARTISTIC: Star sticker badge -->
+                    <div class="sticker-badge" style="top: -20px; right: -20px; transform: rotate(18deg); background: linear-gradient(135deg, #FFD166, #F4A261); border: 3px solid white;">
+                        ⭐<br>Worth<br>$197
+                    </div>
+
+                    <!-- HANDWRITTEN: "The good stuff!" annotation -->
+                    <div class="handwritten-note" style="top: 40px; left: -110px; transform: rotate(-12deg); color: #FFD166; font-size: 24px;">
+                        The good<br>stuff! ⚡
+                    </div>
+
+                    <!-- CREATIVE: Wavy arrow -->
+                    <svg class="hand-drawn-arrow" style="top: 70px; left: -35px; width: 50px; height: 60px;" viewBox="0 0 50 60" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 10 Q 18 30, 28 40 T 42 55" stroke="#FFD166" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="2,3"/>
+                        <path d="M37 50 L 44 57 L 39 60" stroke="#FFD166" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+
                     <div class="component-number">5</div>
                     <h3>The "Fast Action" Toolkit</h3>
                     <p>Plug-and-play tools so you can move from idea to first sale as fast as possible.</p>
@@ -2089,8 +2203,13 @@
             </div>
 
             <h2 class="guarantee-headline">
-                100% Money-Back Guarantee – Try the VIP Experience for the Whole Week
+                100% Money-Back Guarantee – Try the <span class="scribble-underline">VIP Experience</span> for the Whole Week
             </h2>
+
+            <!-- ARTISTIC: Handwritten note -->
+            <div class="handwritten-note" style="position: relative; top: -10px; left: 20px; display: inline-block; font-size: 22px; transform: rotate(-4deg);">
+                Zero risk! ✓
+            </div>
 
             <div>
                 <p class="guarantee-description">
@@ -2254,8 +2373,18 @@
             <!-- CREATIVE MOMENT: Final CTA Box
                  Gradient background, gradient border, rich texture, large price treatment -->
             <div class="final-cta-box">
+                <!-- DECORATIVE: Star burst sticker -->
+                <div class="sticker-badge" style="top: -25px; right: 40px; transform: rotate(-15deg); font-size: 16px; padding: 14px 18px;">
+                    Last<br>chance!
+                </div>
+
+                <!-- HANDWRITTEN: Enthusiasm note -->
+                <div class="handwritten-note" style="top: 20px; left: -90px; transform: rotate(-10deg); color: #FF6B9D; font-size: 28px;">
+                    Do it! 🚀
+                </div>
+
                 <h2 class="final-cta-headline">
-                    Ready to Actually <span class="highlight-gradient">Implement</span> What You Learn?
+                    Ready to Actually <span class="highlight-gradient scribble-underline">Implement</span> What You Learn?
                 </h2>
                 <p style="font-size: 19px; color: #666; line-height: 1.7; margin-bottom: 36px; max-width: 700px; margin-left: auto; margin-right: auto; position: relative; z-index: 1;">
                     If you're on the fence, join VIP now. It's the same challenge, but with recordings, personal support,
