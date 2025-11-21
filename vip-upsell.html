@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Day Etsy Accelerator VIP Experience - $67 | Bailey Vann</title>
+    <meta name="description" content="Get lifetime recordings, direct WhatsApp access to Bailey, VIP Q&A sessions, and the Fast Action Toolkit. Everything you need to actually IMPLEMENT what you learn.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-primary: #FF6B9D;
+            --pink-dark: #C7254E;
+            --teal-primary: #4ECDC4;
+            --teal-dark: #2F5F61;
+            --gold: #FFD166;
+            --gold-dark: #F4A261;
+            --cream: #FAF7F2;
+            --cream-dark: #F5EFE7;
+            --navy: #2F5F61;
+            --gray-light: #E0E0E0;
+            --gray-medium: #999999;
+            --gray-dark: #666666;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: #333;
+            background: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Alert Bar */
+        .alert-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-dark));
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 24px 12px;
+        }
+
+        .alert-bar-text {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .alert-bar-progress {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .alert-bar-progress-fill {
+            height: 100%;
+            background: #FFFFFF;
+            transition: width 0.3s ease;
+            border-radius: 2px;
+            width: 75%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(180deg, var(--cream) 0%, #FFFFFF 100%);
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(255, 107, 157, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(78, 205, 196, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chip-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+            color: #FFFFFF;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.2);
+        }
+
+        .hero-h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--navy);
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .highlight-pink {
+            color: var(--pink-primary);
+        }
+
+        .hero-subhead {
+            font-size: 22px;
+            line-height: 1.5;
+            color: var(--gray-dark);
+            margin-bottom: 40px;
+        }
+
+        .text-muted {
+            color: var(--gray-medium);
+            font-style: italic;
+        }
+
+        .hero-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            font-size: 17px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .bullet-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .hero-right {
+            position: sticky;
+            top: 100px;
+        }
+
+        .vip-price-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px 32px;
+            box-shadow: 0 8px 32px rgba(255, 107, 157, 0.2);
+            border: 2px solid rgba(255, 107, 157, 0.1);
+            position: relative;
+        }
+
+        .vip-price-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--pink-primary), var(--teal-primary));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .price-card-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .price-card-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .price-card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        .price-display {
+            text-align: center;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 32px 0;
+            line-height: 1;
+        }
+
+        .price-currency {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--pink-primary);
+            margin-top: 8px;
+            margin-right: 4px;
+        }
+
+        .price-amount {
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--pink-primary);
+            letter-spacing: -2px;
+        }
+
+        .price-card-note {
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-medium);
+            margin-bottom: 28px;
+        }
+
+        .price-card-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 32px;
+            padding: 24px 0;
+            border-top: 1px solid var(--gray-light);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .feature-check {
+            font-size: 14px;
+            color: var(--gray-dark);
+            line-height: 1.5;
+        }
+
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-dark));
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(255, 107, 157, 0.3);
+            margin-bottom: 16px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 107, 157, 0.4);
+        }
+
+        .btn-secondary-text {
+            display: block;
+            width: 100%;
+            padding: 12px 24px;
+            color: var(--gray-medium);
+            font-size: 14px;
+            text-align: center;
+            text-decoration: underline;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .btn-secondary-text:hover {
+            color: var(--gray-dark);
+        }
+
+        /* Video Section */
+        .hero-video-section {
+            margin-top: 60px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-placeholder {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-play-button {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .video-play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .video-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 24px;
+        }
+
+        .section-cream {
+            background: var(--cream);
+        }
+
+        .section-white {
+            background: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-headline {
+            font-size: 42px;
+            font-weight: 800;
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: 60px;
+            line-height: 1.2;
+        }
+
+        .highlight-gradient {
+            background: linear-gradient(135deg, var(--pink-primary), var(--teal-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro-paragraph {
+            font-size: 20px;
+            text-align: center;
+            color: var(--gray-dark);
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        /* Comparison Cards */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .ticket-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .ticket-card.free-ticket {
+            background: var(--cream);
+            border: 2px solid var(--gray-light);
+            opacity: 0.85;
+            transform: scale(0.97);
+        }
+
+        .ticket-card.vip-ticket {
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--cream) 100%);
+            border: 3px solid var(--teal-primary);
+            box-shadow: 0 8px 32px rgba(78, 205, 196, 0.2);
+            transform: scale(1.02);
+        }
+
+        .vip-badge-top {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+            color: #FFFFFF;
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+        }
+
+        .ticket-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .ticket-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .ticket-card.free-ticket .ticket-title {
+            color: var(--gray-dark);
+        }
+
+        .ticket-price {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            line-height: 1;
+            margin-bottom: 32px;
+        }
+
+        .currency-symbol {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 4px;
+            margin-right: 2px;
+        }
+
+        .price-number {
+            font-size: 56px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .ticket-card.free-ticket .currency-symbol,
+        .ticket-card.free-ticket .price-number {
+            color: var(--gray-dark);
+        }
+
+        .ticket-card.vip-ticket .currency-symbol,
+        .ticket-card.vip-ticket .price-number {
+            color: var(--pink-primary);
+        }
+
+        .ticket-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex-grow: 1;
+            margin-bottom: 32px;
+        }
+
+        .ticket-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .check-icon,
+        .x-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .text-strike {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .feature-missing {
+            opacity: 0.5;
+        }
+
+        .btn-free-ticket {
+            width: 100%;
+            padding: 16px 24px;
+            background: var(--gray-light);
+            color: var(--gray-dark);
+            font-size: 15px;
+            font-weight: 600;
+            border: 2px solid var(--gray-medium);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-vip-ticket {
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(78, 205, 196, 0.3);
+        }
+
+        .comparison-note {
+            text-align: center;
+            font-size: 16px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Why Cards */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .why-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 40px 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .why-icon {
+            margin-bottom: 24px;
+        }
+
+        .why-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        .why-card p {
+            font-size: 16px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary-large {
+            padding: 20px 48px;
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-dark));
+            color: #FFFFFF;
+            font-size: 17px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .btn-primary-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 28px rgba(255, 107, 157, 0.4);
+        }
+
+        .btn-text-link {
+            color: var(--gray-medium);
+            font-size: 15px;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        /* Simplified Components List */
+        .components-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .component-item {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .component-number {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--teal-primary), var(--teal-dark));
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .component-item h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .component-item p {
+            font-size: 17px;
+            color: var(--gray-dark);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .component-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .component-item ul li {
+            padding: 8px 0;
+            font-size: 16px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+
+        .component-item.hero-component {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--teal-dark) 100%);
+            color: #FFFFFF;
+        }
+
+        .component-item.hero-component h3,
+        .component-item.hero-component p,
+        .component-item.hero-component ul li {
+            color: #FFFFFF;
+        }
+
+        /* Guarantee Section */
+        .guarantee-section {
+            padding: 100px 24px;
+            background: linear-gradient(180deg, var(--cream) 0%, #FFFFFF 100%);
+        }
+
+        .guarantee-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .guarantee-badge {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .guarantee-headline {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 32px;
+            line-height: 1.3;
+        }
+
+        .guarantee-description {
+            font-size: 18px;
+            color: var(--gray-dark);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .guarantee-promise {
+            font-size: 20px;
+            color: var(--navy);
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 48px;
+        }
+
+        /* Filter Section */
+        .filter-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .filter-column {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .filter-column.perfect {
+            border: 3px solid var(--teal-primary);
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(78, 205, 196, 0.05) 100%);
+        }
+
+        .filter-column.not-perfect {
+            border: 2px solid var(--gray-light);
+            opacity: 0.9;
+        }
+
+        .filter-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .filter-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .filter-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .filter-list li {
+            font-size: 16px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .filter-column.perfect .filter-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--teal-primary);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .filter-column.not-perfect .filter-list li::before {
+            content: '×';
+            position: absolute;
+            left: 0;
+            color: var(--gray-medium);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .filter-encouragement {
+            font-size: 18px;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin: 60px 0;
+        }
+
+        .faq-item {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+
+        .final-cta-box {
+            background: linear-gradient(135deg, #FFFFFF, var(--cream));
+            border-radius: 24px;
+            padding: 60px 48px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border: 3px solid var(--pink-primary);
+            margin-top: 60px;
+        }
+
+        .final-cta-headline {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .final-price {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            line-height: 1;
+            margin: 32px 0;
+        }
+
+        .final-currency {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--pink-primary);
+            margin-top: 8px;
+            margin-right: 4px;
+        }
+
+        .final-amount {
+            font-size: 80px;
+            font-weight: 900;
+            color: var(--pink-primary);
+            letter-spacing: -2px;
+        }
+
+        .btn-primary-massive {
+            display: inline-block;
+            padding: 24px 64px;
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-dark));
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 24px rgba(255, 107, 157, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .final-ps {
+            font-size: 16px;
+            color: var(--gray-dark);
+            line-height: 1.7;
+            text-align: center;
+            max-width: 800px;
+            margin: 48px auto 0;
+            padding-top: 32px;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            padding: 48px 24px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-right {
+                position: static;
+            }
+
+            .hero-h1 {
+                font-size: 36px;
+            }
+
+            .comparison-grid,
+            .why-grid,
+            .filter-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .ticket-card.free-ticket,
+            .ticket-card.vip-ticket {
+                transform: scale(1);
+            }
+
+            .section-headline {
+                font-size: 32px;
+            }
+
+            .final-cta-headline {
+                font-size: 32px;
+            }
+
+            .final-amount {
+                font-size: 64px;
+            }
+
+            .btn-primary-large,
+            .btn-primary-massive {
+                width: 100%;
+                padding: 18px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Alert Bar -->
+    <div class="alert-bar">
+        <div class="alert-bar-content">
+            <p class="alert-bar-text">YOUR REGISTRATION ISN'T COMPLETE YET – DON'T CLOSE THIS PAGE.</p>
+            <div class="alert-bar-progress">
+                <div class="alert-bar-progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="chip-badge">
+                    <span>✨</span>
+                    <span>VIP UPGRADE • 3-Day Etsy Accelerator</span>
+                </div>
+
+                <h1 class="hero-h1">
+                    Yes! I Want The Complete 3-Day Experience
+                    <span class="highlight-pink">With Bailey's Personal Support</span>
+                </h1>
+
+                <p class="hero-subhead">
+                    Get everything you need to actually <strong>IMPLEMENT</strong> what you learn
+                    <span class="text-muted">(not just take notes that die in a drawer).</span>
+                </p>
+
+                <ul class="hero-bullets">
+                    <li>
+                        <svg class="bullet-icon" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" fill="#4ECDC4" opacity="0.2"/>
+                            <path d="M7 12L10.5 15.5L17 9" stroke="#2F5F61" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>
+                            <strong>Lifetime access</strong> to all 3 days in HD, slides, and resources – rewatch whenever life gets chaotic.
+                        </span>
+                    </li>
+                    <li>
+                        <svg class="bullet-icon" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" fill="#FF6B9D" opacity="0.2"/>
+                            <path d="M7 12L10.5 15.5L17 9" stroke="#C7254E" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>
+                            <strong>Pre-challenge "Come Prepared" Quick Start Kit</strong> so you show up with a clear plan, not a blank screen.
+                        </span>
+                    </li>
+                    <li>
+                        <svg class="bullet-icon" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10" fill="#FFD166" opacity="0.2"/>
+                            <path d="M7 12L10.5 15.5L17 9" stroke="#F4A261" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>
+                            <strong>7 days of private access to Bailey</strong> and VIP-only Q&A sessions so you're never figuring this out alone.
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="hero-right">
+                <div class="vip-price-card">
+                    <div class="price-card-header">
+                        <span class="price-card-label">The 3-Day Etsy Accelerator</span>
+                        <h3 class="price-card-title">VIP Experience</h3>
+                    </div>
+
+                    <div class="price-display">
+                        <span class="price-currency">$</span>
+                        <span class="price-amount">67</span>
+                    </div>
+
+                    <p class="price-card-note">One-time payment • Limited VIP spots</p>
+
+                    <div class="price-card-features">
+                        <div class="feature-check">✓ Lifetime recording access (all 3 days + slides)</div>
+                        <div class="feature-check">✓ "Come Prepared" Quick Start Kit</div>
+                        <div class="feature-check">✓ 7-day private WhatsApp with Bailey</div>
+                        <div class="feature-check">✓ VIP-only live Q&A sessions</div>
+                        <div class="feature-check">✓ Fast Action Toolkit (prompts, calculators, templates, mockups)</div>
+                    </div>
+
+                    <a href="#upgrade" class="btn-primary">
+                        YES, UPGRADE ME TO VIP FOR $67
+                    </a>
+
+                    <a href="#free" class="btn-secondary-text">
+                        No thanks, I'll stay on the free ticket
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-video-section">
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <div class="video-play-button">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="32" fill="#FF6B9D"/>
+                            <path d="M26 22L42 32L26 42V22Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <p class="video-caption">
+                        <span>▶</span>
+                        Your VIP invite from Bailey is already playing – click to listen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-headline">
+                Choose Your Ticket Type Below:
+            </h2>
+
+            <div class="comparison-grid">
+                <!-- FREE CARD -->
+                <div class="ticket-card free-ticket">
+                    <div class="ticket-header">
+                        <h3 class="ticket-title">Free Challenge Ticket</h3>
+                        <div class="ticket-price">
+                            <span class="currency-symbol">$</span>
+                            <span class="price-number">0</span>
+                        </div>
+                    </div>
+
+                    <ul class="ticket-features">
+                        <li class="feature-included">
+                            <svg class="check-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#CCCCCC"/>
+                                <path d="M6 10L9 13L14 8" stroke="#666666" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Access to all 3 main challenge days live</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg class="check-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#CCCCCC"/>
+                                <path d="M6 10L9 13L14 8" stroke="#666666" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Standard challenge workbook</span>
+                        </li>
+                        <li class="feature-included">
+                            <svg class="check-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#CCCCCC"/>
+                                <path d="M6 10L9 13L14 8" stroke="#666666" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>Access to the main community chat</span>
+                        </li>
+                        <li class="feature-missing">
+                            <svg class="x-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#EEEEEE"/>
+                                <path d="M7 7L13 13M7 13L13 7" stroke="#999999" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="text-strike">No lifetime recording access</span>
+                        </li>
+                        <li class="feature-missing">
+                            <svg class="x-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#EEEEEE"/>
+                                <path d="M7 7L13 13M7 13L13 7" stroke="#999999" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="text-strike">No "Come Prepared" Quick Start Kit</span>
+                        </li>
+                        <li class="feature-missing">
+                            <svg class="x-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#EEEEEE"/>
+                                <path d="M7 7L13 13M7 13L13 7" stroke="#999999" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="text-strike">No 7-day private WhatsApp with Bailey</span>
+                        </li>
+                        <li class="feature-missing">
+                            <svg class="x-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#EEEEEE"/>
+                                <path d="M7 7L13 13M7 13L13 7" stroke="#999999" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="text-strike">No VIP-only live Q&A sessions</span>
+                        </li>
+                        <li class="feature-missing">
+                            <svg class="x-icon" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="9" fill="#EEEEEE"/>
+                                <path d="M7 7L13 13M7 13L13 7" stroke="#999999" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span class="text-strike">No Fast Action Toolkit</span>
+                        </li>
+                    </ul>
+
+                    <button class="btn-free-ticket">
+                        NO, I'LL KEEP THE FREE TICKET
+                    </button>
+                </div>
+
+                <!-- VIP CARD -->
+                <div class="ticket-card vip-ticket">
+                    <div class="vip-badge-top">LAUNCH-READY VIP</div>
+
+                    <div class="ticket-header">
+                        <h3 class="ticket-title">3-Day Etsy Accelerator VIP</h3>
+                        <div class="ticket-price">
+                            <span class="currency-symbol">$</span>
+                            <span class="price-number">67</span>
+                        </div>
+                    </div>
+
+                    <ul class="ticket-features">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>Access to all 3 main challenge days live</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                            <span><strong>Lifetime HD recordings</strong> of all 3 days + slides</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                            <span><strong>"Come Prepared" Quick Start Kit</strong> (audit, shop walkthrough, decision matrix, 50 examples)</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                            <span><strong>7-day private WhatsApp</strong> with Bailey</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                            <span><strong>VIP-only live Q&A sessions</strong> (Day 2 + Day 4 implementation call)</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" fill="#4ECDC4"/>
+                                <path d="M7 12L10.5 15.5L17 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                            <span><strong>Fast Action Toolkit</strong> (AI prompts, profit calculator, calendar, templates, mockup bundle)</span>
+                        </li>
+                    </ul>
+
+                    <button class="btn-vip-ticket">
+                        YES, I WANT THE COMPLETE 3-DAY VIP EXPERIENCE FOR $67
+                    </button>
+                </div>
+            </div>
+
+            <p class="comparison-note">
+                💡 <strong>Regardless of which ticket you choose,</strong> you're still in for the free challenge.
+                VIP simply gives you recordings, direct access to Bailey, and all the tools to actually implement.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Upgrade Section -->
+    <section class="section section-cream">
+        <div class="container">
+            <h2 class="section-headline">
+                Why Upgrade to <span class="highlight-gradient">VIP</span> Before the Challenge Starts
+            </h2>
+
+            <p class="intro-paragraph">
+                The <strong>free challenge</strong> gives you the strategy. <strong>VIP</strong> makes sure you can
+                <strong>actually implement it</strong> – even if kids interrupt, work gets busy, or you need feedback on your specific shop.
+            </p>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="22" fill="#FFD166" opacity="0.2"/>
+                            <path d="M24 12V24L32 28" stroke="#F4A261" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Life Happens – With Lifetime Recordings, You'll Never Miss a Breakthrough</h3>
+                    <p>
+                        Kids have meltdowns. Work calls happen. Timezones are confusing. With lifetime recording access,
+                        you can watch at 11pm when the house is finally quiet, or catch up on weekends. You won't miss a thing.
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="22" fill="#FF6B9D" opacity="0.2"/>
+                            <path d="M24 8L32 24L24 32L16 24L24 8Z" stroke="#C7254E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Instead of Generic Advice, Get Bailey's Eyes on YOUR Shop</h3>
+                    <p>
+                        You won't end up with "good ideas for someone." In VIP Q&A sessions, Bailey reviews YOUR products,
+                        YOUR niche, and YOUR listings. This is personalized feedback, not one-size-fits-all strategy.
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="22" fill="#4ECDC4" opacity="0.2"/>
+                            <path d="M12 24L20 32L36 16" stroke="#2F5F61" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>You Won't End the Week With "Someday" Ideas – You'll Have a Clear Plan</h3>
+                    <p>
+                        The Fast Action Toolkit gives you calculators, templates, AI prompts, and mockups. Not "figure it out yourself"
+                        homework. Actual plug-and-play tools so you can move immediately.
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="22" fill="#A8DADC" opacity="0.2"/>
+                            <path d="M18 24C18 20.686 20.686 18 24 18C27.314 18 30 20.686 30 24C30 27.314 27.314 30 24 30M24 12V18M24 30V36M12 24H18M30 24H36" stroke="#457B9D" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>VIP is Where the Biggest Breakthroughs Happen – You're Not Alone</h3>
+                    <p>
+                        7-day private WhatsApp access means you can ask Bailey directly when you get stuck. Share your progress,
+                        get unstuck fast, and network with other serious sellers who are actually implementing.
+                    </p>
+                </div>
+            </div>
+
+            <div class="cta-row">
+                <a href="#upgrade" class="btn-primary-large">
+                    YES, I WANT THE COMPLETE 3-DAY VIP EXPERIENCE
+                </a>
+                <a href="#free" class="btn-text-link">
+                    No, I'll stick with the free ticket only
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Section -->
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-headline">
+                Here's Everything You Get Inside the
+                <span class="highlight-gradient">$67 VIP Experience</span>
+            </h2>
+
+            <div class="components-list">
+                <div class="component-item">
+                    <div class="component-number">1</div>
+                    <h3>Lifetime Recording Access</h3>
+                    <p>Never miss a moment, even when life gets chaotic.</p>
+                    <ul>
+                        <li>✓ All 3 challenge days in HD to rewatch whenever you need</li>
+                        <li>✓ Download the slides and resources so you never lose anything</li>
+                        <li>✓ Perfect if kids, work, or life interrupts – you can catch up on your schedule</li>
+                    </ul>
+                </div>
+
+                <div class="component-item">
+                    <div class="component-number">2</div>
+                    <h3>The "Come Prepared" Quick Start Kit</h3>
+                    <p>Upgrade today and unlock Bailey's pre-work material so you show up on Day 1 ready to move.</p>
+                    <ul>
+                        <li><strong>Pre-Challenge Prep Video (30 min):</strong> "How to Audit Your Shop BEFORE Day 1"</li>
+                        <li><strong>Bailey's Shop Walkthrough (45 min):</strong> Behind-the-scenes of her actual $1M shop</li>
+                        <li><strong>The Delete Decision Matrix:</strong> Know exactly which listings to cut before we start</li>
+                        <li><strong>50 Winning Product Examples:</strong> Real products that sell, broken down so you can model them</li>
+                    </ul>
+                </div>
+
+                <div class="component-item">
+                    <div class="component-number">3</div>
+                    <h3>7-Day Private WhatsApp with Bailey</h3>
+                    <p>This is where VIP gets personal. You're not shouting into a crowded Facebook group. You have direct access to Bailey and a small group of serious sellers.</p>
+                    <ul>
+                        <li>✓ Ask your specific questions inside a private VIP thread</li>
+                        <li>✓ Share your progress and get quick feedback during the week</li>
+                        <li>✓ Network with other serious sellers who are actually implementing</li>
+                        <li>✓ Get Bailey's voice notes with personal tips throughout the challenge</li>
+                    </ul>
+                </div>
+
+                <div class="component-item">
+                    <div class="component-number">4</div>
+                    <h3>VIP-Only Live Q&A Sessions</h3>
+                    <p>This is where you get Bailey's eyes on YOUR shop, YOUR products, and YOUR specific situation. Not generic advice – personalized feedback.</p>
+                    <ul>
+                        <li><strong>End of Day 2:</strong> 30-minute "Ask Bailey Anything" VIP-only call</li>
+                        <li><strong>Day 4:</strong> 60-minute Implementation Q&A call to review shops and unblock you</li>
+                        <li>✓ Chance to get your shop or product ideas reviewed live</li>
+                        <li>✓ Recordings provided so you can rewatch the feedback</li>
+                    </ul>
+                </div>
+
+                <div class="component-item hero-component">
+                    <div class="component-number">5</div>
+                    <h3>The "Fast Action" Toolkit</h3>
+                    <p>Plug-and-play tools so you can move from idea to first sale as fast as possible.</p>
+                    <ul>
+                        <li><strong>AI Prompt Library:</strong> 20 copy-paste templates for listings, SEO, and product ideas</li>
+                        <li><strong>Profit Calculator Spreadsheet:</strong> Quickly see what's worth your time before you invest effort</li>
+                        <li><strong>2025 Seasonal Planning Calendar:</strong> Ride demand spikes instead of missing them</li>
+                        <li><strong>First Sale Template Pack:</strong> Messages, offers, and mini promotions to get sales in the door</li>
+                        <li><strong>Mockup Magic Bundle:</strong> Bailey's personal collection to upgrade your listing photos instantly</li>
+                    </ul>
+                    <p style="margin-top: 24px;">
+                        💎 <strong>These aren't PDFs you'll download and forget.</strong> These are tools you'll use
+                        in the first 48 hours after the challenge to actually launch or improve your shop.
+                    </p>
+                </div>
+            </div>
+
+            <div class="cta-row" style="margin-top: 60px;">
+                <a href="#upgrade" class="btn-primary-large">
+                    YES, I WANT THE COMPLETE 3-DAY VIP EXPERIENCE
+                </a>
+                <a href="#free" class="btn-text-link">
+                    No, I'll stay on the free ticket only
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee-section">
+        <div class="guarantee-container">
+            <div class="guarantee-badge">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                    <circle cx="40" cy="40" r="38" stroke="#4ECDC4" stroke-width="2"/>
+                    <path d="M40 12L46 26L60 32L46 38L40 52L34 38L20 32L34 26L40 12Z" fill="#4ECDC4"/>
+                    <text x="40" y="45" font-size="16" font-weight="700" fill="white" text-anchor="middle">100%</text>
+                </svg>
+            </div>
+
+            <h2 class="guarantee-headline">
+                100% Money-Back Guarantee – Try the VIP Experience for the Whole Week
+            </h2>
+
+            <div>
+                <p class="guarantee-description">
+                    Join the <strong>3-Day Etsy Accelerator VIP Experience</strong>, watch the recordings, use the Quick Start Kit,
+                    show up in the WhatsApp group, and attend the VIP Q&A sessions.
+                </p>
+                <p class="guarantee-description">
+                    If, within <strong>7 days after the challenge ends</strong>, you don't feel significantly more confident
+                    and clear about your Etsy shop and what to sell next, email us and we'll refund your $67.
+                </p>
+                <p class="guarantee-promise">
+                    <strong>No awkward questions. No hoops. Just an honest guarantee.</strong>
+                </p>
+            </div>
+
+            <div class="cta-row">
+                <a href="#upgrade" class="btn-primary-large">
+                    YES, I WANT THE VIP EXPERIENCE FOR $67
+                </a>
+                <a href="#free" class="btn-text-link">
+                    No, I'm okay staying on the free ticket
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-headline">
+                Is the <span class="highlight-gradient">3-Day Etsy Accelerator VIP Experience</span> for You?
+            </h2>
+
+            <div class="filter-grid">
+                <div class="filter-column perfect">
+                    <div class="filter-header">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="14" fill="#4ECDC4"/>
+                            <path d="M10 16L14 20L22 12" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Perfect for you if...</h3>
+                    </div>
+                    <ul class="filter-list">
+                        <li>You know life might interrupt (kids, work, time zones) and you want <strong>lifetime access</strong> to everything.</li>
+                        <li>You prefer seeing <strong>real examples</strong> (Bailey's $1M shop, 50 winning products) instead of guessing.</li>
+                        <li>You don't want to figure this out alone – you want a <strong>small group and direct access to Bailey</strong>.</li>
+                        <li>You're ready to <strong>implement during the challenge</strong>, not "someday when things are less busy."</li>
+                        <li>You've taken free challenges before and ended up with notes in a drawer – <strong>this time you want tools and accountability</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="filter-column not-perfect">
+                    <div class="filter-header">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="14" fill="#E0E0E0"/>
+                            <path d="M12 12L20 20M12 20L20 12" stroke="#999999" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <h3>Probably not for you if...</h3>
+                    </div>
+                    <ul class="filter-list">
+                        <li>You're happy just watching the free sessions and taking casual notes.</li>
+                        <li>You don't plan to launch or improve your shop in the next 30–60 days.</li>
+                        <li>You don't really want feedback or accountability – you just want information.</li>
+                        <li>Investing $67 to move faster and get support feels uncomfortable right now.</li>
+                        <li>You prefer figuring everything out on your own without asking for help.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px;">
+                <p class="filter-encouragement">
+                    <strong>If you're on the fence, join VIP now.</strong> It's the same challenge, but with recordings,
+                    personal support, and tools that make it almost impossible not to implement.
+                </p>
+                <div class="cta-row">
+                    <a href="#upgrade" class="btn-primary-large">
+                        YES, I WANT THE COMPLETE VIP EXPERIENCE
+                    </a>
+                    <a href="#free" class="btn-text-link">
+                        No, I'll keep the free ticket
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-cream">
+        <div class="container">
+            <h2 class="section-headline">
+                Frequently Asked Questions
+            </h2>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">What exactly do I get in VIP?</h3>
+                    <p class="faq-answer">
+                        You get lifetime HD recordings of all 3 challenge days + slides, the "Come Prepared" Quick Start Kit
+                        (prep video, shop walkthrough, decision matrix, 50 examples), 7-day private WhatsApp access to Bailey,
+                        VIP-only live Q&A sessions (Day 2 + Day 4), and the Fast Action Toolkit (AI prompts, profit calculator,
+                        seasonal calendar, first sale templates, mockup bundle).
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What if I can't attend live / I'm in a different time zone?</h3>
+                    <p class="faq-answer">
+                        That's exactly why VIP includes <strong>lifetime recordings</strong>. Watch on your schedule – at 11pm when
+                        kids are asleep, on weekends, during nap time, whenever works for you. The WhatsApp group and Q&A recordings
+                        mean you won't miss anything important.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How does the 7-day WhatsApp group work?</h3>
+                    <p class="faq-answer">
+                        After you upgrade, you'll get a private WhatsApp invite link. The group is small (VIPs only) and Bailey
+                        checks in daily with voice notes and answers. You can ask specific questions, share your progress, and get
+                        quick feedback. It's active for 7 days starting Day 1 of the challenge.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Will my shop definitely get reviewed?</h3>
+                    <p class="faq-answer">
+                        Bailey reviews shops during the VIP Q&A sessions (Day 2 + Day 4). While she can't guarantee reviewing every
+                        single shop live, she prioritizes VIPs who show up and ask. Plus, you'll learn a ton from watching other
+                        VIP shop reviews – many "aha moments" come from seeing feedback on shops similar to yours.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How long do I keep access to everything?</h3>
+                    <p class="faq-answer">
+                        <strong>Lifetime.</strong> The recordings, toolkit, and all materials stay in your account forever.
+                        Rewatch anytime, download the tools, keep the templates. The only time-limited parts are the live Q&A
+                        sessions and 7-day WhatsApp group (which happen during the challenge week).
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I upgrade later?</h3>
+                    <p class="faq-answer">
+                        No. VIP upgrades close when registration closes (before the challenge starts). Once the challenge begins,
+                        VIP spots are gone and you can't add them later. This is your only chance to upgrade at this price.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">How does the money-back guarantee work?</h3>
+                    <p class="faq-answer">
+                        Simple: Join VIP, participate in the challenge, use all the materials. If within 7 days after the challenge
+                        ends you don't feel more confident and clear about your Etsy shop, email us and we'll refund your $67.
+                        No awkward questions, no hoops, just email and we'll process it.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Final CTA Box -->
+            <div class="final-cta-box">
+                <h2 class="final-cta-headline">
+                    Ready to Actually <span class="highlight-gradient">Implement</span> What You Learn?
+                </h2>
+                <p style="font-size: 19px; color: #666; line-height: 1.6; margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    If you're on the fence, join VIP now. It's the same challenge, but with recordings, personal support,
+                    and tools that make it almost impossible not to implement.
+                </p>
+                <div class="final-price">
+                    <span class="final-currency">$</span>
+                    <span class="final-amount">67</span>
+                </div>
+                <p style="font-size: 15px; color: #999; margin-bottom: 32px;">
+                    One-time investment • Lifetime access • 7-day money-back guarantee
+                </p>
+                <a href="#upgrade" class="btn-primary-massive">
+                    YES, UPGRADE ME TO VIP FOR $67
+                </a>
+                <a href="#free" class="btn-text-link" style="display: block; margin-top: 16px;">
+                    No thanks, I'll keep the free ticket
+                </a>
+            </div>
+
+            <p class="final-ps">
+                <strong>P.S.</strong> The difference between "I'll do this someday" and "I actually launched my shop"?
+                Having recordings when life interrupts, tools when you're stuck, and Bailey in your pocket when you need
+                feedback. This is your moment. Take it.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Bailey Vann | 3-Day Etsy Accelerator VIP Experience</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll progress bar
+        window.addEventListener('scroll', function() {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = Math.min(75 + (window.scrollY / totalHeight) * 25, 100);
+            document.querySelector('.alert-bar-progress-fill').style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>
