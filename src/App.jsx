@@ -41,7 +41,9 @@ function App() {
           <div className="hero-left-etsy">
             {/* Chip badge */}
             <div className="chip-badge">
-              <span className="badge-icon">✨</span>
+              <svg className="badge-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 1L9.5 5.5L14 6L10.5 9L11.5 14L8 12L4.5 14L5.5 9L2 6L6.5 5.5L8 1Z" fill="currentColor"/>
+              </svg>
               <span>VIP UPGRADE • 3-Day Etsy Accelerator</span>
             </div>
 
@@ -295,7 +297,11 @@ function App() {
           </div>
 
           <p className="comparison-note-etsy">
-            💡 <strong>Regardless of which ticket you choose,</strong> you're still in for the free challenge.
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{marginRight: '6px', verticalAlign: 'middle'}}>
+              <circle cx="9" cy="9" r="7" fill="#FFD166" opacity="0.3"/>
+              <path d="M9 5V10M9 12V13" stroke="#F4A261" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+            <strong>Regardless of which ticket you choose,</strong> you're still in for the free challenge.
             VIP simply gives you recordings, direct access to Bailey, and all the tools to actually implement.
           </p>
         </div>
@@ -395,7 +401,7 @@ function App() {
             <span className="highlight-gradient">$67 VIP Experience</span>
           </h2>
 
-          {/* COMPONENT 1 - Simple card with icon */}
+          {/* COMPONENT 1 - Lifetime Recording Access */}
           <div className="component-card-simple">
             <div className="component-number">1</div>
             <div className="component-content">
@@ -407,16 +413,19 @@ function App() {
               </ul>
             </div>
             <div className="component-icon">
+              {/* Pause button icon representing recordings */}
               <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                <circle cx="40" cy="40" r="38" stroke="#4ECDC4" strokeWidth="2" opacity="0.3"/>
-                <circle cx="40" cy="40" r="12" fill="#4ECDC4"/>
-                <rect x="36" y="32" width="3" height="16" fill="white"/>
-                <rect x="43" y="32" width="3" height="16" fill="white"/>
+                <circle cx="40" cy="40" r="38" stroke="#4ECDC4" strokeWidth="2" strokeDasharray="4 4" opacity="0.4"/>
+                <circle cx="40" cy="40" r="28" fill="#4ECDC4" opacity="0.15"/>
+                <circle cx="40" cy="40" r="20" stroke="#4ECDC4" strokeWidth="2.5"/>
+                {/* Pause icon */}
+                <rect x="33" y="32" width="5" height="16" rx="1" fill="#4ECDC4"/>
+                <rect x="42" y="32" width="5" height="16" rx="1" fill="#4ECDC4"/>
               </svg>
             </div>
           </div>
 
-          {/* COMPONENT 2 - Card with small visual */}
+          {/* COMPONENT 2 - Quick Start Kit */}
           <div className="component-card-medium">
             <div className="component-badge">Get this NOW before Day 1</div>
             <div className="component-layout-medium">
@@ -445,10 +454,38 @@ function App() {
                 <div className="mockup-box">
                   <div className="mockup-header">Quick Start Kit</div>
                   <div className="mockup-items">
-                    <div className="mockup-item">📹 Prep Video</div>
-                    <div className="mockup-item">🏪 Shop Tour</div>
-                    <div className="mockup-item">📊 Decision Matrix</div>
-                    <div className="mockup-item">🎯 50 Examples</div>
+                    <div className="mockup-item">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{marginRight: '8px', verticalAlign: 'middle'}}>
+                        <rect x="2" y="3" width="14" height="12" rx="2" fill="#4ECDC4" opacity="0.2"/>
+                        <path d="M7 7L11 9.5L7 12V7Z" fill="#4ECDC4"/>
+                      </svg>
+                      Prep Video
+                    </div>
+                    <div className="mockup-item">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{marginRight: '8px', verticalAlign: 'middle'}}>
+                        <rect x="3" y="5" width="12" height="10" rx="1" fill="#FF6B9D" opacity="0.2"/>
+                        <rect x="3" y="5" width="12" height="3" fill="#FF6B9D" opacity="0.4"/>
+                        <rect x="5" y="10" width="3" height="3" rx="0.5" fill="#FF6B9D"/>
+                        <rect x="10" y="10" width="3" height="3" rx="0.5" fill="#FF6B9D"/>
+                      </svg>
+                      Shop Tour
+                    </div>
+                    <div className="mockup-item">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{marginRight: '8px', verticalAlign: 'middle'}}>
+                        <rect x="3" y="3" width="5" height="12" rx="1" fill="#4ECDC4"/>
+                        <rect x="10" y="6" width="5" height="9" rx="1" fill="#FFD166"/>
+                        <rect x="10" y="3" width="5" height="2" rx="0.5" fill="#FF6B9D"/>
+                      </svg>
+                      Decision Matrix
+                    </div>
+                    <div className="mockup-item">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{marginRight: '8px', verticalAlign: 'middle'}}>
+                        <circle cx="9" cy="9" r="6" stroke="#F4A261" strokeWidth="2" fill="none"/>
+                        <circle cx="9" cy="9" r="2" fill="#F4A261"/>
+                        <path d="M9 3V5M9 13V15M3 9H5M13 9H15" stroke="#F4A261" strokeWidth="1.5" strokeLinecap="round"/>
+                      </svg>
+                      50 Examples
+                    </div>
                   </div>
                 </div>
               </div>
@@ -475,7 +512,7 @@ function App() {
                     <div className="whatsapp-message">
                       <div className="message-bubble bailey">
                         <div className="message-text">
-                          Welcome to VIP! 🎉 Drop your questions here anytime this week.
+                          Welcome to VIP! Drop your questions here anytime this week.
                           I'll be checking in with voice notes throughout the challenge.
                         </div>
                         <div className="message-audio">
@@ -587,9 +624,14 @@ function App() {
             <div className="toolkit-showcase">
               <div className="tool-card">
                 <div className="tool-icon">
+                  {/* AI Prompt Library - Document with text lines icon */}
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="8" y="12" width="32" height="24" rx="2" stroke="#4ECDC4" strokeWidth="2"/>
-                    <path d="M14 18H34M14 24H34M14 30H26" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round"/>
+                    <rect x="10" y="8" width="28" height="32" rx="3" fill="#4ECDC4" opacity="0.15"/>
+                    <rect x="10" y="8" width="28" height="32" rx="3" stroke="#4ECDC4" strokeWidth="2"/>
+                    <path d="M16 16H32" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M16 22H32" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M16 28H26" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M16 34H22" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round"/>
                   </svg>
                 </div>
                 <h4>AI Prompt Library</h4>
@@ -598,10 +640,12 @@ function App() {
 
               <div className="tool-card">
                 <div className="tool-icon">
+                  {/* Profit Calculator - Calculator with checkmark icon */}
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="8" y="8" width="32" height="32" rx="2" stroke="#FF6B9D" strokeWidth="2"/>
-                    <path d="M16 20L24 28L32 20" stroke="#FF6B9D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="24" cy="16" r="2" fill="#FF6B9D"/>
+                    <rect x="10" y="8" width="28" height="32" rx="3" fill="#FF6B9D" opacity="0.15"/>
+                    <rect x="10" y="8" width="28" height="32" rx="3" stroke="#FF6B9D" strokeWidth="2"/>
+                    <rect x="14" y="12" width="20" height="8" rx="1" fill="#FF6B9D" opacity="0.3"/>
+                    <path d="M16 26L20 30L30 20" stroke="#FF6B9D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <h4>Profit Calculator Spreadsheet</h4>
@@ -610,9 +654,14 @@ function App() {
 
               <div className="tool-card">
                 <div className="tool-icon">
+                  {/* 2025 Calendar - Calendar with grid icon */}
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="10" y="8" width="28" height="32" rx="2" stroke="#FFD166" strokeWidth="2"/>
-                    <path d="M16 16H32M16 22H32M16 28H26" stroke="#FFD166" strokeWidth="2" strokeLinecap="round"/>
+                    <rect x="8" y="12" width="32" height="28" rx="3" fill="#FFD166" opacity="0.15"/>
+                    <rect x="8" y="12" width="32" height="28" rx="3" stroke="#FFD166" strokeWidth="2"/>
+                    <path d="M8 20H40" stroke="#FFD166" strokeWidth="2"/>
+                    <path d="M16 8V14M32 8V14" stroke="#FFD166" strokeWidth="2" strokeLinecap="round"/>
+                    <rect x="14" y="26" width="6" height="6" rx="1" fill="#FFD166"/>
+                    <rect x="28" y="26" width="6" height="6" rx="1" fill="#FFD166" opacity="0.5"/>
                   </svg>
                 </div>
                 <h4>2025 Seasonal Planning Calendar</h4>
@@ -621,9 +670,12 @@ function App() {
 
               <div className="tool-card">
                 <div className="tool-icon">
+                  {/* First Sale Template - Tag/price tag icon */}
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <path d="M24 8L32 16L24 24L16 16L24 8Z" stroke="#A8DADC" strokeWidth="2" strokeLinejoin="round"/>
-                    <path d="M16 24L24 32L32 24" stroke="#A8DADC" strokeWidth="2" strokeLinejoin="round"/>
+                    <path d="M24 10L38 24L24 38L10 24L24 10Z" fill="#A8E6E3" opacity="0.2"/>
+                    <path d="M24 10L38 24L24 38L10 24L24 10Z" stroke="#4ECDC4" strokeWidth="2" strokeLinejoin="round"/>
+                    <path d="M24 16L32 24L24 32L16 24L24 16Z" stroke="#4ECDC4" strokeWidth="2" strokeLinejoin="round"/>
+                    <circle cx="24" cy="24" r="3" fill="#4ECDC4"/>
                   </svg>
                 </div>
                 <h4>First Sale Template Pack</h4>
@@ -632,10 +684,13 @@ function App() {
 
               <div className="tool-card">
                 <div className="tool-icon">
+                  {/* Mockup Magic - Image/photo frame with layout icon */}
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="8" y="12" width="32" height="24" rx="2" stroke="#C7254E" strokeWidth="2"/>
-                    <circle cx="18" cy="22" r="4" stroke="#C7254E" strokeWidth="2"/>
-                    <path d="M28 28L36 20" stroke="#C7254E" strokeWidth="2" strokeLinecap="round"/>
+                    <rect x="8" y="10" width="32" height="28" rx="3" fill="#C7254E" opacity="0.1"/>
+                    <rect x="8" y="10" width="32" height="28" rx="3" stroke="#C7254E" strokeWidth="2"/>
+                    <circle cx="18" cy="20" r="4" fill="#C7254E" opacity="0.3"/>
+                    <circle cx="18" cy="20" r="4" stroke="#C7254E" strokeWidth="1.5"/>
+                    <path d="M8 32L18 24L26 30L34 22L40 28" stroke="#C7254E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <h4>Mockup Magic Bundle</h4>
@@ -645,7 +700,10 @@ function App() {
 
             <div className="toolkit-value-note">
               <p>
-                💎 <strong>These aren't PDFs you'll download and forget.</strong> These are tools you'll use
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{marginRight: '8px', verticalAlign: 'middle'}}>
+                  <path d="M10 2L12 7L17 8L13 12L14 17L10 15L6 17L7 12L3 8L8 7L10 2Z" fill="#FFD166"/>
+                </svg>
+                <strong>These aren't PDFs you'll download and forget.</strong> These are tools you'll use
                 in the first 48 hours after the challenge to actually launch or improve your shop.
               </p>
             </div>
