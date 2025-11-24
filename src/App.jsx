@@ -608,10 +608,10 @@ function App() {
             </div>
           </div>
 
-          {/* COMPONENT 5 - HERO TREATMENT - "Toolbox opening" visual */}
-          {/* PSYCHOLOGY: Most tangible component, proves VIP = tools not just access */}
+          {/* COMPONENT 5 - HERO TREATMENT - "No Excuses" Implementation Kit */}
+          {/* PSYCHOLOGY: Forces action with day-specific tools that match workshop progression */}
           {/* CREATIVE CHOICE: Maximum visual investment, shows all tools spread out */}
-          {/* CONVERSION: This is the "wow I'm getting so much" moment */}
+          {/* CONVERSION: This is the "I can actually DO this" moment */}
           <div className="component-card-hero">
             {/* Decorative floating elements */}
             <div className="toolkit-decor toolkit-decor-1"></div>
@@ -620,90 +620,186 @@ function App() {
 
             <div className="component-hero-badge">The Implementation Game-Changer</div>
             <div className="component-number-large">5</div>
-            <h3 className="component-title-hero">The "Fast Action" Toolkit</h3>
+            <h3 className="component-title-hero">Your "No Excuses" Implementation Kit</h3>
             <p className="component-subtitle-hero">
-              Plug-and-play tools so you can move from idea to first sale as fast as possible.
-              <br /><span className="subtitle-emphasis">Not theory PDFs you'll "read someday."</span>
+              The 5 tools that force you to actually change your shop, not just learn about it.
+              <br /><span className="subtitle-emphasis">Each one is built to match exactly where you'll be after Days 1, 2, and 3.</span>
             </p>
 
             {/* TOOLBOX VISUAL - Shows all tools spreading out like opening a treasure chest */}
             <div className="toolkit-showcase-grid">
               {/* Row 1: 3 cards */}
               <div className="toolkit-row toolkit-row-3">
+                {/* Card 1: The Shop Autopsy Sheet */}
                 <div className="tool-card tool-card-teal">
-                  <div className="tool-value-tag">$47 value</div>
+                  <div className="tool-day-tag">After Day 1</div>
                   <div className="tool-icon-wrapper tool-icon-teal">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                      <rect x="8" y="6" width="24" height="28" rx="3" fill="currentColor" opacity="0.2"/>
-                      <rect x="8" y="6" width="24" height="28" rx="3" stroke="currentColor" strokeWidth="2"/>
-                      <path d="M13 14H27" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      <path d="M13 20H27" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      <path d="M13 26H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    {/* Custom SVG: Clipboard with 3 columns (DELETE/FIX/KEEP) */}
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                      {/* Clipboard base */}
+                      <rect x="8" y="8" width="32" height="36" rx="3" fill="currentColor" opacity="0.15"/>
+                      <rect x="8" y="8" width="32" height="36" rx="3" stroke="currentColor" strokeWidth="2"/>
+                      {/* Clipboard clip */}
+                      <rect x="17" y="4" width="14" height="8" rx="2" fill="currentColor" opacity="0.3"/>
+                      <rect x="17" y="4" width="14" height="8" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                      {/* Three columns */}
+                      <rect x="12" y="16" width="7" height="24" rx="1" fill="#FF6B6B" opacity="0.3"/>
+                      <rect x="20.5" y="16" width="7" height="24" rx="1" fill="#FFD166" opacity="0.3"/>
+                      <rect x="29" y="16" width="7" height="24" rx="1" fill="#4ECDC4" opacity="0.3"/>
+                      {/* X mark (DELETE) */}
+                      <path d="M13.5 20L17 23.5M17 20L13.5 23.5" stroke="#FF6B6B" strokeWidth="1.5" strokeLinecap="round"/>
+                      {/* Wrench (FIX) */}
+                      <path d="M24 20L24 24M22 22H26" stroke="#F4A261" strokeWidth="1.5" strokeLinecap="round"/>
+                      {/* Check (KEEP) */}
+                      <path d="M31 21L32.5 22.5L35 20" stroke="#4ECDC4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      {/* More rows */}
+                      <path d="M13.5 28L17 31.5M17 28L13.5 31.5" stroke="#FF6B6B" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M31 29L32.5 30.5L35 28" stroke="#4ECDC4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M24 28L24 32M22 30H26" stroke="#F4A261" strokeWidth="1.5" strokeLinecap="round"/>
                     </svg>
                   </div>
-                  <h4>AI Prompt Library</h4>
-                  <p>20 copy-paste templates for listings, SEO, and product ideas</p>
+                  <h4>The Shop Autopsy Sheet</h4>
+                  <p>Three simple columns: DELETE, FIX, or KEEP. You'll have a hit list of what to cut before you go to bed.</p>
                 </div>
 
+                {/* Card 2: The "Is This Worth My Time?" Calculator */}
                 <div className="tool-card tool-card-pink">
-                  <div className="tool-value-tag">$37 value</div>
+                  <div className="tool-day-tag">Use Anytime</div>
                   <div className="tool-icon-wrapper tool-icon-pink">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                      <rect x="8" y="6" width="24" height="28" rx="3" fill="currentColor" opacity="0.2"/>
-                      <rect x="8" y="6" width="24" height="28" rx="3" stroke="currentColor" strokeWidth="2"/>
-                      <rect x="12" y="10" width="16" height="6" rx="1" fill="currentColor" opacity="0.4"/>
-                      <path d="M14 22L17 25L26 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* Custom SVG: Calculator with dollar sign and brutal truth indicator */}
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                      {/* Calculator body */}
+                      <rect x="10" y="6" width="28" height="36" rx="4" fill="currentColor" opacity="0.15"/>
+                      <rect x="10" y="6" width="28" height="36" rx="4" stroke="currentColor" strokeWidth="2"/>
+                      {/* Screen with dollar sign */}
+                      <rect x="14" y="10" width="20" height="10" rx="2" fill="currentColor" opacity="0.25"/>
+                      <text x="24" y="18" fontSize="10" fontWeight="bold" fill="currentColor" textAnchor="middle">$?</text>
+                      {/* Calculator buttons */}
+                      <rect x="14" y="24" width="5" height="4" rx="1" fill="currentColor" opacity="0.4"/>
+                      <rect x="21.5" y="24" width="5" height="4" rx="1" fill="currentColor" opacity="0.4"/>
+                      <rect x="29" y="24" width="5" height="4" rx="1" fill="currentColor" opacity="0.4"/>
+                      <rect x="14" y="30" width="5" height="4" rx="1" fill="currentColor" opacity="0.4"/>
+                      <rect x="21.5" y="30" width="5" height="4" rx="1" fill="currentColor" opacity="0.4"/>
+                      <rect x="29" y="30" width="5" height="4" rx="1" fill="currentColor" opacity="0.4"/>
+                      {/* Thumbs up/down indicators */}
+                      <circle cx="17" cy="38" r="2.5" fill="#4ECDC4"/>
+                      <circle cx="31" cy="38" r="2.5" fill="#FF6B6B"/>
                     </svg>
                   </div>
-                  <h4>Profit Calculator Spreadsheet</h4>
-                  <p>Quickly see what's worth your time before you invest effort</p>
+                  <h4>The "Is This Worth My Time?" Calculator</h4>
+                  <p>Plug in price, fees, and ad spend. See which products are profitable and which are burning hours for pennies.</p>
                 </div>
 
+                {/* Card 3: The AI Speed-Launch System */}
                 <div className="tool-card tool-card-gold">
-                  <div className="tool-value-tag tool-value-featured">$47 value</div>
+                  <div className="tool-day-tag tool-day-featured">After Day 2</div>
                   <div className="tool-icon-wrapper tool-icon-gold">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                      <rect x="6" y="10" width="28" height="24" rx="3" fill="currentColor" opacity="0.2"/>
-                      <rect x="6" y="10" width="28" height="24" rx="3" stroke="currentColor" strokeWidth="2"/>
-                      <path d="M6 17H34" stroke="currentColor" strokeWidth="2"/>
-                      <path d="M14 6V12M26 6V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      <rect x="12" y="22" width="5" height="5" rx="1" fill="currentColor"/>
-                      <rect x="23" y="22" width="5" height="5" rx="1" fill="currentColor" opacity="0.5"/>
+                    {/* Custom SVG: AI robot with rocket/speed launch */}
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                      {/* Robot head */}
+                      <rect x="14" y="12" width="20" height="16" rx="4" fill="currentColor" opacity="0.15"/>
+                      <rect x="14" y="12" width="20" height="16" rx="4" stroke="currentColor" strokeWidth="2"/>
+                      {/* Robot eyes (AI-like) */}
+                      <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+                      <circle cx="28" cy="20" r="2.5" fill="currentColor"/>
+                      <path d="M20 20L22 20" stroke="#FFF" strokeWidth="1" strokeLinecap="round"/>
+                      <path d="M28 20L30 20" stroke="#FFF" strokeWidth="1" strokeLinecap="round"/>
+                      {/* Antenna */}
+                      <line x1="24" y1="12" x2="24" y2="7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <circle cx="24" cy="6" r="2" fill="currentColor"/>
+                      {/* Rocket launching from robot */}
+                      <path d="M24 28L24 42" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <path d="M24 28L28 34L24 32L20 34L24 28Z" fill="currentColor"/>
+                      {/* Speed lines */}
+                      <path d="M10 32L14 32" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+                      <path d="M8 36L13 36" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.3"/>
+                      <path d="M34 32L38 32" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+                      <path d="M35 36L40 36" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.3"/>
+                      {/* "3" badge for 3 listings */}
+                      <circle cx="38" cy="14" r="6" fill="currentColor" opacity="0.3"/>
+                      <text x="38" y="17" fontSize="8" fontWeight="bold" fill="currentColor" textAnchor="middle">3</text>
                     </svg>
                   </div>
-                  <h4>2025 Seasonal Planning Calendar</h4>
-                  <p>Ride demand spikes instead of missing them</p>
+                  <h4>The AI Speed-Launch System</h4>
+                  <p>3 copy-paste AI workflows to publish at least 3 new optimized listings before Day 3 even starts.</p>
                 </div>
               </div>
 
               {/* Row 2: 2 cards centered */}
               <div className="toolkit-row toolkit-row-2">
+                {/* Card 4: The "Get Traffic TODAY" Script Pack */}
                 <div className="tool-card tool-card-mint">
-                  <div className="tool-value-tag">$27 value</div>
+                  <div className="tool-day-tag">After Publishing</div>
                   <div className="tool-icon-wrapper tool-icon-mint">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                      <path d="M20 8L32 20L20 32L8 20L20 8Z" fill="currentColor" opacity="0.2"/>
-                      <path d="M20 8L32 20L20 32L8 20L20 8Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-                      <path d="M20 14L26 20L20 26L14 20L20 14Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-                      <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+                    {/* Custom SVG: Messages/social with eyeballs/traffic */}
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                      {/* Message bubbles */}
+                      <rect x="6" y="8" width="20" height="14" rx="3" fill="currentColor" opacity="0.15"/>
+                      <rect x="6" y="8" width="20" height="14" rx="3" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M10 22L10 28L16 22" fill="currentColor" opacity="0.15"/>
+                      <path d="M10 22L10 28L16 22" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                      {/* Second message (DM style) */}
+                      <rect x="22" y="20" width="20" height="12" rx="3" fill="currentColor" opacity="0.25"/>
+                      <rect x="22" y="20" width="20" height="12" rx="3" stroke="currentColor" strokeWidth="2"/>
+                      {/* Message lines */}
+                      <path d="M10 13H22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M10 17H18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M26 25H38" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M26 28H34" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      {/* Eyeballs (traffic) */}
+                      <ellipse cx="13" cy="40" rx="5" ry="3.5" fill="currentColor" opacity="0.2"/>
+                      <ellipse cx="13" cy="40" rx="5" ry="3.5" stroke="currentColor" strokeWidth="1.5"/>
+                      <circle cx="13" cy="40" r="1.5" fill="currentColor"/>
+                      <ellipse cx="27" cy="40" rx="5" ry="3.5" fill="currentColor" opacity="0.2"/>
+                      <ellipse cx="27" cy="40" rx="5" ry="3.5" stroke="currentColor" strokeWidth="1.5"/>
+                      <circle cx="27" cy="40" r="1.5" fill="currentColor"/>
+                      <ellipse cx="41" cy="40" rx="5" ry="3.5" fill="currentColor" opacity="0.2"/>
+                      <ellipse cx="41" cy="40" rx="5" ry="3.5" stroke="currentColor" strokeWidth="1.5"/>
+                      <circle cx="41" cy="40" r="1.5" fill="currentColor"/>
+                      {/* Arrow pointing to shop */}
+                      <path d="M24 34L24 36" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <path d="M21 35L24 38L27 35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <h4>First Sale Template Pack</h4>
-                  <p>Messages, offers, and mini promotions to get sales in the door</p>
+                  <h4>The "Get Traffic TODAY" Script Pack</h4>
+                  <p>Exact DMs, social posts, and emails you can copy-paste within 10 minutes of finishing the workshop.</p>
                 </div>
 
+                {/* Card 5: The 14-Day Momentum Map */}
                 <div className="tool-card tool-card-coral">
-                  <div className="tool-value-tag">$39 value</div>
+                  <div className="tool-day-tag">After Challenge</div>
                   <div className="tool-icon-wrapper tool-icon-coral">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                      <rect x="6" y="8" width="28" height="24" rx="3" fill="currentColor" opacity="0.2"/>
-                      <rect x="6" y="8" width="28" height="24" rx="3" stroke="currentColor" strokeWidth="2"/>
-                      <circle cx="15" cy="17" r="3.5" fill="currentColor" opacity="0.4"/>
-                      <path d="M6 27L15 20L22 25L29 18L34 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* Custom SVG: Calendar with 14 days and momentum path */}
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                      {/* Calendar base */}
+                      <rect x="6" y="10" width="36" height="32" rx="3" fill="currentColor" opacity="0.15"/>
+                      <rect x="6" y="10" width="36" height="32" rx="3" stroke="currentColor" strokeWidth="2"/>
+                      {/* Calendar header */}
+                      <rect x="6" y="10" width="36" height="8" rx="3" fill="currentColor" opacity="0.25"/>
+                      {/* Calendar hooks */}
+                      <path d="M14 6V12M34 6V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      {/* 14-day grid (simplified) */}
+                      <circle cx="13" cy="24" r="2.5" fill="#4ECDC4"/>
+                      <circle cx="20" cy="24" r="2.5" fill="#4ECDC4"/>
+                      <circle cx="27" cy="24" r="2.5" fill="#4ECDC4"/>
+                      <circle cx="34" cy="24" r="2.5" fill="#4ECDC4"/>
+                      <circle cx="13" cy="32" r="2.5" fill="#4ECDC4" opacity="0.6"/>
+                      <circle cx="20" cy="32" r="2.5" fill="#4ECDC4" opacity="0.6"/>
+                      <circle cx="27" cy="32" r="2.5" fill="#4ECDC4" opacity="0.6"/>
+                      <circle cx="34" cy="32" r="2.5" fill="currentColor" opacity="0.3"/>
+                      {/* Momentum path connecting dots */}
+                      <path d="M13 24L20 24L27 24L34 24" stroke="#4ECDC4" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2"/>
+                      <path d="M34 24L34 28L13 28L13 32L34 32" stroke="#4ECDC4" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2" opacity="0.5"/>
+                      {/* "14" badge */}
+                      <circle cx="40" cy="12" r="6" fill="currentColor"/>
+                      <text x="40" y="15" fontSize="7" fontWeight="bold" fill="#FFF" textAnchor="middle">14</text>
+                      {/* Clock icon (10 min) */}
+                      <circle cx="8" cy="12" r="4" fill="currentColor" opacity="0.3"/>
+                      <path d="M8 10V12L10 13" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
                     </svg>
                   </div>
-                  <h4>Mockup Magic Bundle</h4>
-                  <p>Bailey's personal collection to upgrade your listing photos instantly</p>
+                  <h4>The 14-Day Momentum Map</h4>
+                  <p>One tiny 10-minute task per day for 2 weeks. Keep shipping products instead of slipping back into "I'll do it this weekend" mode.</p>
                 </div>
               </div>
             </div>
@@ -717,11 +813,11 @@ function App() {
               </div>
               <div className="toolkit-value-content">
                 <p className="toolkit-value-total">
-                  <strong>Worth $197</strong> if sold separately
+                  <strong>Built for action, not "someday"</strong>
                 </p>
                 <p className="toolkit-value-description">
-                  These aren't PDFs you'll download and forget. These are tools you'll use
-                  in the first 48 hours to actually launch or improve your shop.
+                  Every tool matches exactly where you'll be in the challenge.
+                  You'll have new products live while everyone else is still "thinking about it."
                 </p>
               </div>
             </div>

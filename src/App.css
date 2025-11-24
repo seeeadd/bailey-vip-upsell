@@ -1293,7 +1293,30 @@ html {
 .tool-card-coral::before { background: linear-gradient(90deg, #FF6B9D, #C7254E); }
 .tool-card-coral:hover { border-color: #C7254E; }
 
-/* Value tags */
+/* Day timing tags */
+.tool-day-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(47, 95, 97, 0.1);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(47, 95, 97, 0.15);
+}
+
+.tool-day-featured {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 2px 8px rgba(244, 162, 97, 0.3);
+}
+
+/* Legacy value tags (keeping for backwards compatibility) */
 .tool-value-tag {
   position: absolute;
   top: 16px;
