@@ -613,99 +613,117 @@ function App() {
           {/* CREATIVE CHOICE: Maximum visual investment, shows all tools spread out */}
           {/* CONVERSION: This is the "wow I'm getting so much" moment */}
           <div className="component-card-hero">
+            {/* Decorative floating elements */}
+            <div className="toolkit-decor toolkit-decor-1"></div>
+            <div className="toolkit-decor toolkit-decor-2"></div>
+            <div className="toolkit-decor toolkit-decor-3"></div>
+
             <div className="component-hero-badge">The Implementation Game-Changer</div>
             <div className="component-number-large">5</div>
             <h3 className="component-title-hero">The "Fast Action" Toolkit</h3>
             <p className="component-subtitle-hero">
               Plug-and-play tools so you can move from idea to first sale as fast as possible.
+              <br /><span className="subtitle-emphasis">Not theory PDFs you'll "read someday."</span>
             </p>
 
             {/* TOOLBOX VISUAL - Shows all tools spreading out like opening a treasure chest */}
-            <div className="toolkit-showcase">
-              <div className="tool-card">
-                <div className="tool-icon">
-                  {/* AI Prompt Library - Document with text lines icon */}
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="10" y="8" width="28" height="32" rx="3" fill="#4ECDC4" opacity="0.15"/>
-                    <rect x="10" y="8" width="28" height="32" rx="3" stroke="#4ECDC4" strokeWidth="2"/>
-                    <path d="M16 16H32" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M16 22H32" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M16 28H26" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round"/>
-                    <path d="M16 34H22" stroke="#4ECDC4" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
+            <div className="toolkit-showcase-grid">
+              {/* Row 1: 3 cards */}
+              <div className="toolkit-row toolkit-row-3">
+                <div className="tool-card tool-card-teal">
+                  <div className="tool-value-tag">$47 value</div>
+                  <div className="tool-icon-wrapper tool-icon-teal">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                      <rect x="8" y="6" width="24" height="28" rx="3" fill="currentColor" opacity="0.2"/>
+                      <rect x="8" y="6" width="24" height="28" rx="3" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M13 14H27" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <path d="M13 20H27" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <path d="M13 26H22" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                  <h4>AI Prompt Library</h4>
+                  <p>20 copy-paste templates for listings, SEO, and product ideas</p>
                 </div>
-                <h4>AI Prompt Library</h4>
-                <p>20 copy-paste templates for listings, SEO, and product ideas</p>
+
+                <div className="tool-card tool-card-pink">
+                  <div className="tool-value-tag">$37 value</div>
+                  <div className="tool-icon-wrapper tool-icon-pink">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                      <rect x="8" y="6" width="24" height="28" rx="3" fill="currentColor" opacity="0.2"/>
+                      <rect x="8" y="6" width="24" height="28" rx="3" stroke="currentColor" strokeWidth="2"/>
+                      <rect x="12" y="10" width="16" height="6" rx="1" fill="currentColor" opacity="0.4"/>
+                      <path d="M14 22L17 25L26 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <h4>Profit Calculator Spreadsheet</h4>
+                  <p>Quickly see what's worth your time before you invest effort</p>
+                </div>
+
+                <div className="tool-card tool-card-gold">
+                  <div className="tool-value-tag tool-value-featured">$47 value</div>
+                  <div className="tool-icon-wrapper tool-icon-gold">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                      <rect x="6" y="10" width="28" height="24" rx="3" fill="currentColor" opacity="0.2"/>
+                      <rect x="6" y="10" width="28" height="24" rx="3" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M6 17H34" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M14 6V12M26 6V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <rect x="12" y="22" width="5" height="5" rx="1" fill="currentColor"/>
+                      <rect x="23" y="22" width="5" height="5" rx="1" fill="currentColor" opacity="0.5"/>
+                    </svg>
+                  </div>
+                  <h4>2025 Seasonal Planning Calendar</h4>
+                  <p>Ride demand spikes instead of missing them</p>
+                </div>
               </div>
 
-              <div className="tool-card">
-                <div className="tool-icon">
-                  {/* Profit Calculator - Calculator with checkmark icon */}
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="10" y="8" width="28" height="32" rx="3" fill="#FF6B9D" opacity="0.15"/>
-                    <rect x="10" y="8" width="28" height="32" rx="3" stroke="#FF6B9D" strokeWidth="2"/>
-                    <rect x="14" y="12" width="20" height="8" rx="1" fill="#FF6B9D" opacity="0.3"/>
-                    <path d="M16 26L20 30L30 20" stroke="#FF6B9D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+              {/* Row 2: 2 cards centered */}
+              <div className="toolkit-row toolkit-row-2">
+                <div className="tool-card tool-card-mint">
+                  <div className="tool-value-tag">$27 value</div>
+                  <div className="tool-icon-wrapper tool-icon-mint">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                      <path d="M20 8L32 20L20 32L8 20L20 8Z" fill="currentColor" opacity="0.2"/>
+                      <path d="M20 8L32 20L20 32L8 20L20 8Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                      <path d="M20 14L26 20L20 26L14 20L20 14Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                      <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <h4>First Sale Template Pack</h4>
+                  <p>Messages, offers, and mini promotions to get sales in the door</p>
                 </div>
-                <h4>Profit Calculator Spreadsheet</h4>
-                <p>Quickly see what's worth your time before you invest effort</p>
-              </div>
 
-              <div className="tool-card">
-                <div className="tool-icon">
-                  {/* 2025 Calendar - Calendar with grid icon */}
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="8" y="12" width="32" height="28" rx="3" fill="#FFD166" opacity="0.15"/>
-                    <rect x="8" y="12" width="32" height="28" rx="3" stroke="#FFD166" strokeWidth="2"/>
-                    <path d="M8 20H40" stroke="#FFD166" strokeWidth="2"/>
-                    <path d="M16 8V14M32 8V14" stroke="#FFD166" strokeWidth="2" strokeLinecap="round"/>
-                    <rect x="14" y="26" width="6" height="6" rx="1" fill="#FFD166"/>
-                    <rect x="28" y="26" width="6" height="6" rx="1" fill="#FFD166" opacity="0.5"/>
-                  </svg>
+                <div className="tool-card tool-card-coral">
+                  <div className="tool-value-tag">$39 value</div>
+                  <div className="tool-icon-wrapper tool-icon-coral">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                      <rect x="6" y="8" width="28" height="24" rx="3" fill="currentColor" opacity="0.2"/>
+                      <rect x="6" y="8" width="28" height="24" rx="3" stroke="currentColor" strokeWidth="2"/>
+                      <circle cx="15" cy="17" r="3.5" fill="currentColor" opacity="0.4"/>
+                      <path d="M6 27L15 20L22 25L29 18L34 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <h4>Mockup Magic Bundle</h4>
+                  <p>Bailey's personal collection to upgrade your listing photos instantly</p>
                 </div>
-                <h4>2025 Seasonal Planning Calendar</h4>
-                <p>Ride demand spikes instead of missing them</p>
-              </div>
-
-              <div className="tool-card">
-                <div className="tool-icon">
-                  {/* First Sale Template - Tag/price tag icon */}
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <path d="M24 10L38 24L24 38L10 24L24 10Z" fill="#A8E6E3" opacity="0.2"/>
-                    <path d="M24 10L38 24L24 38L10 24L24 10Z" stroke="#4ECDC4" strokeWidth="2" strokeLinejoin="round"/>
-                    <path d="M24 16L32 24L24 32L16 24L24 16Z" stroke="#4ECDC4" strokeWidth="2" strokeLinejoin="round"/>
-                    <circle cx="24" cy="24" r="3" fill="#4ECDC4"/>
-                  </svg>
-                </div>
-                <h4>First Sale Template Pack</h4>
-                <p>Messages, offers, and mini promotions to get sales in the door</p>
-              </div>
-
-              <div className="tool-card">
-                <div className="tool-icon">
-                  {/* Mockup Magic - Image/photo frame with layout icon */}
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect x="8" y="10" width="32" height="28" rx="3" fill="#C7254E" opacity="0.1"/>
-                    <rect x="8" y="10" width="32" height="28" rx="3" stroke="#C7254E" strokeWidth="2"/>
-                    <circle cx="18" cy="20" r="4" fill="#C7254E" opacity="0.3"/>
-                    <circle cx="18" cy="20" r="4" stroke="#C7254E" strokeWidth="1.5"/>
-                    <path d="M8 32L18 24L26 30L34 22L40 28" stroke="#C7254E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <h4>Mockup Magic Bundle</h4>
-                <p>Bailey's personal collection to upgrade your listing photos instantly</p>
               </div>
             </div>
 
             <div className="toolkit-value-note">
-              <p>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{marginRight: '8px', verticalAlign: 'middle'}}>
-                  <path d="M10 2L12 7L17 8L13 12L14 17L10 15L6 17L7 12L3 8L8 7L10 2Z" fill="#FFD166"/>
+              <div className="toolkit-value-icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M16 4L19 12L27 13L21 19L23 27L16 24L9 27L11 19L5 13L13 12L16 4Z" fill="#FFD166"/>
+                  <path d="M16 8L18 13L23 14L19 17L20 22L16 20L12 22L13 17L9 14L14 13L16 8Z" fill="#F4A261"/>
                 </svg>
-                <strong>These aren't PDFs you'll download and forget.</strong> These are tools you'll use
-                in the first 48 hours after the challenge to actually launch or improve your shop.
-              </p>
+              </div>
+              <div className="toolkit-value-content">
+                <p className="toolkit-value-total">
+                  <strong>Worth $197</strong> if sold separately
+                </p>
+                <p className="toolkit-value-description">
+                  These aren't PDFs you'll download and forget. These are tools you'll use
+                  in the first 48 hours to actually launch or improve your shop.
+                </p>
+              </div>
             </div>
           </div>
 
